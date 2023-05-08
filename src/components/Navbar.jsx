@@ -21,10 +21,7 @@ function isLogged(){
            ]
            )
             
-        
-        
-
-    }
+}
 
     //return null;
 }

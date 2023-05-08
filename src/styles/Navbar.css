@@ -54,5 +54,40 @@ nav{
     left: 20px;
 }
 
+.card{
+    width: 2rem;
+    margin-left: 20px;
+    margin-top: 20px;
+    
+   
+}
+
+.cards{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:baseline;
+    padding: 40px;
+    margin-bottom: 40px;
+  
+    
+}
+
+.card-img-top{
+    width: 90px;
+    height:140px;
+
+}
+
+.card:hover{
+    box-shadow: 0 8px 20px 0 rgba(0,0,0,0.2);
+    transform: scale(1.03);
+    transition: 600ms;
+    cursor: pointer;
+    
+}
+
+
+
 
   
