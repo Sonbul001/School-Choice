@@ -1,0 +1,39 @@
+.heading{
+    background-color:#0e2e58;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    height: 200px;
+    padding-top: 10px;
+    padding-left: 12px;
+
+}
+.heading:hover{
+    box-shadow: 0 8px 20px 0 rgba(0,0,0,0.2);
+    transform: scale(1.01);
+    transition: 600ms;
+    
+    
+}
+
+
+.firstLine{
+    color:  #fff;
+    font-weight: 500;
+    margin-left: 5px;
+    font-size: 1.2rem;
+}
+
+.Moto{
+    color:  #fff;
+    font-weight: 700;
+    margin-left: 15px;
+    font-size: 1.5rem;
+    margin-top: -10px;
+
+}
+
+.textBody{
+    color:  #fff;
+    margin-left: 5px ;
+    
+}
