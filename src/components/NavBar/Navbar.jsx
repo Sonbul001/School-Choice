@@ -1,6 +1,6 @@
 import React from 'react'
-import Logo from '../assets/Logo2.png'
-import '../styles/Navbar.css'
+import Logo from '../../assets/Logo2.png'
+import './Navbar.css'
 
 let loggedIn = false;
 
@@ -16,8 +16,8 @@ function isLogged(){
     else{
         
            return( [
-             <li><a href='#'>Sign Up</a></li> ,
-             <li><a href='#'>Login</a></li> 
+             <li><a href='/signup'>Sign Up</a></li> ,
+             <li><a href='/login'>Login</a></li> 
            ]
            )
             
