@@ -1,0 +1,21 @@
+.detailed--search--combined--checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .detailed--search--combined--checkbox input[type='checkbox'] {
+    margin-right: 0.5rem;
+  }
+
+  .detailed--search--sidebar--label{
+    float: left;
+    display: flex;
+    align-items: left;
+    align-self: flex-start;
+    }
+
+  .detailed--search--price{
+    float: left;
+    width: 100%;
+  }

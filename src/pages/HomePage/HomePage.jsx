@@ -12,7 +12,7 @@ function HomePage() {
     <div className='HomePage'>
      
 
-    <div className='navBar'>
+     <div className='navBar'>
        <Navbar/>
   </div>
   <div className='header'>
