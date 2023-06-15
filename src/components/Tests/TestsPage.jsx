@@ -1,7 +1,8 @@
 import React from 'react'
 import Navbar from '../../components/NavBar/Navbar'
 import TestsPageHeader from './TestsPageHeader/TestsPageHeader'
-import ProductCarousel from './Tests/Tests'
+import Test from './Test/Test'
+
 
 function TestsPage() {
     return (
@@ -14,8 +15,12 @@ function TestsPage() {
                 <TestsPageHeader />
             </div>
 
-            <div className='carousel'>
-                <ProductCarousel />
+            <div>
+                <Test 
+                    logo="'../../../assets/Logo2.png'" 
+                    testName="Test Name"
+                    schoolType="International"
+                />
             </div>
           
         </div>

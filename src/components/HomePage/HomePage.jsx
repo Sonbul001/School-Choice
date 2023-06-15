@@ -1,9 +1,9 @@
 import React from 'react'
-import Navbar from '../../components/NavBar/Navbar'
-import Header from '../../components/Heading/Heading'
+import Navbar from '../NavBar/Navbar'
+import Header from '../Heading/Heading'
 import './HomePage.css';
-import Footer from '../../components/Footer/Footer';
-import Cards from '../../components/Cards/Cards';
+import Footer from '../Footer/Footer';
+import Cards from '../Cards/Cards';
 
 
 

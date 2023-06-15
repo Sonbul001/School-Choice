@@ -1,6 +1,6 @@
 
 .navBar{
-    position: sticky;
+  position: sticky;
   top: 0;
   z-index: 999;
   margin-top: -30px;
@@ -11,3 +11,4 @@
 *{
     font-family: 'outfit', sans-serif;
 }
+
