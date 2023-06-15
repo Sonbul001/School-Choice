@@ -1,7 +1,7 @@
 import React from 'react'
-import '../styles/Login.css'
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import Logo from '../assets/Logo2.png'
+import './SignUp.css';
+import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import Logo from '../../assets/Logo2.png'
 
 function SignUp() {
   return (

@@ -1,5 +1,5 @@
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import '../styles/Heading.css';
+import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import './Heading.css';
 import React from 'react'
 
 function Heading() {

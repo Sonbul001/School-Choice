@@ -8,11 +8,12 @@
 }
 
 .myFooter {
+  
   display: flex;
   background: #333;
   justify-content: flex-end;
   align-items: flex-end;
-  height: 45vh;
+  height: 300px;
 }
 
 .footer {
