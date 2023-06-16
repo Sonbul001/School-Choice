@@ -15,17 +15,17 @@ const Carousel = (props) => {
     }, [children])
 
     const next = () => {
-        if (currentIndex < (length - show)) {
-            setCurrentIndex(prevState => prevState + 4)
+        if (currentIndex < length - show) {
+          setCurrentIndex(prevState => prevState + show);
         }
-    }
-
-    const prev = () => {
+      };
+      
+      const prev = () => {
         if (currentIndex > 0) {
-            setCurrentIndex(prevState => prevState - 4)
+          setCurrentIndex(prevState => prevState - show);
         }
-    }
-
+      };
+      
     const handleTouchStart = (e) => {
         const touchDown = e.touches[0].clientX
         setTouchPosition(touchDown)
@@ -40,15 +40,15 @@ const Carousel = (props) => {
 
         const currentTouch = e.touches[0].clientX
         const diff = touchDown - currentTouch
-
-        if (diff > 5) {
-            next()
-        }
-
-        if (diff < -5) {
-            prev()
-        }
-
+        
+        if (diff > 50) {
+            next();
+          }
+          
+          if (diff < -50) {
+            prev();
+          }
+          
         setTouchPosition(null)
     }
 

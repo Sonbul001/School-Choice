@@ -3,7 +3,7 @@ import HomePage from './components/HomePage/HomePage'
 import Login from './components/LoginPage/Login'
 import SignUp from './components/SignUpPage/SignUp'
 import DetailedSearchPage from './components/DetailedSearch/DetailedSearch'
-import TestsPage from './components/Tests/TestsPage'
+import ExamsPage from './components/Exams/ExamsPage'
 import './App.css'
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
           <Route path="/login" exact Component={Login} />
           <Route path="/signup" exact Component={SignUp} />
           <Route path="/search" exact Component={DetailedSearchPage} />
-          <Route path="/tests" exact Component={TestsPage} />
+          <Route path="/exams" exact Component={ExamsPage} />
         </Routes>
       </Router>
       

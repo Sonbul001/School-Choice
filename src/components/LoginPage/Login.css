@@ -1,21 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
-* {
-	box-sizing: border-box;
-}
-
-body {
-	background: #f6f5f7;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	font-family: 'Montserrat', sans-serif;
-	
-	
-	margin: 30px 0 50px;
-}
 
 h1 {
 	font-weight: bold;
@@ -45,7 +30,7 @@ a {
 	margin: 15px 0;
 }
 
-button {
+.login--button {
 	border-radius: 20px;
 	border: 1px solid #FF4B2B;
 	background-color: #FF4B2B;
@@ -58,21 +43,21 @@ button {
 	transition: transform 180ms ease-in;
 }
 
-button:active {
+.login--button:active {
 	transform: scale(1.05);
 }
 
-button:focus {
+.login--button:focus {
 	outline: none;
 }
 
-button:hover{
+.login--button:hover{
     transform: scale(1.05);
     outline: none;
 
 }
 
-button.ghost {
+.login--button.ghost {
 	background-color: transparent;
 	border-color: #FFFFFF;
 }

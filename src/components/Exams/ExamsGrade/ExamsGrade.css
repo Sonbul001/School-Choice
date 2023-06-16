@@ -1,0 +1,17 @@
+.exams--page--exam--grade{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.exams--page--exam--grade--title{
+    width: 95%;
+    height: 10%;
+    display: flex;
+    align-self: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-bottom: 3px solid black;
+}

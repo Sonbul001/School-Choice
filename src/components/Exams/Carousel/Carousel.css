@@ -18,7 +18,7 @@
 
 .carousel-content {
     display: flex;
-    transition: all 250ms linear;
+    transition: all 400ms linear;
     -ms-overflow-style: none;  /* hide scrollbar in IE and Edge */
     scrollbar-width: none;  /* hide scrollbar in Firefox */
 }
@@ -44,6 +44,10 @@
 
 .carousel-content.show-4 > * {
     width: calc(100% / 4);
+}
+
+.carousel-content.show-5 > * {
+    width: calc(100% / 5);
 }
 
 .left-arrow, .right-arrow {
