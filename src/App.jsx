@@ -1,13 +1,14 @@
-import {BrowserRouter as Router, Route,Routes} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import HomePage from './components/HomePage/HomePage'
 import Login from './components/LoginPage/Login'
 import SignUp from './components/SignUpPage/SignUp'
 import DetailedSearchPage from './components/DetailedSearch/DetailedSearch'
 import TestsPage from './components/Tests/TestsPage'
+import AppliedSchools from './components/SavedSchools/SavedSchools'
 import './App.css'
 
 function App() {
-  
+
 
   return (
     <div className="App">
@@ -18,9 +19,10 @@ function App() {
           <Route path="/signup" exact Component={SignUp} />
           <Route path="/search" exact Component={DetailedSearchPage} />
           <Route path="/tests" exact Component={TestsPage} />
+          <Route path="/appliedSchools" exact Component={AppliedSchools} />
         </Routes>
       </Router>
-      
+
     </div>
   )
 }

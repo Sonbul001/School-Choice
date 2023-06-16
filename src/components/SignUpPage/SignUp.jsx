@@ -20,7 +20,7 @@ function SignUp() {
 			<input type="text" placeholder="Phone" />
 			<input type="email" placeholder="Email" />
 			<input type="password" placeholder="Password" />
-			<button>Sign Up</button>
+			<button className='signup--button'>Sign Up</button>
 		</form>
 	</div>
 	<div class="overlay-container">
@@ -28,7 +28,7 @@ function SignUp() {
 			
 			<div class="overlay-panel overlay-right">
 				<h1>Already Have an Account?</h1>
-				<button onClick={()=>{window.location='login'}} class="ghost" id="signUp">Login</button>
+				<button onClick={()=>{window.location='login'}} class="signup--button ghost" id="signUp">Login</button>
 			</div>
 		</div>
 	</div>

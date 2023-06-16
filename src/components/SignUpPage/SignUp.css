@@ -1,9 +1,9 @@
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
-* {
+/* * {
 	box-sizing: border-box;
-}
+} */
 
 body {
 	background: #f6f5f7;
@@ -44,7 +44,7 @@ a {
 	margin: 15px 0;
 }
 
-button {
+.signup--button {
 	border-radius: 20px;
 	border: 1px solid #FF4B2B;
 	background-color: #FF4B2B;
@@ -57,21 +57,21 @@ button {
 	transition: transform 180ms ease-in;
 }
 
-button:active {
+.signup--button:active {
 	transform: scale(1.05);
 }
 
-button:focus {
+.signup--button:focus {
 	outline: none;
 }
 
-button:hover{
+.signup--button:hover{
     transform: scale(1.05);
     outline: none;
 
 }
 
-button.ghost {
+.signup--button.ghost {
 	background-color: transparent;
 	border-color: #FFFFFF;
 }
