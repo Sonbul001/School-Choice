@@ -1,4 +1,4 @@
-.tests--page--heading{
+.exams--page--heading{
     background-color:#0e2e58;
     margin-top: 50px;
     margin-bottom: 20px;
@@ -9,7 +9,7 @@
 }
 
 
-.tests--page--title{
+.exams--page--title{
     color:  #fff;
     font-weight: 700;
     margin-left: 5px;
@@ -18,7 +18,7 @@
 }
 
 
-.tests--page--textBody{
+.exams--page--textBody{
     color:  #fff;
     margin-left: 5px ;
     font-size: 1.1rem;  

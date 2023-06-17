@@ -1,14 +1,17 @@
-
-.navBar{
+.navBar {
   position: sticky;
   top: 0;
   z-index: 999;
-  margin-top: -30px;
-   
 
 }
 
-*{
-    font-family: 'outfit', sans-serif;
+* {
+  font-family: 'outfit', sans-serif;
+  box-sizing: border-box;
+
 }
 
+
+body {
+  background: #f6f5f7;
+}
