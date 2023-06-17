@@ -1,6 +1,7 @@
 import React from 'react'
 import '../../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Logo from '../../../assets/Logo2.png'
+import './Card.css';
 
 function Card(props) {
     const { cardTitle, cardContent, cardItem, cardItem2 } = props;
