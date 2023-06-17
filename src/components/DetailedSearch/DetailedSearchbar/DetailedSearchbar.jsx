@@ -10,7 +10,6 @@ function DetailedSearchBar() {
                 <button className='detailed--search--submit' type="submit">Go</button>
             </form>
             <form className='detailed--search--sort--form' role="search">
-                <label className='detailed--search--sort--label'>Sort by</label>
                 <select className='detailed--search--sort' placeholder='Sort'>
                     <option value="" disabled selected hidden>Sort by...</option>
                     <option>Ascending</option>

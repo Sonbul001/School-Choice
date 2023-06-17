@@ -1,16 +1,16 @@
 import React from 'react'
 import Navbar from '../../components/NavBar/Navbar'
-import ExamsPageHeader from './ExamsPageHeader/ExamsPageHeader'
-import Exam from './Exam/Exam'
+import CoursesPageHeader from './CoursesPageHeader/CoursesPageHeader'
+import Course from './Course/Course'
 
 import { Card, Button } from 'react-bootstrap';
 import { FaLock } from 'react-icons/fa';
-import Exams from './Exams/Exams';
-import ExamsGrade from './ExamsGrade/ExamsGrade';
+import Courses from './Courses/Courses';
+import CoursesGrade from './CoursesGrade/CoursesGrade';
 import Footer from '../Footer/Footer';
 
 
-const examGrades = [
+const courseGrades = [
     {
         grade: 'Grade 1'
     },
@@ -22,23 +22,21 @@ const examGrades = [
     },
 ]
 
-function ExamsPage() {
+function CoursesPage() {
     return (
-        <div className='Exams--page'>
-
+        <div className='courses--page'>
             <div className='navBar'>
                 <Navbar />
             </div>
 
             <div className='header'>
-                <ExamsPageHeader />
+                <CoursesPageHeader />
             </div>
-
-            <div style={{marginBottom:50}}className='exams--page--exam--grade--Exams'>
-                {examGrades.map((examGrade, index) => (
-                    <ExamsGrade
+            <div style={{marginBottom:50}} className='courses--page--course--grade--courses'>
+                {courseGrades.map((courseGrade, index) => (
+                    <CoursesGrade
                         key={index}
-                        grade={examGrade.grade}
+                        grade={courseGrade.grade}
                     />
                 ))}
             </div>
@@ -46,8 +44,9 @@ function ExamsPage() {
             <div className='footer'>
                 <Footer />
             </div>
+
         </div>
     )
 }
 
-export default ExamsPage
+export default CoursesPage
