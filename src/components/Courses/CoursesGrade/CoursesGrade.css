@@ -1,0 +1,17 @@
+.courses--page--course--grade{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.courses--page--course--grade--title{
+    width: 95%;
+    height: 10%;
+    display: flex;
+    align-self: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-bottom: 3px solid black;
+}

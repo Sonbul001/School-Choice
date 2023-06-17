@@ -5,6 +5,7 @@ import SignUp from './components/SignUpPage/SignUp'
 import DetailedSearchPage from './components/DetailedSearch/DetailedSearch'
 import ExamsPage from './components/Exams/ExamsPage'
 import './App.css'
+import CoursesPage from './components/Courses/CoursesPage'
 
 function App() {
   
@@ -18,6 +19,9 @@ function App() {
           <Route path="/signup" exact Component={SignUp} />
           <Route path="/search" exact Component={DetailedSearchPage} />
           <Route path="/exams" exact Component={ExamsPage} />
+          <Route path="/courses" exact Component={CoursesPage} />
+
+          
         </Routes>
       </Router>
       

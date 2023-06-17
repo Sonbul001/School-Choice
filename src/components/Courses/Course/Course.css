@@ -1,0 +1,99 @@
+#courses--page--course--card {
+    width: 250PX;
+    margin-left: 20px;
+    margin-top: 20px;
+
+
+}
+
+.courses--page--course--card--img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.courses--page--course--name{
+    font-size: 20pt;
+    font-weight: 700;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.course--save--logo {
+    width: 30px;
+    height: 25px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
+
+}
+
+.course--earth--logo {
+    width: 25px;
+    height: 25px;
+    bottom: 0;
+    left: 0;
+    margin: 10px;
+
+}
+
+.courses--page--course--details{
+    font-size: 15pt;
+    font-weight: 500;
+    margin: 0 10px;
+
+}
+
+.courses--page--course--location{
+    font-size: 15pt;
+    font-weight: 500;
+    margin: 0 10px;
+    /*center*/
+    text-align: center;
+}
+
+.courses--page--course--type{
+    font-size: 12pt;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.courses--page--course--button {
+    float: right;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 7px 20px;
+    background-color: #cdcaca;
+    border: none;
+    border-radius: 7px;
+}
+
+
+.card-wrapper {
+    position: relative;
+}
+
+.card-wrapper.locked .card {
+    filter: grayscale(0.8);
+    pointer-events: none;
+}
+
+.locked-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(128, 128, 128, 0.5);
+    z-index: 1;
+}
+
+.locked-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 100px;
+    height: 100px;
+}

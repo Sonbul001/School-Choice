@@ -43,7 +43,7 @@ function Navbar() {
                                 menuVariant="dark"
                             >
                                 <NavDropdown.Item href="/exams">Tests</NavDropdown.Item>
-                                <NavDropdown.Item href="#">Courses</NavDropdown.Item>
+                                <NavDropdown.Item href="/courses">Courses</NavDropdown.Item>
                             </NavDropdown>
                         </li>
                         <li><a href='#'>Contact Us</a></li>
