@@ -1,6 +1,6 @@
 import React from "react";
-import Carousel from "../../Tests/Carousel/Carousel";
 import Card from "../Card/Card";
+import '../Card/Card.css';
 
 export default function Cards(props) {
     const staticCards = [
@@ -25,7 +25,7 @@ export default function Cards(props) {
     ];
 
     return (
-        <div style={{ maxWidth: 1360 }}>
+        <div className='cards' style={{ maxWidth: 1360 }}>
             {staticCards.map((card, index) => (
                 <Card
                     key={index}
