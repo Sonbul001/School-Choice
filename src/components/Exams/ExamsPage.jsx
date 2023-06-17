@@ -43,7 +43,6 @@ function ExamsPage() {
                 ))}
             </div>
 
-
             <div className='footer'>
                 <Footer />
             </div>
