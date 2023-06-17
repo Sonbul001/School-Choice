@@ -7,6 +7,7 @@ import { Card, Button } from 'react-bootstrap';
 import { FaLock } from 'react-icons/fa';
 import Exams from './Exams/Exams';
 import ExamsGrade from './ExamsGrade/ExamsGrade';
+import Footer from '../Footer/Footer';
 
 
 const examGrades = [
@@ -38,6 +39,11 @@ function ExamsPage() {
                         grade={examGrade.grade}
                     />
                 ))}
+            </div>
+            
+
+            <div className='footer'>
+                <Footer />
             </div>
         </div>
     )
