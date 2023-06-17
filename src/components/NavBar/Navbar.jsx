@@ -7,7 +7,7 @@ let loggedIn = false;
 
 
 function alo() {
-    return <li><a href='#'>Logout</a></li>;0
+    return <li><a href='#'>Logout</a></li>;
 }
 
 function isLogged() {

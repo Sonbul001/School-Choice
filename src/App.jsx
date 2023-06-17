@@ -4,6 +4,7 @@ import Login from './components/LoginPage/Login'
 import SignUp from './components/SignUpPage/SignUp'
 import DetailedSearchPage from './components/DetailedSearch/DetailedSearch'
 import ExamsPage from './components/Exams/ExamsPage'
+import SchoolPage from './components/SchoolPage/SchoolPage'
 import './App.css'
 import CoursesPage from './components/Courses/CoursesPage'
 
@@ -14,7 +15,7 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path="/" exact Component={HomePage} />
+          <Route path="/" exact Component={SchoolPage} />
           <Route path="/login" exact Component={Login} />
           <Route path="/signup" exact Component={SignUp} />
           <Route path="/search" exact Component={DetailedSearchPage} />
