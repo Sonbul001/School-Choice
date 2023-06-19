@@ -122,3 +122,19 @@
     border-radius: 0;
     border-top: 0;
 }
+
+.school-page-dates-card {
+    padding: 25px;
+}
+
+.school-page-dates-card-text {
+    border-top: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.school-page-dates-card-text-head {
+    color: gray;
+}
+
+.school-page-dates-card-text-body {
+    font-size: 22px;
+}
