@@ -6,7 +6,6 @@ import DetailedSearchPage from "./components/DetailedSearch/DetailedSearch";
 import ExamsPage from "./components/Exams/ExamsPage";
 import "./App.css";
 import CoursesPage from "./components/Courses/CoursesPage";
-import AddTestPopup from "./components/AdminsDashboardTests/AddTestPopup/AddTestPopup";
 import AdminsExams from "./components/AdminsDashboardTests/AdminsExams";
 function App() {
 	return (
@@ -19,7 +18,6 @@ function App() {
 					<Route path="/search" exact Component={DetailedSearchPage} />
 					<Route path="/exams" exact Component={ExamsPage} />
 					<Route path="/courses" exact Component={CoursesPage} />
-					<Route path="/addtest" exact Component={AddTestPopup} />
 					<Route path="/admins/tests" exact Component={AdminsExams} />
 				</Routes>
 			</Router>
