@@ -3,6 +3,7 @@ import Heading from "../Heading/Heading";
 import Navbar from "../NavBar/Navbar";
 import Profile from "./Profile";
 import About from "./About";
+import Dates from "./Dates";
 import './SchoolPage.css';
 
 function SchoolPage() {
@@ -23,6 +24,18 @@ function SchoolPage() {
             </div>
             <div className='school-page-about'>
                 <About />
+            </div>
+            <div className='school-page-dates'>
+                <Dates 
+                    morningFrom='09:00AM'
+                    morningTo='04:00PM'
+                    eveningFrom='05:00PM'
+                    eveningTo='09:00PM'
+                    supervisor='Karim Sonbul'
+                    spec='All Grades'
+                    mobile='0123456789'
+                    email='karim@gmail.com'
+                />
             </div>
             <div className='footer'>
                 <Footer />
