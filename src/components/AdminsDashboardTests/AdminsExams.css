@@ -1,0 +1,30 @@
+.exams-grade {
+	display: flex;
+	/* justify-content: space-between; */
+	align-items: center;
+}
+
+.add-test-button {
+	width: 80px;
+	height: auto;
+	margin-right: 100px;
+	margin-left: -100px;
+	transition: 0.2s ease-in-out;
+}
+
+.add-test-button:hover {
+	cursor: pointer;
+	transform: scale(1.2);
+	transition: 0.1s ease-in-out;
+}
+
+.add-test-button:active {
+	transform: scale(1.1);
+	transition: 0.2s ease-in-out;
+}
+
+.exams-popup {
+	position: absolute;
+	margin-left: 50%;
+	transform: translateX(-50%);
+}

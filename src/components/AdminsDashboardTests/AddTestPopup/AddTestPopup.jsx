@@ -21,11 +21,15 @@ function AddTestPopup(props) {
 		setTest({ ...test, [e.target.name]: e.target.value });
 	};
 
+	const closePopup = () => {
+		props.openClosePopup();
+	};
+
 	return (
 		<div className="outer-container">
-			<FontAwesomeIcon className="xmark" icon="fa-solid fa-circle-xmark" />
+			<FontAwesomeIcon onClick={closePopup} className="xmark" icon="fa-solid fa-circle-xmark" />
 			<form className="inner-container" onSubmit={handleSubmit}>
-				<h3>Add Test for grade</h3>
+				<h3>Add Test for {props.grade}</h3>
 				<div className="link">
 					<label className="text" htmlFor="fileLink">
 						File Link:
@@ -59,7 +63,9 @@ function AddTestPopup(props) {
 						</label>
 						<input type="number" id="price" name="price" min="0" max="1000" required value={test.price} onChange={handleChange} />
 					</div>
-					<button type="submit">Add</button>
+					<button className="add-test-popup-button" type="submit">
+						Add
+					</button>
 				</div>
 			</form>
 		</div>

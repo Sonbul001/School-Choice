@@ -13,6 +13,17 @@
 	color: white;
 }
 
+.xmark:hover {
+	cursor: pointer;
+	transform: scale(1.2);
+	transition: 0.1s ease-in-out;
+}
+
+.xmark:active {
+	transform: scale(1.1);
+	transition: 0.2s ease-in-out;
+}
+
 .inner-container {
 	border-radius: 20px;
 	position: relative;
@@ -125,4 +136,26 @@
 button {
 	background-color: #17cf97;
 	border: none;
+}
+
+.add-test-popup-button {
+	border-radius: 20px;
+	/* border: 1px solid 17cf97; */
+	background-color: 17cf97;
+	color: #ffffff;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 180ms ease-in;
+}
+
+.add-test-popup-button:hover {
+	cursor: pointer;
+	transform: scale(1.1);
+}
+
+.add-test-popup-button:active {
+	transform: scale(1.05);
 }
