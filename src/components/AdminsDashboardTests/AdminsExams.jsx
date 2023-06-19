@@ -9,6 +9,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import ExamsGrade from "../Exams/ExamsGrade/ExamsGrade";
 import "./AdminsExams.css";
 import { useState } from "react";
+import Button from "react-bootstrap/Button";
 
 const examGrades = [
 	{
@@ -42,10 +43,13 @@ function AdminTestsDashboard() {
 				<div style={{ marginBottom: 50 }} className="exams--page--exam--grade--Exams">
 					{examGrades.map((examGrade, index) => (
 						<div key={index} className="exams-grade">
-							<ExamsGrade grade={examGrade.grade} />
 							<div>
-								<FontAwesomeIcon onClick={() => openClosePopup(index)} className="add-test-button" icon={["fa", "square-plus"]} />
+								<Button className="add-test" variant="primary" onClick={() => openClosePopup(index)}>
+									Add Test
+								</Button>
 							</div>
+							<ExamsGrade grade={examGrade.grade} />
+
 							<div className="exams-popup">{showPopup && selected === index ? <AddTestPopup openClosePopup={() => openClosePopup()} grade={examGrade.grade} /> : null}</div>
 						</div>
 					))}
