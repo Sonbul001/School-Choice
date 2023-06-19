@@ -1,25 +1,15 @@
-.appliedSchools--component--content {
+.savedSchools--component--content {
     display: flex;
     flex: 1 0 auto;
 }
 
-.appliedSchools--component--main {
+.savedSchools--component--main {
     flex: 1;
     padding: 1rem;
 }
 
-.appliedSchools--component--main h2 {
+.savedSchools--component--main h2 {
     margin-top: 2%;
     margin-right: 70%;
-    font-weight: bold;
-}
-
-.savedSchools--component--recommended {
-    padding: 1rem;
-    background-color: #4c71a1;
-}
-
-.savedSchools--component--recommended h2 {
-    margin-top: 2%;
     font-weight: bold;
 }

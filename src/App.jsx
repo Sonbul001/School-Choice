@@ -5,7 +5,6 @@ import SignUp from './components/SignUpPage/SignUp'
 import DetailedSearchPage from './components/DetailedSearch/DetailedSearch'
 import AppliedSchools from './components/SavedSchools/SavedSchools'
 import ExamsPage from './components/Exams/ExamsPage'
-import AppliedSchools from './components/SavedSchools/SavedSchools'
 import './App.css'
 import CoursesPage from './components/Courses/CoursesPage'
 
