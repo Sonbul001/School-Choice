@@ -1,17 +1,17 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "../Footer/Footer";
-import AddTestPopup from "./AddTestPopup/AddTestPopup";
+import AddCoursePopup from "./AddCoursePopup/AddCoursePopup";
 import AdminNavbar from "../AdminsNavbar/AdminNavbar";
 import { faCirclePlus, faSquarePlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import ExamsGrade from "../Exams/ExamsGrade/ExamsGrade";
-import "./AdminsExams.css";
+import CoursesGrade from "../Courses/CoursesGrade/CoursesGrade";
+import "./AdminsCourses.css";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 
-const examGrades = [
+const courseGrades = [
 	{
 		grade: "Grade 1",
 	},
@@ -23,7 +23,7 @@ const examGrades = [
 	},
 ];
 
-function AdminTestsDashboard() {
+function AdminCoursesDashboard() {
 	library.add(faCirclePlus, faSquarePlus);
 
 	const [showPopup, setShowPopup] = useState(false);
@@ -37,19 +37,19 @@ function AdminTestsDashboard() {
 	return (
 		<div className="Exams--page">
 			<div className="admin-side-navbar">
-				<AdminNavbar page="tests" />
+				<AdminNavbar page="courses" />
 			</div>
 			<div className="exams-add-button">
 				<div style={{ marginBottom: 50 }} className="exams--page--exam--grade--Exams">
-					{examGrades.map((examGrade, index) => (
+					{courseGrades.map((courseGrade, index) => (
 						<div key={index} className="exams-grade">
 							<div>
-								<Button className="add-test" variant="primary" onClick={() => openClosePopup(index)}>
-									Add Test
+								<Button className="add-Course" variant="primary" onClick={() => openClosePopup(index)}>
+									Add Course
 								</Button>
 							</div>
-							<ExamsGrade grade={examGrade.grade} />
-							<div className="exams-popup">{showPopup && selected === index ? <AddTestPopup openClosePopup={() => openClosePopup()} grade={examGrade.grade} /> : null}</div>
+							<CoursesGrade grade={courseGrade.grade} />
+							<div className="exams-popup">{showPopup && selected === index ? <AddCoursePopup openClosePopup={() => openClosePopup()} grade={courseGrade.grade} /> : null}</div>
 						</div>
 					))}
 				</div>
@@ -62,4 +62,4 @@ function AdminTestsDashboard() {
 	);
 }
 
-export default AdminTestsDashboard;
+export default AdminCoursesDashboard;

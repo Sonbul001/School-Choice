@@ -19,6 +19,7 @@
 .item-link {
 	color: white;
 	font-size: 20px;
+	cursor: pointer;
 }
 
 .item-icons {
