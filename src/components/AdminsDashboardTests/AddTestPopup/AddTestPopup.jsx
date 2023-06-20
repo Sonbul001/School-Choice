@@ -8,13 +8,11 @@ import { useState } from "react";
 
 function AddTestPopup(props) {
 	library.add(faCircleXmark);
-	let returnedTest = {};
-	const [test, setTest] = useState({ name: "", type: "", price: 0, link: "" });
+	const [test, setTest] = useState({ name: "", type: "", price: 0, link: "", grade: props.grade });
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		console.log(test);
-		returnedTest = test;
 	};
 
 	const handleChange = (e) => {
@@ -26,25 +24,25 @@ function AddTestPopup(props) {
 	};
 
 	return (
-		<div className="outer-container">
-			<FontAwesomeIcon onClick={closePopup} className="xmark" icon="fa-solid fa-circle-xmark" />
-			<form className="inner-container" onSubmit={handleSubmit}>
+		<div className="popup-outer-container">
+			<FontAwesomeIcon onClick={closePopup} className="popup-xmark" icon="fa-solid fa-circle-xmark" />
+			<form className="popup-inner-container" onSubmit={handleSubmit}>
 				<h3>Add Test for {props.grade}</h3>
-				<div className="link">
-					<label className="text" htmlFor="fileLink">
+				<div className="popup-link">
+					<label className="popup-text" htmlFor="fileLink">
 						File Link:
 					</label>
 					<input type="url" id="fileLink" name="link" required value={test.link} onChange={handleChange} />
 				</div>
-				<div className="name-type">
-					<div className="name">
-						<label className="text" htmlFor="name">
+				<div className="popup-name-type">
+					<div className="popup-name">
+						<label className="popup-text" htmlFor="name">
 							Test Name:
 						</label>
 						<input type="text" id="name" name="name" required value={test.name} onChange={handleChange} />
 					</div>
-					<div className="type">
-						<label className="text" htmlFor="type">
+					<div className="popup-type">
+						<label className="popup-text" htmlFor="type">
 							Test Type:
 						</label>
 						<select name="type" id="type" defaultValue="type" onChange={handleChange}>
@@ -56,9 +54,9 @@ function AddTestPopup(props) {
 						</select>
 					</div>
 				</div>
-				<div className="price-button">
-					<div className="price">
-						<label className="text" htmlFor="price">
+				<div className="popup-price-button">
+					<div className="popup-price">
+						<label className="popup-text" htmlFor="price">
 							Price:
 						</label>
 						<input type="number" id="price" name="price" min="0" max="1000" required value={test.price} onChange={handleChange} />
