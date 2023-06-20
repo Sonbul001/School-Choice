@@ -23,7 +23,6 @@ function App() {
           <Route path="/exams" exact Component={ExamsPage} />
           <Route path="/courses" exact Component={CoursesPage} />
           <Route path="/admins/tests" exact Component={AdminsExams} />
-          <Route path="/admin/courses" exact Component={AdminCoursesDashboard} />
           <Route path="/appliedSchools" exact Component={AppliedSchools} />
         </Routes>
       </Router>
