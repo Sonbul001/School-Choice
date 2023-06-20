@@ -3,10 +3,12 @@ import HomePage from './components/HomePage/HomePage'
 import Login from './components/LoginPage/Login'
 import SignUp from './components/SignUpPage/SignUp'
 import DetailedSearchPage from './components/DetailedSearch/DetailedSearch'
-import AppliedSchools from './components/SavedSchools/SavedSchools'
+import SavedSchools from './components/SavedSchools/SavedSchools'
 import ExamsPage from './components/Exams/ExamsPage'
-import './App.css'
 import CoursesPage from './components/Courses/CoursesPage'
+import SavedCourses from './components/SavedCourses/SavedCoursesPage/SavedCoursesPage'
+import './App.css'
+
 
 function App() {
 
@@ -21,7 +23,8 @@ function App() {
           <Route path="/search" exact Component={DetailedSearchPage} />
           <Route path="/exams" exact Component={ExamsPage} />
           <Route path="/courses" exact Component={CoursesPage} />
-          <Route path="/appliedSchools" exact Component={AppliedSchools} />
+          <Route path="/savedSchools" exact Component={SavedSchools} />
+          <Route path="/savedCourses" exact Component={SavedCourses} />
         </Routes>
       </Router>
 
