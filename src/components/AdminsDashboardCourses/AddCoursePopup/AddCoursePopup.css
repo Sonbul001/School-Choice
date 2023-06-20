@@ -1,0 +1,201 @@
+.popup-outer-container {
+	background-color: #1b2430;
+	width: 700px;
+	height: 410px;
+	border-radius: 20px;
+}
+
+.popup-xmark {
+	position: relative;
+	top: 2%;
+	left: 2%;
+	border-radius: 50%;
+	color: white;
+}
+
+.popup-xmark:hover {
+	cursor: pointer;
+	transform: scale(1.2);
+	transition: 0.1s ease-in-out;
+}
+
+.popup-xmark:active {
+	transform: scale(1.1);
+	transition: 0.2s ease-in-out;
+}
+
+.popup-inner-container {
+	border-radius: 20px;
+	position: relative;
+	margin-top: 8px;
+	margin-right: auto;
+	margin-left: auto;
+	width: 95%;
+	height: 85%;
+	background-color: #0e2e58;
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.popup-inner-container > h3 {
+	/* margin-left: 20px; */
+	/* align-self: self-start; */
+	color: white;
+}
+
+.popup-text {
+	/* margin-left: 20px; */
+	font-size: 18px;
+	font-weight: 400;
+	color: white;
+}
+
+/* .course-popup-text {
+	width: 70px;
+} */
+
+.popup-link {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	gap: 10px;
+}
+
+.popup-link > label {
+	width: 130px;
+	/* margin-right: 20px; */
+}
+
+.popup-link > input {
+	border-radius: 10px;
+}
+
+.popup-name-type {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.popup-name {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-top: 0;
+}
+
+.popup-name > label {
+	width: 120px;
+	/* margin-right: 10px; */
+}
+
+.popup-name > input {
+	width: 55%;
+	border-radius: 10px;
+	height: 30px;
+}
+
+.popup-type {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.popup-type > label {
+	width: 140px;
+	/* margin-right: 10px; */
+}
+
+.popup-type > select {
+	width: 60%;
+	border-radius: 10px;
+	height: 40px;
+}
+
+.popup-provider-location {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	gap: 10px;
+}
+
+.popup-provider {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.popup-provider > label {
+	width: 170px;
+}
+
+.popup-provider > input {
+	width: 55%;
+	border-radius: 10px;
+	height: 30px;
+}
+
+.popup-location {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.popup-location > label {
+	width: 190px;
+}
+
+.popup-location > input {
+	width: 60%;
+	border-radius: 10px;
+	height: 30px;
+}
+
+.popup-price-button {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.popup-price {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.popup-price > input {
+	width: 60%;
+	border-radius: 10px;
+	height: 30px;
+}
+
+.add-test-popup-button {
+	border-radius: 20px;
+	background-color: #17cf97;
+	border: none;
+	color: #ffffff;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 180ms ease-in;
+}
+
+.add-test-popup-button:hover {
+	cursor: pointer;
+	transform: scale(1.1);
+}
+
+.add-test-popup-button:active {
+	transform: scale(1.05);
+}

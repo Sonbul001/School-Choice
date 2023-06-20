@@ -8,7 +8,7 @@ import ExamsPage from "./components/Exams/ExamsPage";
 import "./App.css";
 import CoursesPage from "./components/Courses/CoursesPage";
 import AdminsExamsDashboard from "./components/AdminsDashboardTests/AdminsExams";
-import AdminsCoursesDashboard from "./components/AdminDashboardCourses/AdminsCourses";
+import AdminsCoursesDashboard from "./components/AdminsDashboardCourses/AdminsCourses";
 
 function App() {
 	return (
