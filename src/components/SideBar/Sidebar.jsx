@@ -20,7 +20,7 @@ const Sidebar = () => {
             </div>
             <div className="sidebar--component--item">
                 <img src={testsLogo} alt="Tests Logo" />
-                <a href="#">Tests</a>
+                <a href="#">Exams</a>
             </div>
             <div className="sidebar--component--item">
                 <img src={coursesLogo} alt="Courses Logo" />

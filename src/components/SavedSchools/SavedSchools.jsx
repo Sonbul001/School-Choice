@@ -17,14 +17,15 @@ function SavedSchools() {
             <div className="savedSchools--component--content">
                 <Sidebar />
                 <div className="savedSchools--component--main">
-                    <h2>Saved Schools</h2>
+                    <h2>Favorite Schools</h2>
                     <div className='cards'>
                         <Cards />
                     </div>
+                    <RecommendedSchools />
                 </div>
+                
             </div>
 
-            <RecommendedSchools />
 
             <div className='footer'>
                 <Footer />

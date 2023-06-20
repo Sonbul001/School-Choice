@@ -1,6 +1,6 @@
 .recommended-schools--component {
     padding: 1rem;
-    background-color: #FDF5E6;
+    border-top: 1px solid black;
 }
 
 .recommended-schools--component h2 {
