@@ -123,12 +123,16 @@
     border-top: 0;
 }
 
-.school-page-dates-card {
+.school-page-dates-card, .school-page-fees-card, .school-page-rating-card {
     padding: 25px;
 }
 
-.school-page-dates-card-text {
+.school-page-dates-card-text, .school-page-fees-card-text {
     border-top: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.school-page-fees-card-title, .school-page-rating-card-title {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 .school-page-dates-card-text-head {
@@ -137,4 +141,38 @@
 
 .school-page-dates-card-text-body {
     font-size: 22px;
+}
+
+.school-page-rating-card-text-area {
+    resize: none;
+    max-height: 100px;
+}
+
+.school-page-rating-card-image {
+    width: 60px;
+    height: 60px;
+}
+
+.school-page-rating-card-button {
+    float: right;
+    margin-top: 6px;
+}
+
+.school-page-rating-card-reviews {
+    margin-top: 50px;
+    border-top: 1px solid rgba(0, 0, 0, 0.5);
+    padding-top: 50px;
+}
+
+.school-page-rating-card-stars {
+    margin-top: 6px;
+}
+
+.school-page-rating-card-input-stars button {
+    padding: 0;
+}
+
+.school-page-rating-card-reviews-username {
+    margin: 0;
+    padding-left: 5px;
 }

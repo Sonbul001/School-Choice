@@ -5,6 +5,8 @@ import Profile from "./Profile";
 import About from "./About";
 import Dates from "./Dates";
 import './SchoolPage.css';
+import Fees from "./Fees";
+import Rating from "./Rating";
 
 function SchoolPage() {
     return (
@@ -36,6 +38,12 @@ function SchoolPage() {
                     mobile='0123456789'
                     email='karim@gmail.com'
                 />
+            </div>
+            <div className='school-page-fees'>
+                <Fees />
+            </div>
+            <div className='school-page-rating'>
+                <Rating />
             </div>
             <div className='footer'>
                 <Footer />
