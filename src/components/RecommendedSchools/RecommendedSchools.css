@@ -1,0 +1,9 @@
+.recommended-schools--component {
+    padding: 1rem;
+    border-top: 1px solid black;
+}
+
+.recommended-schools--component h2 {
+    margin-top: 2%;
+    font-weight: bold;
+}
