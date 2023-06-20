@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from '../../components/NavBar/Navbar'
 import Footer from '../../components/Footer/Footer';
-import Cards from '../../components/Cards/Cards';
+import Cards from '../Cardss/Cards/Cards';
 import DetailedSearchHeading from './DetailedSearchHeader/DetailedSearchHeading';
 import DetailedSearchSidebar from './DetailedSearchSidebar/DetailedSearchSidebar';
 import './DetailedSearch.css';

@@ -1,0 +1,37 @@
+.exams-grade {
+	display: flex;
+	/* justify-content: space-between; */
+	/* align-items: center; */
+}
+
+.exams-popup {
+	position: absolute;
+	margin-left: 50%;
+	transform: translateX(-50%);
+	align-self: center;
+}
+
+.add-test {
+	position: absolute;
+	width: 150px;
+	font-family: "Poppins", sans-serif;
+	font-size: 20px;
+	font-weight: 500;
+	margin-left: 13rem;
+	margin-top: 0.4rem;
+	background-color: #1b2430;
+	border: none;
+	transition: 0.4s ease-in-out;
+}
+
+.add-test:hover {
+	cursor: pointer;
+	transform: scale(103%);
+	background-color: #1b2430;
+	border: none;
+}
+
+.add-test:active {
+	transform: scale(100%);
+	border: none;
+}

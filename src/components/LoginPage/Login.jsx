@@ -6,7 +6,7 @@ import Logo from '../../assets/Logo2.png'
 function Login() {
 
 	return (
-		<div className='body login'>
+		<div className='login'>
 
 			<div class="container" id="container">
 
