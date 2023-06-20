@@ -17,11 +17,11 @@ function AdminNavbar({ page, user }) {
 					<FontAwesomeIcon className="item-icons" icon="fa-solid fa-school" size="xs" />
 					Schools
 				</a>
-				<a className="item-link" href="#" style={{ textDecoration: page === "tests" ? "underline" : "none", textDecorationColor: "#17cf97" }}>
+				<a className="item-link" href="/admins/tests" style={{ textDecoration: page === "tests" ? "underline" : "none", textDecorationColor: "#17cf97" }}>
 					<FontAwesomeIcon className="item-icons" icon="fa-solid fa-file-pdf" size="xs" />
 					Tests
 				</a>
-				<a className="item-link" href="#" style={{ textDecoration: page === "courses" ? "underline" : "none", textDecorationColor: "#17cf97" }}>
+				<a className="item-link" href="/admins/courses" style={{ textDecoration: page === "courses" ? "underline" : "none", textDecorationColor: "#17cf97" }}>
 					<FontAwesomeIcon className="item-icons" icon="fa-solid fa-person-chalkboard" size="xs" />
 					Courses
 				</a>

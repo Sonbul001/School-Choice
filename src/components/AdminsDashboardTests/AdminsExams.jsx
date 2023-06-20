@@ -2,7 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "../Footer/Footer";
 import AddTestPopup from "./AddTestPopup/AddTestPopup";
-import AdminNavbar from "./AdminsNavbar/AdminNavbar";
+import AdminNavbar from "../AdminsNavbar/AdminNavbar";
 import { faCirclePlus, faSquarePlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
