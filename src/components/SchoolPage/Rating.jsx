@@ -2,24 +2,21 @@ import { Col, Container, Row, Card, Image, Form, Button } from 'react-bootstrap'
 import { Star, StarOutline } from 'react-ionicons';
 import { useState } from 'react';
 
-function Rating() {
+function Rating(props) {
 
     const [rating, setRating] = useState(0);
-    const reviewRatings = 4;
-    const fullStarsNo = reviewRatings;
-    const emptyStarsNo = 5 - reviewRatings;
-
-    const fullStars = [...Array(fullStarsNo)].map((_, index) => (
-        <Star key={index} />
-    ));
-
-    const emptyStars = [...Array(emptyStarsNo)].map((_, index) => (
-        <StarOutline key={index} />
-    ));
 
     const handleRating = (value) => {
         setRating(value);
     };
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        // get the input values and rating value
+        const review = event.target[0].value;
+        const ratingValue = rating;
+        // make the POST request
+    }
 
     return (
         <Card className='school-page-rating-card'>
@@ -33,7 +30,7 @@ function Rating() {
                                 <Image src="./cover.jpg" roundedCircle className='school-page-rating-card-image' fluid />
                             </Col>
                             <Col xs={10}>
-                                <Form.Group>
+                                <Form.Group onSubmit={handleSubmit}>
                                     <Form.Control as="textarea" placeholder='Write a review ...' className="school-page-rating-card-text-area" />
                                     <Button type='submit' className='school-page-rating-card-button' variant='secondary'>Post</Button>
 
@@ -61,21 +58,34 @@ function Rating() {
                             </Col>
                         </Row>
                         <Row className='school-page-rating-card-reviews'>
-                            <Col xs={1}>
-                                <Image src="./cover.jpg" roundedCircle className='school-page-rating-card-image' fluid />
-                            </Col>
-                            <Col xs={10}>
-                                <Form.Label className='school-page-rating-card-reviews-username'>Parent1</Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    disabled
-                                    value={"bad review"}
-                                />
-                                <div className='school-page-rating-card-stars'>
-                                    {fullStars}
-                                    {emptyStars}
+
+                            {props.reviews.map((review, index) =>
+                            (
+                                <div className='school-page-rating-card-one-review' key={index}>
+                                    <Col xs={1}>
+                                        <Image src="./cover.jpg" roundedCircle className='school-page-rating-card-image' fluid />
+                                    </Col>
+                                    <Col xs={11}>
+                                        <Form.Label className='school-page-rating-card-reviews-username'>Parent1</Form.Label>
+                                        <Form.Control
+                                            type="text"
+                                            disabled
+                                            value={"bad review"}
+                                        />
+                                        <div className='school-page-rating-card-stars'>
+                                            {[...Array(review.rating)].map((_, index) => (
+                                                <Star key={index} />
+                                            ))}
+                                            {[...Array(5 - review.rating)].map((_, index) => (
+                                                <StarOutline key={index} />
+                                            ))}
+                                        </div>
+                                    </Col>
                                 </div>
-                            </Col>
+                            )
+                            )}
+
+
                         </Row>
                     </Container>
                 </Card.Text>
