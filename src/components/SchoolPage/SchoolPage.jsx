@@ -7,6 +7,7 @@ import Dates from "./Dates";
 import './SchoolPage.css';
 import Fees from "./Fees";
 import Rating from "./Rating";
+import RecommendedSchools from "../RecommendedSchools/RecommendedSchools";
 
 
 //Fetching data from backend should be in this component and pass data as props to all components
@@ -118,6 +119,9 @@ function SchoolPage() {
                 <Rating 
                     reviews= {reviews}
                 />
+            </div>
+            <div className='school-page-recommended'>
+                <RecommendedSchools />
             </div>
             <div className='footer'>
                 <Footer />
