@@ -3,7 +3,10 @@ import Heading from "../Heading/Heading";
 import Navbar from "../NavBar/Navbar";
 import Profile from "./Profile";
 import About from "./About";
+<<<<<<< HEAD
 import Dates from "./Dates";
+=======
+>>>>>>> 8f20e32 (implemented about+profile in school page)
 import './SchoolPage.css';
 
 function SchoolPage() {
