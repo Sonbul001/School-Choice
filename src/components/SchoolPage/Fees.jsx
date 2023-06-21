@@ -1,32 +1,6 @@
 import { Col, Container, Row, Table, Card } from 'react-bootstrap';
 
-function Fees() {
-    const feeData = [
-        {
-            classroom: "kg1",
-            boys: "2000",
-            girls: "1000",
-            available: true
-        },
-        {
-            classroom: "kg1",
-            boys: "2000",
-            girls: "1000",
-            available: true
-        },
-        {
-            classroom: "kg1",
-            boys: "2000",
-            girls: "1000",
-            available: true
-        },
-        {
-            classroom: "kg1",
-            boys: "2000",
-            girls: "1000",
-            available: true
-        }
-    ]
+function Fees(props) {
     return (
         <Card className='school-page-fees-card'>
             <Card.Body>
@@ -43,7 +17,7 @@ function Fees() {
                             </tr>
                         </thead>
                         <tbody>
-                            {feeData.map((data, index) =>
+                            {props.fees.map((data, index) =>
                             (
                                 <tr key={index}>
                                     <td>{data.classroom}</td>
