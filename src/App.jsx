@@ -5,6 +5,7 @@ import SignUp from "./components/SignUpPage/SignUp";
 import DetailedSearchPage from "./components/DetailedSearch/DetailedSearch";
 import AppliedSchools from "./components/SavedSchools/SavedSchools";
 import ExamsPage from "./components/Exams/ExamsPage";
+import SchoolPage from './components/SchoolPage/SchoolPage'
 import "./App.css";
 import CoursesPage from "./components/Courses/CoursesPage";
 import AdminsExamsDashboard from "./components/AdminsDashboardTests/AdminsExams";
@@ -24,6 +25,7 @@ function App() {
 					<Route path="/admins/tests" exact Component={AdminsExamsDashboard} />
 					<Route path="/admins/courses" exact Component={AdminsCoursesDashboard} />
 					<Route path="/appliedSchools" exact Component={AppliedSchools} />
+					<Route path="/school" exact Component={SchoolPage} />
 				</Routes>
 			</Router>
 		</div>
