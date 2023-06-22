@@ -3,13 +3,15 @@ import HomePage from "./components/HomePage/HomePage";
 import Login from "./components/LoginPage/Login";
 import SignUp from "./components/SignUpPage/SignUp";
 import DetailedSearchPage from "./components/DetailedSearch/DetailedSearch";
-import AppliedSchools from "./components/SavedSchools/SavedSchools";
+import SavedSchools from './components/SavedSchools/SavedSchools'
 import ExamsPage from "./components/Exams/ExamsPage";
 import SchoolPage from './components/SchoolPage/SchoolPage'
 import "./App.css";
 import CoursesPage from "./components/Courses/CoursesPage";
 import AdminsExamsDashboard from "./components/AdminsDashboardTests/AdminsExams";
 import AdminsCoursesDashboard from "./components/AdminsDashboardCourses/AdminsCourses";
+import SavedCourses from './components/SavedCourses/SavedCoursesPage/SavedCoursesPage'
+
 
 function App() {
 	return (
@@ -24,12 +26,13 @@ function App() {
 					<Route path="/courses" exact Component={CoursesPage} />
 					<Route path="/admins/tests" exact Component={AdminsExamsDashboard} />
 					<Route path="/admins/courses" exact Component={AdminsCoursesDashboard} />
-					<Route path="/appliedSchools" exact Component={AppliedSchools} />
 					<Route path="/school" exact Component={SchoolPage} />
+					<Route path="/savedCourses" exact Component={SavedCourses} />
+					<Route path="/savedSchools" exact Component={SavedSchools} />
 				</Routes>
 			</Router>
 		</div>
 	);
-}
 
+}
 export default App;

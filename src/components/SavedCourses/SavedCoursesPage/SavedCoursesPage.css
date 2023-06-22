@@ -1,0 +1,8 @@
+.savedCourses--component {
+    background-color: #1f252c;
+    width: auto;
+}
+
+.savedCourses--component--content {
+    display: flex;
+}

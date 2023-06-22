@@ -1,0 +1,32 @@
+.courseInfo--component {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    justify-content: space-between;
+    flex-grow: 1;
+    /* allows the flex item to expand and fill any remaining space within the flex container. */
+    border: 1px solid #ccc;
+    overflow-y: scroll;
+    max-height:100vh;
+}
+
+.courseInfo--component p {
+    margin: 0;
+    color: black;
+}
+
+.courseInfo--component button {
+    padding: 5px 10px;
+    background-color: #cdcaca;
+    border: none;
+    cursor: pointer;
+    border-radius: 4%;
+    transition: background-color 0.3s ease;
+    height: fit-content;
+    float: right;
+}
+
+.courseInfo--component button:hover {
+    background-color: #a1a1a1;
+}

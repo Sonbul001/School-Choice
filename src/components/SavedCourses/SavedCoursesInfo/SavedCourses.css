@@ -1,0 +1,17 @@
+.savedCourses--container {
+    background-color: #1f252c;
+    padding: 20px;
+    margin-top: 20px;
+    width: 100%;
+    color: white;
+    font-weight: bold;
+}
+
+.savedCourses--container h2 {
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.savedCourses--container .savedCourseInfo {
+    margin-bottom: 20px;
+}
