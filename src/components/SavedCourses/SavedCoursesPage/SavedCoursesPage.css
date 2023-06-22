@@ -1,19 +1,8 @@
 .savedCourses--component {
     background-color: #1f252c;
+    width: auto;
 }
 
 .savedCourses--component--content {
     display: flex;
-    flex: 1 0 auto;
-}
-
-.savedCourses--component--main {
-    flex: 1;
-    padding: 1rem;
-}
-
-.savedCourses--component--main h2 {
-    margin-top: 2%;
-    margin-right: 70%;
-    font-weight: bold;
 }

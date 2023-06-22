@@ -1,9 +1,10 @@
 .recommended-Courses--component {
     padding: 1rem;
-    background-color: #FDF5E6;
+    background-color: #191E24;
 }
 
 .recommended-Courses--component h2 {
     margin-top: 2%;
     font-weight: bold;
+    color: white;
 }
