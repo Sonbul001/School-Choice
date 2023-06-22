@@ -10,7 +10,8 @@ import "./App.css";
 import CoursesPage from "./components/Courses/CoursesPage";
 import AdminsExamsDashboard from "./components/AdminsDashboardTests/AdminsExams";
 import AdminsCoursesDashboard from "./components/AdminsDashboardCourses/AdminsCourses";
-import SavedCourses from './components/SavedCourses/SavedCoursesPage/SavedCoursesPage'
+import SavedCourses from './components/SavedCourses/SavedCoursesPage/SavedCoursesPage';
+import SavedTests from './components/SavedTests/SavedTestsPage/SavedTestsPage';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
 					<Route path="/admins/courses" exact Component={AdminsCoursesDashboard} />
 					<Route path="/school" exact Component={SchoolPage} />
 					<Route path="/savedCourses" exact Component={SavedCourses} />
+					<Route path="/SavedTests" exact Component={SavedTests} />
 					<Route path="/savedSchools" exact Component={SavedSchools} />
 				</Routes>
 			</Router>
