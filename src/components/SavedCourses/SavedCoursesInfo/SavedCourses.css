@@ -3,6 +3,8 @@
     padding: 20px;
     margin-top: 20px;
     width: 100%;
+    color: white;
+    font-weight: bold;
 }
 
 .savedCourses--container h2 {

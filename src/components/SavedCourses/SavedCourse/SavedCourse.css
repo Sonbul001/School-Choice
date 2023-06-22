@@ -1,13 +1,23 @@
-.courseInfo--component {
+.course--component--left {
     display: flex;
-    align-items: center;
-    width: 100%;
+    /* align-items: center; */
     padding: 1%;
     border: 1px solid #ccc;
-    height: auto;
+    /* height: auto; */
+    background-color: white;
 }
 
-.courseInfo--component>* {
-    margin-right: 40px;
-    /* Adjust the spacing between the components */
+.course--component--left>* {
+    margin-right: 0px;
+}
+
+/* .course--component--right {
+    border: 1px solid #ccc;
+    flex-grow: 1;
+    background-color: red;
+} */
+
+.course--component--container {
+    display: flex;
+
 }
