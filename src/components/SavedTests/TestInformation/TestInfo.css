@@ -1,14 +1,18 @@
 .testInfo--component {
     background-color: white;
     display: flex;
+    flex-direction: column;
     padding: 10px;
     justify-content: space-between;
     flex-grow: 1;
     /* allows the flex item to expand and fill any remaining space within the flex container. */
     border: 1px solid #ccc;
+    overflow-y: scroll;
+    max-height: 100vh;
 }
 
 .testInfo--component p {
+    color: black;
     margin: 0;
 }
 

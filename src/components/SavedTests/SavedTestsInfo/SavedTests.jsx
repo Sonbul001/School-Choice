@@ -9,19 +9,22 @@ export default function SavedTests(props) {
             logo: '../../../assets/Logo2.png',
             examName: 'Test 1',
             price: 10,
-            schoolType: 'School Type 1'
+            schoolType: 'School Type 1',
+            description: 'Description'
         },
         {
             logo: '../../../assets/Logo2.png',
             examName: 'Test 2',
             price: 20,
-            schoolType: 'School Type 2'
+            schoolType: 'School Type 2',
+            description: 'Description'
         },
         {
             logo: '../../../assets/Logo2.png',
             examName: 'Test 3',
             price: 30,
-            schoolType: 'School Type 3'
+            schoolType: 'School Type 3',
+            description: 'Description'
         }
     ];
 
@@ -32,6 +35,7 @@ export default function SavedTests(props) {
             {exams.map((exam, index) => (
                 <SavedTestInfo
                     key={index}
+                    description={exam.description}
                     examName={exam.examName}
                     price={exam.price}
                     schoolType={exam.schoolType}
