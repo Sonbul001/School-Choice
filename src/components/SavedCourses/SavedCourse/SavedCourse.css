@@ -1,0 +1,13 @@
+.courseInfo--component {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 1%;
+    border: 1px solid #ccc;
+    height: auto;
+}
+
+.courseInfo--component>* {
+    margin-right: 40px;
+    /* Adjust the spacing between the components */
+}
