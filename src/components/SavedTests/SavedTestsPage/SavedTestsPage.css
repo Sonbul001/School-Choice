@@ -1,0 +1,8 @@
+.savedTests--component {
+    background-color: #1f252c;
+    width: auto;
+}
+
+.savedTests--component--content {
+    display: flex;
+}

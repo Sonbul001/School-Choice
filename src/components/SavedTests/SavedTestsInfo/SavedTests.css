@@ -1,0 +1,17 @@
+.savedTests--container {
+    background-color: #1f252c;
+    padding: 20px;
+    margin-top: 20px;
+    width: 100%;
+    color: white;
+    font-weight: bold;
+}
+
+.savedTests--container h2 {
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.savedTests--container .savedTestsInfo {
+    margin-bottom: 20px;
+}
