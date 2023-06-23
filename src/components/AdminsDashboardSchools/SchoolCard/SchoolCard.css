@@ -1,0 +1,116 @@
+.admins-school-card {
+	height: auto;
+}
+
+.admins-school-card-header {
+	display: flex;
+	justify-content: space-between;
+	/* background-color: #b7b7b7; */
+}
+
+.admins-school-card-header-title {
+	font-size: 2rem;
+	font-weight: bold;
+}
+
+.admins-school-card-buttons {
+	display: flex;
+	gap: 10px;
+}
+
+.admins-school-card-buttons > button {
+	width: 100px;
+}
+
+.admins-school-card-information {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: 20px;
+	padding: 20px 25px;
+}
+
+#admins-school-card-information-item {
+	border-radius: 5px;
+	border: 1px solid #b7b7b7;
+	padding: 10px;
+	font-size: large;
+}
+
+#admins-school-card-information-item-strong {
+	font-weight: 600;
+}
+
+#admins-school-card-information-hr {
+	/* width: 80%; */
+	margin: auto;
+}
+
+.admins-school-card-information-carousel {
+	width: 50%;
+	margin: auto;
+}
+
+.admins-school-card-information-carousel .carousel-control-prev,
+.admins-school-card-information-carousel .carousel-control-next {
+	width: 40px;
+	height: 40px;
+	background-color: rgba(0, 0, 0, 0.5);
+	border-radius: 50%;
+	border: none;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	margin: 10px;
+	transition: all 0.3s ease-in-out;
+}
+
+.admins-school-card-information-carousel .carousel-control-prev:hover,
+.admins-school-card-information-carousel .carousel-control-next:hover {
+	opacity: 1;
+}
+
+.admins-school-card-information-carousel .carousel-indicators button {
+	width: 12px;
+	height: 12px;
+	margin: 0 5px;
+	border-radius: 50%;
+	background-color: rgba(0, 0, 0, 0.5);
+	transition: all 0.3s ease;
+}
+
+.admins-school-card-information-carousel .carousel-indicators button.active {
+	background-color: black;
+	transform: scale(1.2);
+}
+
+#admins-school-card-information-carousel-item {
+	margin-left: 50%;
+	transform: translateX(-50%);
+}
+
+.admins-school-card-tab .nav.nav-tabs .nav-link {
+	width: 100px;
+	height: 40px;
+	text-align: center;
+}
+
+.admins-school-card-tab .nav.nav-tabs .nav-link.active {
+	background-color: #b7b7b7;
+}
+
+.admins-school-card-dates-head {
+	opacity: 0.6;
+}
+
+.admins-school-card-dates-body {
+	font-size: 25px;
+}
+
+.admins-school-card-fees {
+	position: relative;
+	table-layout: fixed;
+	max-height: 200px;
+	display: block;
+	overflow-y: auto;
+}

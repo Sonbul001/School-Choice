@@ -8,7 +8,7 @@ function Login() {
 		<div className="body">
 			<div class="container" id="container">
 				<div class="form-container sign-in-container">
-					<form action="#">
+					<form action="#" className="login-form">
 						<div className="logo-container">
 							<img className="logo" src={Logo}></img>
 						</div>
