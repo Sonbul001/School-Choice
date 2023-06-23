@@ -10,8 +10,6 @@ import "./App.css";
 import CoursesPage from "./components/Courses/CoursesPage";
 import AdminsExamsDashboard from "./components/AdminsDashboardTests/AdminsExams";
 import AdminsCoursesDashboard from "./components/AdminsDashboardCourses/AdminsCourses";
-import SchoolCard from "./components/AdminsDashboardSchools/SchoolCard/SchoolCard";
-import AddSchoolPopup from "./components/AdminsDashboardSchools/AddSchoolPopup/AddSchoolPopup";
 import AdminsSchools from "./components/AdminsDashboardSchools/AdminsSchools";
 
 function App() {
@@ -30,8 +28,6 @@ function App() {
 					<Route path="/appliedSchools" exact Component={AppliedSchools} />
 					<Route path="/school" exact Component={SchoolPage} />
 					<Route path="/admins/schools" exact Component={AdminsSchools} />
-					<Route path="/admins/schoolsCard" exact Component={SchoolCard} />
-					<Route path="/admins/addSchool" exact Component={AddSchoolPopup} />
 				</Routes>
 			</Router>
 		</div>
