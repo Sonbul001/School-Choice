@@ -7,7 +7,7 @@
 .admin-school-form-xmark {
 	position: relative;
 	top: 0;
-	right: 430px;
+	right: 330px;
 	margin: 1rem;
 	font-size: 1.5rem;
 	cursor: pointer;
@@ -27,9 +27,9 @@
 
 .admin-school-form {
 	background-color: #ffffff;
-	margin-top: -5rem;
+	/* margin-top: -5rem; */
 	/* padding: 0 50px; */
-	width: 67%;
+	width: 50rem;
 	height: 100%;
 	display: flex;
 	flex-direction: column;
@@ -38,6 +38,7 @@
 	border: 1px solid #afafaf;
 	max-height: 800px;
 	overflow-y: auto;
+	overflow-x: none;
 	z-index: 100;
 }
 
@@ -88,4 +89,20 @@
 	margin-left: 50%;
 	margin-bottom: 10px;
 	transform: translateX(-50%);
+}
+
+.admin-school-form-imgs {
+	width: 500px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	/* justify-content: space-between; */
+	align-items: center;
+	gap: 10px;
+	/* overflow-x: none; */
+}
+
+.admin-school-form-imgs-item {
+	width: 100px;
+	height: auto;
 }

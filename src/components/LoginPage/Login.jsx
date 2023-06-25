@@ -15,7 +15,9 @@ function Login() {
 						<h1>Sign in</h1>
 						<input type="email" placeholder="Email" />
 						<input type="password" placeholder="Password" />
-						<a href="#">Forgot your password?</a>
+						<a href="#" className="login-link">
+							Forgot your password?
+						</a>
 						<button className="login--button">Login</button>
 					</form>
 				</div>

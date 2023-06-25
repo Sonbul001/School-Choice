@@ -11,8 +11,10 @@ import CoursesPage from "./components/Courses/CoursesPage";
 import AdminsExamsDashboard from "./components/AdminsDashboardTests/AdminsExams";
 import AdminsCoursesDashboard from "./components/AdminsDashboardCourses/AdminsCourses";
 import AdminsSchools from "./components/AdminsDashboardSchools/AdminsSchools";
+import SchoolCard from "./components/AdminsDashboardSchools/SchoolCard/SchoolCard";
 import SavedCourses from "./components/SavedCourses/SavedCoursesPage/SavedCoursesPage";
 import SavedTests from "./components/SavedTests/SavedTestsPage/SavedTestsPage";
+import AddSchoolPopup from "./components/AdminsDashboardSchools/AddSchoolPopup/AddSchoolPopup";
 
 function App() {
 	return (
@@ -32,6 +34,8 @@ function App() {
 					<Route path="/savedCourses" exact Component={SavedCourses} />
 					<Route path="/SavedTests" exact Component={SavedTests} />
 					<Route path="/savedSchools" exact Component={SavedSchools} />
+					<Route path="/schoolCard" exact Component={SchoolCard} />
+					<Route path="/addSchool" exact Component={AddSchoolPopup} />
 				</Routes>
 			</Router>
 		</div>

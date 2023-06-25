@@ -11,31 +11,38 @@ export default function AdminsSchools() {
 	let schools = [
 		{
 			name: "School 1",
+			logo: logo,
+			about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl eget ultricies aliquam, quam nisl lacinia nisl, vitae aliqua",
 			type: ["National", "International"],
 			educationLevel: ["Elementary", "Middle", "Secondary"],
-			gender: ["Boys", "Girls"],
-			address: "address",
+			gender: "mixed",
+			address: ["address", "school map link"],
 			imgs: [logo, logo, logo],
-			dates: [
-				{ time: "Morning Time", from: "14:12", to: "16:12" },
-				{ time: "Evening Time", from: "19:13", to: "20:13" },
-			],
-			fees: [
+			communication: {
+				phone: ["0123456789", "0123456789"],
+				email: "school@gmail.com",
+			},
+			feesSection: [
 				{
-					classroom: "kg1",
-					fees: "2000",
-				},
-				{
-					classroom: "kg1",
-					fees: "2000",
-				},
-				{
-					classroom: "kg1",
-					fees: "2000",
-				},
-				{
-					classroom: "kg1",
-					fees: "2000",
+					type: "international",
+					fees: [
+						{
+							classroom: "kg1",
+							fees: "2000",
+						},
+						{
+							classroom: "kg1",
+							fees: "2000",
+						},
+						{
+							classroom: "kg1",
+							fees: "2000",
+						},
+						{
+							classroom: "kg1",
+							fees: "2000",
+						},
+					],
 				},
 			],
 		},
@@ -113,7 +120,8 @@ export default function AdminsSchools() {
 				{schools.map((school, index) => {
 					return (
 						<div>
-							<SchoolCard school={school} key={index} index={index} openClosePopup={() => openClosePopup(index)} />;
+							<SchoolCard school={school} key={index} index={index} openClosePopup={() => openClosePopup(index)} />
+							<br />
 						</div>
 					);
 				})}

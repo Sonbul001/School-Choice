@@ -1,49 +1,80 @@
 import Carousel from "react-bootstrap/Carousel";
 import { Tabs, Tab, Col, Container, Row, Table, Card, ListGroup } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-
+import logo from "../../../assets/logo.png";
 import AddSchoolPopup from "../AddSchoolPopup/AddSchoolPopup";
 import { useState, useEffect } from "react";
 import "./SchoolCard.css";
+import { faL } from "@fortawesome/free-solid-svg-icons";
 
 export default function SchoolCard(props) {
+	const school = {
+		id: 1,
+		name: "School 1",
+		logo: logo,
+		about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl eget ultricies aliquam, quam nisl lacinia nisl, vitae aliqua",
+		type: ["National", "IGCSE", "American", "Lycee", "German", "Canadian"],
+		educationLevel: ["KG", "Primary", "Preparatory", "Secondary"],
+		gender: "mixed",
+		address: "Address",
+		advertised: false,
+		map: "google.maps/example",
+		city: "zayed",
+		imgs: [logo, logo, logo],
+		website: "http://www.example.com",
+		phones: ["0123456789", "0123456789"],
+		email: "school@gmail.com",
+		feesSection: [
+			{
+				type: "National",
+				fees: [
+					{
+						classroom: "kg1",
+						fee: "2000",
+					},
+					{
+						classroom: "kg1",
+						fee: "2000",
+					},
+					{
+						classroom: "kg1",
+						fee: "2000",
+					},
+					{
+						classroom: "kg1",
+						fee: "2000",
+					},
+				],
+			},
+			{
+				type: "IGCSE",
+				fees: [
+					{
+						classroom: "kg1",
+						fee: "2000",
+					},
+					{
+						classroom: "kg1",
+						fee: "2000",
+					},
+					{
+						classroom: "kg1",
+						fee: "2000",
+					},
+					{
+						classroom: "kg1",
+						fee: "2000",
+					},
+				],
+			},
+		],
+	};
+
 	const [showPopup, setShowPopup] = useState(false);
 
 	const openClosePopup = (index) => {
 		setShowPopup(!showPopup);
 	};
-
-	function convertTimeTo12H(time24) {
-		// Split the time string into hours and minutes
-		const [hours, minutes] = time24.split(":");
-
-		// Convert the hours to a number
-		const hoursNum = parseInt(hours);
-
-		// Determine whether it's morning or afternoon
-		const meridiem = hoursNum < 12 ? "AM" : "PM";
-
-		// Convert the hours to 12-hour format
-		const hours12 = hoursNum % 12 || 12;
-
-		// Combine the hours, minutes, and meridiem into a string
-		const time12 = `${hours12}:${minutes} ${meridiem}`;
-
-		return time12;
-	}
-
-	const [newDates, setNewDates] = useState([]);
-
-	useEffect(() => {
-		const newDates = props.school.dates.map((date) => {
-			return {
-				...date,
-				from: convertTimeTo12H(date.from),
-				to: convertTimeTo12H(date.to),
-			};
-		});
-		setNewDates(newDates);
-	}, []);
 
 	return (
 		<div>
@@ -51,7 +82,23 @@ export default function SchoolCard(props) {
 			<Card className="admins-school-card">
 				<Card.Body>
 					<Card.Text className="admins-school-card-header">
-						<Card.Title className="admins-school-card-header-title">{props.school.name}</Card.Title>
+						<div className="admins-school-card-title-pic">
+							<img src={school.logo} alt="school logo" className="admins-school-card-header-img" />
+							<Card.Title className="admins-school-card-header-title">{school.name}</Card.Title>
+							<div className="admins-school-card-header-advertised-city">
+								{school.advertised ? (
+									<p className="admins-school-card-header-advertised" style={{ color: "green" }}>
+										Advertised
+									</p>
+								) : (
+									<p className="admins-school-card-header-advertised" style={{ color: "red" }}>
+										Not Advertised
+									</p>
+								)}
+								<p className="admins-school-card-header-city">{school.city}</p>
+							</div>
+						</div>
+
 						<div className="admins-school-card-buttons">
 							<Button variant="secondary" onClick={openClosePopup}>
 								Edit
@@ -65,24 +112,28 @@ export default function SchoolCard(props) {
 								<ListGroup className="admins-school-card-information">
 									<ListGroup.Item id="admins-school-card-information-item">
 										<strong id="admins-school-card-information-item-strong">School Type: </strong>
-										{props.school.type.join(" and ")}
+										{school.type.join(" and ")}
 									</ListGroup.Item>
 									<ListGroup.Item id="admins-school-card-information-item">
 										<strong id="admins-school-card-information-item-strong">Educational Level: </strong>
-										{props.school.educationLevel.join(" and ")}
+										{school.educationLevel.join(" and ")}
 									</ListGroup.Item>
 									<ListGroup.Item id="admins-school-card-information-item">
 										<strong id="admins-school-card-information-item-strong">Gender: </strong>
-										{props.school.gender.join(" and ")}
+										{school.gender}
 									</ListGroup.Item>
-									<ListGroup.Item id="admins-school-card-information-item">
-										<strong id="admins-school-card-information-item-strong">Address: </strong>
-										{props.school.address}
-									</ListGroup.Item>
+									<a href={school.map} className="admins-school-card-information-map-link">
+										<ListGroup.Item id="admins-school-card-information-item-address">
+											<strong id="admins-school-card-information-item-strong">Address: </strong>
+											{school.address}
+										</ListGroup.Item>
+									</a>
 								</ListGroup>
 								<hr id="admins-school-card-information-hr" />
+								<p className="admins-school-card-information-about">{school.about}</p>
+								<hr id="admins-school-card-information-hr" />
 								<Carousel interval={null} className="admins-school-card-information-carousel">
-									{props.school.imgs.map((img) => {
+									{school.imgs.map((img) => {
 										return (
 											<Carousel.Item>
 												<img id="admins-school-card-information-carousel-item" src={img} alt="First slide" />
@@ -91,42 +142,57 @@ export default function SchoolCard(props) {
 									})}
 								</Carousel>
 							</Tab>
-							<Tab eventKey="dates" title="Dates">
-								<Container fluid className="admins-school-card-dates">
+							<Tab eventKey="communication" title="Communication" id="admins-school-card-communication-tab">
+								<Container fluid className="admins-school-card-communication">
 									<Row>
-										{newDates.map((date) => {
-											return (
-												<Col>
-													<p className="admins-school-card-dates-head">{date.time}</p>
-													<p className="admins-school-card-dates-body">
-														{date.from} to {date.to}
-													</p>
-												</Col>
-											);
-										})}
+										<p className="admins-school-card-communication-head">Contact Information</p>
+										<div className="admins-school-card-communication-phones">
+											{school.phones.map((phone) => {
+												return <p className="admins-school-card-communication-body">{phone}</p>;
+											})}
+										</div>
+									</Row>
+									<Row>
+										<Col style={{ marginBottom: "20px" }}>
+											<p className="admins-school-card-communication-head">Email</p>
+											<p className="admins-school-card-communication-body">{school.email}</p>
+										</Col>
+									</Row>
+									<Row>
+										<Col>
+											<p className="admins-school-card-communication-head">Website</p>
+											<p className="admins-school-card-communication-body">{school.website}</p>
+										</Col>
 									</Row>
 								</Container>
 							</Tab>
 							<Tab eventKey="fees" title="Fees">
 								<Card.Text className="admins-school-card-fees">
-									<Table striped bordered hover>
-										<thead>
-											<tr>
-												<th>Classroom</th>
-												<th>Fees</th>
-											</tr>
-										</thead>
-										<tbody>
-											{props.school.fees.map((fee) => {
-												return (
-													<tr>
-														<td>{fee.classroom}</td>
-														<td>{fee.fees}</td>
-													</tr>
-												);
-											})}
-										</tbody>
-									</Table>
+									{school.feesSection.map((feesSection) => {
+										return (
+											<div>
+												<p className="admins-school-card-fees-head">{feesSection.type}</p>
+												<Table striped bordered hover className="admins-school-card-fees-table">
+													<thead>
+														<tr>
+															<th>Classroom</th>
+															<th>Fees</th>
+														</tr>
+													</thead>
+													<tbody>
+														{feesSection.fees.map((fees) => {
+															return (
+																<tr>
+																	<td>{fees.classroom}</td>
+																	<td>{fees.fees}</td>
+																</tr>
+															);
+														})}
+													</tbody>
+												</Table>
+											</div>
+										);
+									})}
 								</Card.Text>
 							</Tab>
 						</Tabs>
