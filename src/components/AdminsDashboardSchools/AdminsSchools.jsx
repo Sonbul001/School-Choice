@@ -8,89 +8,126 @@ import "./AdminsSchools.css";
 import logo from "../../assets/logo.png";
 
 export default function AdminsSchools() {
-	let schools = [
+	const schools = [
 		{
+			id: 1,
 			name: "School 1",
 			logo: logo,
 			about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl eget ultricies aliquam, quam nisl lacinia nisl, vitae aliqua",
-			type: ["National", "International"],
-			educationLevel: ["Elementary", "Middle", "Secondary"],
-			gender: "mixed",
-			address: ["address", "school map link"],
+			type: ["National", "IGCSE"],
+			educationLevel: ["KG", "Primary", "Preparatory", "Secondary"],
+			gender: "Mixed",
+			address: "Address",
+			advertised: false,
+			map: "google.maps/example",
+			city: "zayed",
 			imgs: [logo, logo, logo],
-			communication: {
-				phone: ["0123456789", "0123456789"],
-				email: "school@gmail.com",
-			},
+			website: "http://www.example.com",
+			phones: ["0123456789", "0123456789"],
+			email: "school@gmail.com",
 			feesSection: [
 				{
-					type: "international",
+					type: "National",
 					fees: [
 						{
 							classroom: "kg1",
-							fees: "2000",
+							fee: "2000",
 						},
 						{
 							classroom: "kg1",
-							fees: "2000",
+							fee: "2000",
 						},
 						{
 							classroom: "kg1",
-							fees: "2000",
+							fee: "2000",
 						},
 						{
 							classroom: "kg1",
-							fees: "2000",
+							fee: "2000",
+						},
+					],
+				},
+				{
+					type: "IGCSE",
+					fees: [
+						{
+							classroom: "kg1",
+							fee: "2000",
+						},
+						{
+							classroom: "kg1",
+							fee: "2000",
+						},
+						{
+							classroom: "kg1",
+							fee: "2000",
+						},
+						{
+							classroom: "kg1",
+							fee: "2000",
 						},
 					],
 				},
 			],
 		},
 		{
+			id: 1,
 			name: "School 1",
-			type: ["National"],
-			educationLevel: ["Elementary", "Secondary"],
-			gender: ["Girls"],
-			address: "address",
+			logo: logo,
+			about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl eget ultricies aliquam, quam nisl lacinia nisl, vitae aliqua",
+			type: ["National", "IGCSE"],
+			educationLevel: ["KG", "Primary", "Preparatory", "Secondary"],
+			gender: "mixed",
+			address: "Address",
+			advertised: true,
+			map: "google.maps/example",
+			city: "zayed",
 			imgs: [logo, logo, logo],
-			dates: [
-				{ time: "Morning Time", from: "14:12", to: "16:12" },
-				{ time: "Evening Time", from: "19:13", to: "20:13" },
-			],
-			fees: [
+			website: "http://www.example.com",
+			phones: ["0123456789", "0123456789"],
+			email: "school@gmail.com",
+			feesSection: [
 				{
-					classroom: "kg1",
-					fees: "2000",
+					type: "National",
+					fees: [
+						{
+							classroom: "kg1",
+							fee: "2000",
+						},
+						{
+							classroom: "kg1",
+							fee: "2000",
+						},
+						{
+							classroom: "kg1",
+							fee: "2000",
+						},
+						{
+							classroom: "kg1",
+							fee: "2000",
+						},
+					],
 				},
 				{
-					classroom: "kg1",
-					fees: "2000",
-				},
-			],
-		},
-		{
-			name: "School 1",
-			type: ["International"],
-			educationLevel: ["Secondary"],
-			gender: ["Boys"],
-			address: "address",
-			imgs: [logo, logo, logo],
-			dates: [
-				{ time: "Morning Time", from: "14:12", to: "16:12" },
-				{ time: "Evening Time", from: "19:13", to: "20:13" },
-			],
-			fees: [
-				{
-					classroom: "kg1",
-					fees: "2000",
-				},
-				{
-					classroom: "kg1",
-					fees: "2000",
-				},
-				{
-					classroom: "kg1",
-					fees: "2000",
+					type: "IGCSE",
+					fees: [
+						{
+							classroom: "kg1",
+							fee: "2000",
+						},
+						{
+							classroom: "kg1",
+							fee: "2000",
+						},
+						{
+							classroom: "kg1",
+							fee: "2000",
+						},
+						{
+							classroom: "kg1",
+							fee: "2000",
+						},
+					],
 				},
 			],
 		},

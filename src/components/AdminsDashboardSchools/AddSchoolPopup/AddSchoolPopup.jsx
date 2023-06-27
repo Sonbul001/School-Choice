@@ -9,53 +9,14 @@ import "./AddSchoolPopup.css";
 import logo from "../../../assets/logo.png";
 
 export default function AddSchoolPopup(props) {
-	// const schoolExample = {
-	// 	id: 1,
-	// 	name: "School 1",
-	// 	logo: logo,
-	// 	about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl eget ultricies aliquam, quam nisl lacinia nisl, vitae aliqua",
-	// 	type: ["National", "IGCSE", "American", "Lycee", "German", "Canadian"],
-	// 	educationLevel: ["KG", "Primary", "Preparatory", "Secondary"],
-	// 	gender: "mixed",
-	// 	address: "Address",
-	// 	advertised: true,
-	// 	map: "google.maps/example",
-	// 	city: "zayed",
-	// 	imgs: [logo, logo, logo],
-	// 	website: "http://www.example.com",
-	// 	phones: ["0123456789", "0123456789"],
-	// 	email: "school@gmail.com",
-	// 	feesSection: [
-	// 		{
-	// 			type: "National",
-	// 			fees: [
-	// 				{
-	// 					classroom: "kg1",
-	// 					fee: "2000",
-	// 				},
-	// 				{
-	// 					classroom: "kg1",
-	// 					fee: "2000",
-	// 				},
-	// 				{
-	// 					classroom: "kg1",
-	// 					fee: "2000",
-	// 				},
-	// 				{
-	// 					classroom: "kg1",
-	// 					fee: "2000",
-	// 				},
-	// 			],
-	// 		},
-	// 	],
-	// };
-
 	let feeTemp = { classroom: "", fee: "" };
 	let feesSectionTemp = { type: "", fees: [feeTemp] };
 	let typeTemp = [];
 	let educationLevelTemp = [];
 	let imagesTemp = [];
 	let phonesTemp = "";
+
+	// const classrooms = ["KG 1", "KG 2", "Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5", "Grade 6", "Grade 7", "Grade 8", "Grade 9", "Grade 10", "Grade 11", "Grade 12"];
 
 	let schoolTemp = {
 		name: "",
@@ -75,23 +36,32 @@ export default function AddSchoolPopup(props) {
 		feesSection: [feesSectionTemp],
 	};
 
-	// if (props.school !== undefined) {
-	// 	genderTemp = props.school.gender;
-	// 	typeTemp = props.school.type;
-	// 	educationLevelTemp = props.school.educationLevel;
-	// 	imagesTemp = props.school.imgs;
+	if (props.school !== undefined) {
+		// feeTemp = props.school.feesSection[0].fees[0];
+		// feesSectionTemp = props.school.feesSection[0];
+		// typeTemp = props.school.type;
+		// educationLevelTemp = props.school.educationLevel;
+		// imagesTemp = props.school.imgs;
+		// phonesTemp = props.school.phones[0];
 
-	// 	schoolTemp = {
-	// 		name: props.school.name,
-	// 		type: typeTemp,
-	// 		educationLevel: educationLevelTemp,
-	// 		gender: genderTemp,
-	// 		address: props.school.address,
-	// 		imgs: imagesTemp,
-	// 		dates: props.school.dates,
-	// 		fees: [],
-	// 	};
-	// }
+		schoolTemp = {
+			name: props.school.name,
+			// logo: props.school.logo,
+			about: props.school.about,
+			// type: typeTemp,
+			// educationLevel: educationLevelTemp,
+			gender: props.school.gender,
+			address: props.school.address,
+			advertised: props.school.advertised,
+			map: props.school.map,
+			city: props.school.city,
+			// imgs: imagesTemp,
+			website: props.school.website,
+			// phones: [phonesTemp],
+			email: props.school.email,
+			// feesSection: [feesSectionTemp],
+		};
+	}
 
 	library.add(faCircleXmark);
 	// const [fees, setFees] = useState([feeTemp]);
@@ -103,18 +73,86 @@ export default function AddSchoolPopup(props) {
 	const [imgs, setImgs] = useState(imagesTemp);
 	const [advertised, setAdvertised] = useState(false);
 	const [phones, setPhones] = useState([phonesTemp]);
+	// const [selectClasses, setSelectClasses] = useState([{ type: "", classrooms: [{ classroom: "", option: false }] }]);
 
-	// if (props.school !== undefined) {
-	// 	useEffect(() => {
-	// 		setFees(() => {
-	// 			const newFees = [];
-	// 			props.school.fees.forEach((fee) => {
-	// 				newFees.push(fee);
+	// const handleSelectedClasses = (classroom, type) => {
+	// 	const newSelectClasses = [...selectClasses];
+	// 	newSelectClasses.forEach((selectClass) => {
+	// 		if (selectClass.type === type) {
+	// 			selectClass.classrooms.forEach((room) => {
+	// 				if (room.classroom === "") {
+	// 					room.classroom = classroom;
+	// 					room.option = !room.option;
+	// 				}
 	// 			});
-	// 			return newFees;
-	// 		});
-	// 	}, [props.school.fees]);
-	// }
+	// 		}
+	// 	});
+	// 	setSelectClasses(newSelectClasses);
+	// 	console.log(selectClasses);
+	// };
+
+	// const handleSelectedClasses = (classroom, type) => {
+	// 	const newSelectClasses = [...selectClasses];
+	// 	const newSelectedClasses = [...selectedClasses];
+	// 	newSelectClasses.forEach((selectClass) => {
+	// 		if (selectClass.type === type) {
+	// 			selectClass.options = selectClass.options.filter((option) => option !== classroom);
+	// 		}
+	// 	});
+	// 	newSelectedClasses.forEach((selectedClass) => {
+	// 		if (selectedClass.type === type) {
+	// 			selectedClass.selectedOptions.push(classroom);
+	// 		}
+	// 	});
+	// 	setSelectClasses(newSelectClasses);
+	// 	setSelectedClasses(newSelectedClasses);
+	// 	console.log(selectedClasses);
+	// 	console.log(selectClasses);
+	// };
+
+	// const handleSelectedClasses = (classroom, type) => {
+	// 	const newSelectClasses = [...selectClasses];
+	// 	newSelectClasses.forEach((selectClass) => {
+	// 		if (selectClass.type === type) {
+	// 			selectClass.classrooms[classroom] = !selectClass.classrooms[classroom];
+	// 		}
+	// 	});
+	// 	setSelectClasses(newSelectClasses);
+	// 	console.log(selectClasses);
+	// };
+
+	// const handleSelectedClassChange = (type, feeIndex) => {
+	// 	const newSelectClasses = [...selectClasses];
+	// 	const newSelectedClasses = [...selectedClasses];
+	// 	const newClassrooms = classrooms;
+	// 	newSelectedClasses.forEach((selectedClass) => {
+	// 		if (selectedClass.type === type) {
+	// 			selectedClass.selectedOptions = selectedClass.selectedOptions.splice(feeIndex, 1);
+	// 			selectedClass.selectedOptions.forEach((selectedOption) => {
+	// 				newClassrooms.filter((classroom) => classroom !== selectedOption);
+	// 			});
+	// 		}
+	// 	});
+	// 	newSelectClasses.forEach((selectClass) => {
+	// 		if (selectClass.type === type) {
+	// 			selectClass.options = newClassrooms;
+	// 		}
+	// 	});
+	// 	setSelectClasses(newSelectClasses);
+	// 	setSelectedClasses(newSelectedClasses);
+	// };
+
+	if (props.school !== undefined) {
+		useEffect(() => {
+			setFeesSection(props.school.feesSection);
+			setType(props.school.type);
+			setEducationLevel(props.school.educationLevel);
+			// setImgs(props.school.imgs);
+			setPhones(props.school.phones);
+			setGender(props.school.gender);
+			console.log(props.school.feesSection);
+		}, [props.school.feesSection, props.school.type, props.school.educationLevel, props.school.imgs, props.school.phones, props.school.gender]);
+	}
 
 	const handleImageAdd = (event) => {
 		const fileList = event.target.files;
@@ -158,7 +196,7 @@ export default function AddSchoolPopup(props) {
 		setGender(event.target.value);
 	};
 
-	const handlePhoneChange = (event) => {
+	const handlePhoneChange = (event, index) => {
 		const { name, value } = event.target;
 		const newPhones = [...phones];
 		newPhones[index] = { ...newPhones[index], [name]: value };
@@ -186,14 +224,28 @@ export default function AddSchoolPopup(props) {
 		setFeesSection(newFeesSection);
 	};
 
-	useEffect(() => {
-		setFeesSectionTemp();
-	}, [type]);
+	// const setTypesForClasses = () => {
+	// 	const newType = [...type];
+	// 	const newSelectClasses = [];
+	// 	const newSelectedClasses = [];
+	// 	newType.forEach((type) => {
+	// 		newSelectClasses.push({ type: type, classrooms: [{ classroom: "", option: false }] });
+	// 	});
+	// 	setSelectClasses(newSelectClasses);
+	// };
+	if (props.school === undefined) {
+		useEffect(() => {
+			setFeesSectionTemp();
+			// setTypesForClasses();
+		}, [type]);
+	}
 
 	const handleAddFeeInFeeSection = (index) => {
 		const newFeesSection = [...feesSection];
 		newFeesSection[index].fees.push(feeTemp);
 		setFeesSection(newFeesSection);
+		selectClasses[index].classrooms.push({ classroom: "", option: false });
+		setSelectClasses(selectClasses);
 	};
 
 	const handleRemoveFeeInFeeSection = (index, feeIndex) => {
@@ -216,16 +268,20 @@ export default function AddSchoolPopup(props) {
 	const handleInputChange = (event) => {
 		const { name, value } = event.target;
 		setSchool({ ...school, [name]: value });
+		if (name === "logo") {
+			setSchool({ ...school, [name]: URL.createObjectURL(event.target.files[0]) });
+		}
+	};
+
+	const closePopup = () => {
+		props.openClosePopup();
 	};
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		const newSchool = { ...school, feesSection, type, educationLevel, gender, imgs, advertised, phones };
+		closePopup();
 		console.log("New School:", newSchool);
-	};
-
-	const closePopup = () => {
-		props.openClosePopup();
 	};
 
 	return (
@@ -287,9 +343,9 @@ export default function AddSchoolPopup(props) {
 						</Form.Group>
 						<Form.Group as={Col} className="admin-school-form-group-checklist-items">
 							<Form.Label className="admin-school-form-group-checklist-item-label">Genders</Form.Label>
-							<Form.Check type="radio" label="Boys" value="Boys" checked={gender === "Boys"} onChange={handleGenderChange} />
-							<Form.Check type="radio" label="Girls" value="Girls" checked={gender === "Girls"} onChange={handleGenderChange} />
-							<Form.Check type="radio" label="Mixed" value="Mixed" checked={gender === "Mixed"} onChange={handleGenderChange} />
+							<Form.Check type="radio" name="gender" label="Boys" value="Boys" checked={gender === "Boys"} onChange={handleGenderChange} />
+							<Form.Check type="radio" name="gender" label="Girls" value="Girls" checked={gender === "Girls"} onChange={handleGenderChange} />
+							<Form.Check type="radio" name="gender" label="Mixed" value="Mixed" checked={gender === "Mixed"} onChange={handleGenderChange} />
 						</Form.Group>
 						<Form.Group as={Col} className="admin-school-form-group-checklist-items">
 							<Form.Label className="admin-school-form-group-checklist-item-label">School Type</Form.Label>
@@ -323,7 +379,7 @@ export default function AddSchoolPopup(props) {
 					{phones.map((phone, index) => (
 						<div key={index}>
 							<Form.Label className="admin-school-form-group-checklist-item-label">Phone {index + 1}</Form.Label>
-							<Form.Control type="tel" name="phone" value={phone} onChange={(event) => handlePhoneChange(event, index)} />
+							<Form.Control type="text" name="phone" value={phone} onChange={(event) => handlePhoneChange(event, index)} />
 							{phones.length === 1 ? null : (
 								<Button variant="danger" className="admin-school-form-group-checklist-button" type="button" onClick={() => handleRemovePhone(index)}>
 									Remove
@@ -356,7 +412,7 @@ export default function AddSchoolPopup(props) {
 												</Form.Group>
 												<Form.Group as={Col}>
 													<Form.Label className="admin-school-form-group-checklist-item-label">Fees</Form.Label>
-													<Form.Control type="text" name="fee" value={fee.fee} onChange={(event) => handleFeeChangeInFeeSection(event, index, feeIndex)} />
+													<Form.Control type="number" name="fee" value={fee.fee} onChange={(event) => handleFeeChangeInFeeSection(event, index, feeIndex)} />
 												</Form.Group>
 											</Row>
 											{section.fees.length === 1 ? null : (
