@@ -12,7 +12,7 @@ import AdminsExamsDashboard from "./components/AdminsDashboardTests/AdminsExams"
 import AdminsCoursesDashboard from "./components/AdminsDashboardCourses/AdminsCourses";
 import SavedCourses from './components/SavedCourses/SavedCoursesPage/SavedCoursesPage';
 import SavedTests from './components/SavedTests/SavedTestsPage/SavedTestsPage';
-
+import Aboutus from "./components/AboutUs/AboutUs";
 
 function App() {
 	return (
@@ -31,6 +31,7 @@ function App() {
 					<Route path="/savedCourses" exact Component={SavedCourses} />
 					<Route path="/SavedTests" exact Component={SavedTests} />
 					<Route path="/savedSchools" exact Component={SavedSchools} />
+					<Route path="/aboutus" exact Component={Aboutus} />
 				</Routes>
 			</Router>
 		</div>

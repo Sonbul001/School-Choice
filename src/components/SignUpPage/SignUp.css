@@ -41,8 +41,8 @@ a {
 
 .signup--button {
 	border-radius: 20px;
-	border: 1px solid #FF4B2B;
-	background-color: #FF4B2B;
+	border: 1px solid #537888;
+	background-color: #537888;
 	color: #FFFFFF;
 	font-size: 12px;
 	font-weight: bold;
@@ -177,9 +177,6 @@ input {
 }
 
 .overlay {
-	background: #FF416C;
-	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-	background: linear-gradient(to right, #FF4B2B, #FF416C);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;
@@ -216,6 +213,7 @@ input {
 }
 
 .overlay-right {
+	background-color: #6FB3B8;
 	right: 0;
 	transform: translateX(0);
 }

@@ -1,0 +1,110 @@
+.quick-search-bar {
+    width: 100%;
+    display: inline-block;
+    padding: 20px;
+}
+
+.quick-search-bar-circle {
+    width: 105px;
+    height: 93px;
+    background-color: #537888;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    padding: 5ch;
+    margin-top: 10px;
+}
+
+.circle-text {
+    font-family: 'Solway';
+    font-weight: 18px;
+    color: #F6F6F2;
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+.quick-search-form {
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    background-color: #6FB3B8;
+    border-radius: 50px;
+    height: 158px;
+    margin: 0px;
+}
+
+.quick-search-form label {
+    font-size: 14px;
+    margin: 5px 10px 5px 8px;
+    font-family: 'Roboto';
+    color: #F6F6F2;
+    font-weight: lighter;
+}
+
+.quick-search--content {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    float: left;
+}
+
+.quick-search-input {
+    vertical-align: middle;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    width: 170px;
+    height: 48px;
+    text-align: center;
+}
+
+.quick-search-input-radio {
+    width: 18px;
+    height: 18px;
+    margin-right: 5px;
+}
+
+input[type=radio] {
+    accent-color: black;
+}
+
+.quick-search-button-div {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 0;
+    flex-direction: row;
+}
+
+.quick-search-button-div img {
+    display: flex;
+    position: absolute;
+    margin-top: 16px;
+    margin-bottom: 20px;
+    margin-left: 40px;
+    font-weight: lighter;
+}
+
+.quick-search-button-div button {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 158px;
+    width: 213px;
+    padding: 5px 10px;
+    background-color: #537888;
+    color: #F6F6F2;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 24px;
+    font-family: 'Oswald';
+}
+
+.quick-search-button-div button:hover {
+    background-color: #262f38;
+}

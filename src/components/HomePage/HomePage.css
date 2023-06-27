@@ -1,2 +1,7 @@
-
-
+.HomePage h2 {
+    color: black;
+    position: absolute;
+    margin-left: 5%;
+    margin-top: 2%;
+    font-weight: bold;
+}
