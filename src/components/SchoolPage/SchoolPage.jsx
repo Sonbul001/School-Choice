@@ -23,27 +23,19 @@ function SchoolPage() {
     const feeData = [
         {
             classroom: "kg1",
-            boys: "2000",
-            girls: "1000",
-            available: true
+            fees: "2000"
         },
         {
             classroom: "kg1",
-            boys: "2000",
-            girls: "1000",
-            available: true
+            fees: "2000"
         },
         {
             classroom: "kg1",
-            boys: "2000",
-            girls: "1000",
-            available: true
+            fees: "2000"
         },
         {
             classroom: "kg1",
-            boys: "2000",
-            girls: "1000",
-            available: true
+            fees: "2000"
         }
     ]
 

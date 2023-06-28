@@ -1,7 +1,11 @@
 .quick-search-bar {
-    width: 100%;
-    display: inline-block;
+    width: 90%;
+    display: flex;
     padding: 20px;
+    margin: auto;
+    justify-content:space-between;
+    border-radius: 50px;
+    background-color: #6FB3B8;
 }
 
 .quick-search-bar-circle {
@@ -9,16 +13,14 @@
     height: 93px;
     background-color: #537888;
     border-radius: 50%;
+    margin: auto 0;
     display: flex;
+    text-align: center;
     align-items: center;
-    justify-content: center;
-    margin-left: 10px;
-    padding: 5ch;
-    margin-top: 10px;
+    
 }
 
 .circle-text {
-    font-family: 'Solway';
     font-weight: 18px;
     color: #F6F6F2;
     font-size: 18px;
@@ -27,13 +29,13 @@
 
 .quick-search-form {
     display: flex;
-    align-items: center;
-    flex-flow: row wrap;
-    justify-content: space-between;
+    margin: auto 0;
     background-color: #6FB3B8;
-    border-radius: 50px;
-    height: 158px;
-    margin: 0px;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    padding: 0;
+
 }
 
 .quick-search-form label {
@@ -68,7 +70,7 @@
     margin-right: 5px;
 }
 
-input[type=radio] {
+.quick-search-bar input[type=radio] {
     accent-color: black;
 }
 
@@ -102,7 +104,6 @@ input[type=radio] {
     cursor: pointer;
     transition: background-color 0.3s ease;
     font-size: 24px;
-    font-family: 'Oswald';
 }
 
 .quick-search-button-div button:hover {
