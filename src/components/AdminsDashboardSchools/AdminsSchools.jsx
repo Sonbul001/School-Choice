@@ -134,11 +134,9 @@ export default function AdminsSchools() {
 	];
 
 	const [showPopup, setShowPopup] = useState(false);
-	const [selected, setSelected] = useState(null);
 
-	const openClosePopup = (index) => {
+	const openClosePopup = () => {
 		setShowPopup(!showPopup);
-		setSelected(index);
 	};
 
 	return (
@@ -157,7 +155,7 @@ export default function AdminsSchools() {
 				{schools.map((school, index) => {
 					return (
 						<div>
-							<SchoolCard school={school} key={index} index={index} openClosePopup={() => openClosePopup(index)} />
+							<SchoolCard school={school} key={index} index={index} openClosePopup={() => openClosePopup()} />
 							<br />
 						</div>
 					);
