@@ -3,16 +3,18 @@ import HomePage from "./components/HomePage/HomePage";
 import Login from "./components/LoginPage/Login";
 import SignUp from "./components/SignUpPage/SignUp";
 import DetailedSearchPage from "./components/DetailedSearch/DetailedSearch";
-import SavedSchools from './components/SavedSchools/SavedSchools'
+import SavedSchools from "./components/SavedSchools/SavedSchools";
 import ExamsPage from "./components/Exams/ExamsPage";
-import SchoolPage from './components/SchoolPage/SchoolPage'
+import SchoolPage from "./components/SchoolPage/SchoolPage";
 import "./App.css";
 import CoursesPage from "./components/Courses/CoursesPage";
 import AdminsExamsDashboard from "./components/AdminsDashboardTests/AdminsExams";
 import AdminsCoursesDashboard from "./components/AdminsDashboardCourses/AdminsCourses";
-import SavedCourses from './components/SavedCourses/SavedCoursesPage/SavedCoursesPage';
-import SavedTests from './components/SavedTests/SavedTestsPage/SavedTestsPage';
-
+import AdminsSchools from "./components/AdminsDashboardSchools/AdminsSchools";
+import SchoolCard from "./components/AdminsDashboardSchools/SchoolCard/SchoolCard";
+import SavedCourses from "./components/SavedCourses/SavedCoursesPage/SavedCoursesPage";
+import SavedTests from "./components/SavedTests/SavedTestsPage/SavedTestsPage";
+import AddSchoolPopup from "./components/AdminsDashboardSchools/AddSchoolPopup/AddSchoolPopup";
 
 function App() {
 	return (
@@ -28,13 +30,15 @@ function App() {
 					<Route path="/admins/tests" exact Component={AdminsExamsDashboard} />
 					<Route path="/admins/courses" exact Component={AdminsCoursesDashboard} />
 					<Route path="/school" exact Component={SchoolPage} />
+					<Route path="/admins/schools" exact Component={AdminsSchools} />
 					<Route path="/savedCourses" exact Component={SavedCourses} />
 					<Route path="/SavedTests" exact Component={SavedTests} />
 					<Route path="/savedSchools" exact Component={SavedSchools} />
+					<Route path="/schoolCard" exact Component={SchoolCard} />
+					<Route path="/addSchool" exact Component={AddSchoolPopup} />
 				</Routes>
 			</Router>
 		</div>
 	);
-
 }
 export default App;

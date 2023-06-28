@@ -1,0 +1,68 @@
+.admin-schools-page-body {
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	padding: 30px;
+}
+
+.admin-schools-page-body > h2 {
+	margin-top: 30px;
+	width: 90%;
+	display: flex;
+	align-self: center;
+	font-size: 2rem;
+	font-weight: bold;
+	border-bottom: 3px solid black;
+}
+
+.admin-schools-page-header {
+	align-self: center;
+}
+
+.admin-schools-page-popup {
+	position: absolute;
+	margin-left: 50%;
+	margin-top: 2rem;
+	transform: translateX(-50%);
+	width: 100%;
+	z-index: 999;
+}
+
+.admin-schools-page-button {
+	position: absolute;
+	width: 150px;
+	font-family: "Poppins", sans-serif;
+	font-size: 20px;
+	font-weight: 500;
+	margin-left: 15rem;
+	margin-top: 1.5rem;
+	background-color: #1b2430;
+	border: none;
+	transition: 0.4s ease-in-out;
+}
+
+.admin-schools-page-button:hover {
+	cursor: pointer;
+	transform: scale(103%);
+	background-color: #1b2430;
+	border: none;
+}
+
+.admin-schools-page-button:active {
+	transform: scale(100%);
+	border: none;
+}
+
+.admin-schools-page-cards {
+	/* position: relative; */
+	/* display: flex;
+	flex-direction: column; */
+	/* align-items: center; */
+	width: 80%;
+	margin-left: 50%;
+	transform: translateX(-50%);
+	margin-bottom: 30px;
+	height: auto;
+	margin-top: 2rem;
+}

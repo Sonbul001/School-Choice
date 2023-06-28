@@ -1,0 +1,108 @@
+.admin-school-body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.admin-school-form-xmark {
+	position: relative;
+	top: 0;
+	right: 330px;
+	margin: 1rem;
+	font-size: 1.5rem;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+
+.admin-school-form-xmark:hover {
+	scale: 1.2;
+}
+
+.admin-school-from-hori-line {
+	width: 100%;
+	height: 2px;
+	background-color: #afafaf;
+	margin: 1rem 0;
+}
+
+.admin-school-form {
+	background-color: #ffffff;
+	/* margin-top: -5rem; */
+	/* padding: 0 50px; */
+	width: 50rem;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	/* justify-content: center; */
+	border: 1px solid #afafaf;
+	max-height: 800px;
+	overflow-y: auto;
+	overflow-x: none;
+	z-index: 100;
+}
+
+.admin-school-form-title {
+	font-size: 1.5rem;
+	font-weight: 600;
+	align-self: flex-start;
+	margin-bottom: 1rem;
+}
+
+.admin-school-form-row {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.admin-school-form-group {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+.admin-school-form-group-checklist {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+.admin-school-form-group-checklist-items {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+.admin-school-form-group-checklist-item-label {
+	font-size: 1rem;
+	font-weight: 600;
+}
+
+.admin-school-form-group-checklist-button {
+	margin-left: 50%;
+	margin-bottom: 10px;
+	transform: translateX(-50%);
+}
+
+.admin-school-form-imgs {
+	width: 500px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	/* justify-content: space-between; */
+	align-items: center;
+	gap: 10px;
+	/* overflow-x: none; */
+}
+
+.admin-school-form-imgs-item {
+	width: 100px;
+	height: auto;
+}

@@ -1,0 +1,195 @@
+.admins-school-card {
+	height: auto;
+}
+
+.admins-school-card-header {
+	display: flex;
+	justify-content: space-between;
+	margin: 0;
+}
+
+.admins-school-card-title-pic {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.admins-school-card-header-img {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.admins-school-card-header-title {
+	font-size: 2rem;
+	font-weight: bold;
+}
+
+.admins-school-card-header-advertised-city {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.admins-school-card-header-advertised {
+	margin: 0;
+	font-weight: bold;
+}
+
+.admins-school-card-header-city {
+	margin: 0;
+	font-style: italic;
+	font-size: small;
+}
+
+.admins-school-card-buttons {
+	height: 40px;
+	align-self: center;
+	display: flex;
+	gap: 10px;
+}
+
+.admins-school-card-buttons > button {
+	width: 100px;
+}
+
+.admins-school-card-information {
+	margin-left: 50%;
+	transform: translateX(-50%);
+	position: relative;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 20px;
+	padding: 20px 25px;
+}
+
+#admins-school-card-information-item {
+	border-radius: 5px;
+	border: 1px solid #b7b7b7;
+	padding: 10px;
+	font-size: large;
+}
+
+#admins-school-card-information-item-address {
+	border-radius: 5px;
+	border: 1px solid #b7b7b7;
+	padding: 10px;
+	font-size: large;
+	background-color: rgb(117, 209, 117);
+	transition: all 0.4s ease-in-out;
+}
+
+.admins-school-card-information-map-link {
+	/* color: white; */
+	/* margin: 0;
+	padding: 0; */
+	text-decoration: none;
+}
+
+#admins-school-card-information-item-address:hover {
+	transform: scale(1.1);
+	cursor: pointer;
+}
+
+#admins-school-card-information-item-strong {
+	font-weight: 600;
+}
+
+#admins-school-card-information-hr {
+	/* width: 80%; */
+	margin: auto;
+}
+
+.admins-school-card-information-about {
+	font-size: 22px;
+	font-style: italic;
+	padding: 20px 25px;
+}
+
+.admins-school-card-information-carousel {
+	width: 50%;
+	margin: auto;
+}
+
+.admins-school-card-information-carousel .carousel-control-prev,
+.admins-school-card-information-carousel .carousel-control-next {
+	width: 40px;
+	height: 40px;
+	background-color: rgba(0, 0, 0, 0.5);
+	border-radius: 50%;
+	border: none;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	margin: 10px;
+	transition: all 0.3s ease-in-out;
+}
+
+.admins-school-card-information-carousel .carousel-control-prev:hover,
+.admins-school-card-information-carousel .carousel-control-next:hover {
+	opacity: 1;
+}
+
+.admins-school-card-information-carousel .carousel-indicators button {
+	width: 12px;
+	height: 12px;
+	margin: 0 5px;
+	border-radius: 50%;
+	background-color: rgba(0, 0, 0, 0.5);
+	transition: all 0.3s ease;
+}
+
+.admins-school-card-information-carousel .carousel-indicators button.active {
+	background-color: black;
+	transform: scale(1.2);
+}
+
+#admins-school-card-information-carousel-item {
+	margin-left: 50%;
+	transform: translateX(-50%);
+}
+
+.admins-school-card-tab .nav.nav-tabs .nav-link {
+	width: 132px;
+	height: 40px;
+	text-align: center;
+}
+
+.admins-school-card-tab .nav.nav-tabs .nav-link.active {
+	background-color: #b7b7b7;
+}
+
+.admins-school-card-communication-head {
+	margin-top: 20px;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+.admins-school-card-communication-body {
+	font-size: 20px;
+	margin: 0;
+}
+
+.admins-school-card-communication-phones {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	margin-bottom: 20px;
+}
+
+.admins-school-card-fees-head {
+	font-size: 25px;
+	font-weight: bold;
+}
+
+.admins-school-card-fees {
+	position: relative;
+	table-layout: fixed;
+	max-height: 300px;
+	display: block;
+	overflow-y: auto;
+}

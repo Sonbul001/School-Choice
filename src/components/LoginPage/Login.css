@@ -32,7 +32,7 @@ p {
 	margin: 20px 0 30px;
 }
 
-a {
+.login-link {
 	color: #333;
 	font-size: 14px;
 	text-decoration: none;
@@ -70,7 +70,7 @@ a {
 	border-color: #ffffff;
 }
 
-form {
+.login-form {
 	background-color: #ffffff;
 	display: flex;
 	align-items: center;

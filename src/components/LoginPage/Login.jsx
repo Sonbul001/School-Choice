@@ -8,14 +8,16 @@ function Login() {
 		<div className="body">
 			<div class="container" id="container">
 				<div class="form-container sign-in-container">
-					<form action="#">
+					<form action="#" className="login-form">
 						<div className="logo-container">
 							<img className="logo" src={Logo}></img>
 						</div>
 						<h1>Sign in</h1>
 						<input type="email" placeholder="Email" />
 						<input type="password" placeholder="Password" />
-						<a href="#">Forgot your password?</a>
+						<a href="#" className="login-link">
+							Forgot your password?
+						</a>
 						<button className="login--button">Login</button>
 					</form>
 				</div>

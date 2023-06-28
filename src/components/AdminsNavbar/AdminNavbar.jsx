@@ -13,7 +13,7 @@ function AdminNavbar({ page, user }) {
 		<div className="admin-navbar-container">
 			<img className="Nav-img" src={Logo} />
 			<div className="admin-navbar-links" id="nav-items">
-				<a className="item-link" href="#" style={{ textDecoration: page === "schools" ? "underline" : "none", textDecorationColor: "#17cf97" }}>
+				<a className="item-link" href="/admins/schools" style={{ textDecoration: page === "schools" ? "underline" : "none", textDecorationColor: "#17cf97" }}>
 					<FontAwesomeIcon className="item-icons" icon="fa-solid fa-school" size="xs" />
 					Schools
 				</a>
