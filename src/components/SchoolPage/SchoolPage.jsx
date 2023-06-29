@@ -9,6 +9,7 @@ import Fees from "./Fees";
 import Rating from "./Rating";
 import RecommendedSchools from "../RecommendedSchools/RecommendedSchools";
 import Location from "./Location";
+import Levels from "./Levels";
 
 
 //Fetching data from backend should be in this component and pass data as props to all components
@@ -23,27 +24,19 @@ function SchoolPage() {
     const feeData = [
         {
             classroom: "kg1",
-            boys: "2000",
-            girls: "1000",
-            available: true
+            fees: "2000"
         },
         {
             classroom: "kg1",
-            boys: "2000",
-            girls: "1000",
-            available: true
+            fees: "2000"
         },
         {
             classroom: "kg1",
-            boys: "2000",
-            girls: "1000",
-            available: true
+            fees: "2000"
         },
         {
             classroom: "kg1",
-            boys: "2000",
-            girls: "1000",
-            available: true
+            fees: "2000"
         }
     ]
 
@@ -94,9 +87,14 @@ function SchoolPage() {
                 <About
                     images={images}
                     type="International"
-                    level="Nursery And Elementary"
                     gender="Boys And Girls"
                     about="Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+                />
+            </div>
+
+            <div className="school-page-levels">
+                <Levels
+                    levels={['Preparatory', 'Preliminary', 'Primary', 'Incubation', 'Secondary']}
                 />
             </div>
             <div className='school-page-fees'>

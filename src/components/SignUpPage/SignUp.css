@@ -120,6 +120,8 @@ input {
 	left: 0;
 	width: 50%;
 	z-index: 2;
+	padding: 20px;
+
 }
 
 .container.right-panel-active .sign-in-container {

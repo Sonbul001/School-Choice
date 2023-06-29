@@ -3,11 +3,54 @@ import Navbar from '../NavBar/Navbar'
 import Header from '../Heading/Heading'
 import './HomePage.css';
 import Footer from '../Footer/Footer';
-import FeaturedSchools from '../FeaturedSchools/FeaturedSchools/FeaturedSchools';
 import QuickSearch from '../QuickSearch/QuickSearch';
+import Cards from '../Cardss/Cards/Cards';
 
 
 function HomePage() {
+  const featuredSchools = [
+    {
+      cardTitle: "School 1",
+      cardContent: "Card content 1",
+      cardItems: ["item 1", "item 2", "item 3"],
+    },
+    {
+      cardTitle: "School 2",
+      cardContent: "Card content 2",
+      cardItems: ["item 4", "item 5", "item 6"],
+    },
+    {
+      cardTitle: "School 1",
+      cardContent: "Card content 1",
+      cardItems: ["item 1", "item 2", "item 3"],
+    },
+    {
+      cardTitle: "School 2",
+      cardContent: "Card content 2",
+      cardItems: ["item 4", "item 5", "item 6"],
+    },
+    {
+      cardTitle: "School 1",
+      cardContent: "Card content 1",
+      cardItems: ["item 1", "item 2", "item 3"],
+    },
+    {
+      cardTitle: "School 2",
+      cardContent: "Card content 2",
+      cardItems: ["item 4", "item 5", "item 6"],
+    },
+    {
+      cardTitle: "School 1",
+      cardContent: "Card content 1",
+      cardItems: ["item 1", "item 2", "item 3"],
+    },
+    {
+      cardTitle: "School 2",
+      cardContent: "Card content 2",
+      cardItems: ["item 4", "item 5", "item 6"],
+    },
+
+  ];
   return (
     <div className='HomePage'>
 
@@ -21,7 +64,7 @@ function HomePage() {
 
       <h2>Featured Schools</h2>
       <div className='cards'>
-        <FeaturedSchools />
+        <Cards cards={featuredSchools} />
 
       </div>
 

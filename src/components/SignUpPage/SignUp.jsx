@@ -25,8 +25,6 @@ function SignUp() {
 				</div>
 				<div class="overlay-container">
 					<div class="overlay">
-
-
 						<div class="overlay-panel overlay-right">
 							<h1>Already Have an Account?</h1>
 							<button onClick={() => { window.location = 'login' }} class="signup--button ghost" id="signUp">Login</button>
@@ -37,6 +35,7 @@ function SignUp() {
 		</div>
 
 	);
+
 
 }
 

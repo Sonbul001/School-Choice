@@ -7,13 +7,11 @@ function Fees(props) {
                 <Card.Title className='school-page-fees-card-title'>Fees</Card.Title>
 
                 <Card.Text className='school-page-fees-card-text'>
-                    <Table striped bordered hover>
+                    <Table striped bordered hover responsive>
                         <thead>
                             <tr>
                                 <th>Classroom</th>
-                                <th>Boys Fees</th>
-                                <th>Girls Fees</th>
-                                <th>Available For Reservation</th>
+                                <th>Fees</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -21,9 +19,7 @@ function Fees(props) {
                             (
                                 <tr key={index}>
                                     <td>{data.classroom}</td>
-                                    <td>{data.boys}</td>
-                                    <td>{data.girls}</td>
-                                    <td>{data.available.toString()}</td>
+                                    <td>{data.fees}</td>
                                 </tr>
                             )
                             )}

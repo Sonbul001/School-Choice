@@ -4,7 +4,7 @@ import Logo from '../../../assets/Logo2.png'
 import './Card.css';
 
 function Card(props) {
-    const { cardTitle, cardContent, cardItem, cardItem2 } = props;
+    const { cardTitle, cardContent, cardItems } = props;
 
     return (
         <div id='cardd' class="card">
@@ -13,9 +13,12 @@ function Card(props) {
                 <h5 class="card-title">{cardTitle}</h5>
                 <p class="card-text">{cardContent}</p>
             </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">{cardItem}</li>
-                <li class="list-group-item">{cardItem2}</li>
+            <ul className="list-group list-group-flush">
+                {cardItems.map((item, index) => (
+                    <li key={index} className="list-group-item">
+                        {item}
+                    </li>
+                ))}
             </ul>
         </div>
     );
