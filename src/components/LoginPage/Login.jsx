@@ -6,7 +6,7 @@ import Logo from "../../assets/Logo2.png";
 function Login() {
 	return (
 		<div className="body">
-			<div class="container" id="container">
+			<div class="login-container" id="container">
 				<div class="form-container sign-in-container">
 					<form action="#" className="login-form">
 						<div className="logo-container">
