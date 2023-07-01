@@ -19,15 +19,15 @@ export default function ComparePopup(props) {
 					<FontAwesomeIcon onClick={closePopup} className="compare-popup-xmark" icon="fa-solid fa-circle-xmark" />
 					<Card.Title className="compare-popup-title">
 						Compare between {props.schools[0].cardTitle} and {props.schools[1].cardTitle}
+						<hr />
 					</Card.Title>
-					<Card.Text className="compare-popup-schools">
+					<Card.Text>
 						<Container>
-							<Row>
+							<Row className="compare-popup-schools">
 								{props.schools.map((school, index) => (
 									<Col key={index}>
 										<Card className="compare-popup-school">
 											<Card.Body>
-												<div className="compare-popup-school-title"></div>
 												<Card.Title className="compare-popup-school-title">{school.cardTitle}</Card.Title>
 												<Card.Text className="compare-popup-school-text">
 													<ListGroup className="compare-popup-school-information">
@@ -49,7 +49,7 @@ export default function ComparePopup(props) {
 														</ListGroup.Item>
 														<ListGroup.Item id="compare-popup-school-information-item">
 															<strong id="compare-popup-school-information-item-strong">Minimum Fees: </strong>
-															1000
+															10000
 														</ListGroup.Item>
 														<ListGroup.Item id="compare-popup-school-information-item">
 															<strong id="compare-popup-school-information-item-strong">Maximum Fees: </strong>
