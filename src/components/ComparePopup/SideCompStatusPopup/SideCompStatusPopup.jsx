@@ -52,7 +52,7 @@ export default function SideCompStatusPopup(props) {
 						{props.schools.map((school, index) => (
 							<div key={index} className="right-side-comp-status-school-item">
 								<div className="right-side-comp-status-school-item-title">{school.cardTitle}</div>
-								<FontAwesomeIcon className="right-side-comp-status-school-xmark" icon="fa-solid fa-circle-xmark" onClick={() => pickSchool(index, school)} />
+								<FontAwesomeIcon className="right-side-comp-status-school-xmark" icon="fa-solid fa-circle-xmark" onClick={() => pickSchool(props.picked.at(index), school)} />
 							</div>
 						))}
 						{!clickable ? (
