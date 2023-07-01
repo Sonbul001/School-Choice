@@ -57,8 +57,6 @@ function DetailedSearchPage() {
 		if (!picked.includes(index)) {
 			setPicked([...picked, index]);
 			addSchool(card);
-		} else if (picked.length === 2) {
-			alert("You can only pick 2 schools");
 		} else {
 			const newPicked = picked.filter((arr) => arr !== index);
 			setPicked(newPicked);
@@ -88,13 +86,13 @@ function DetailedSearchPage() {
 				<DetailedSearchSidebar />
 			</div>
 
-			<div className="detailed-search-side-comp-status-popup">{picked.length > 0 && <SideCompStatusPopup schools={schools} pickSchool={pickSchool} />}</div>
+			<div className="detailed-search-side-comp-status-popup">{picked.length > 0 && <SideCompStatusPopup picked={picked} schools={schools} pickSchool={pickSchool} />}</div>
 
 			<div className="cards">
 				<div className="cards" style={{ maxWidth: 1360 }}>
 					{staticCards.map((card, index) => (
 						<div key={index} className="detailed-search-card">
-							{picked.includes(index) ? <FontAwesomeIcon key={index} className="detailed-search-card-icon" icon="fa-solid fa-scale-unbalanced-flip" onClick={() => pickSchool(index, card)} /> : <FontAwesomeIcon key={index} className="detailed-search-card-icon" icon="fa-solid fa-scale-balanced" onClick={() => pickSchool(index, card)} />}
+							{picked.includes(index) ? <FontAwesomeIcon className="detailed-search-card-icon" icon="fa-solid fa-scale-unbalanced-flip" onClick={() => pickSchool(index, card)} /> : <FontAwesomeIcon className="detailed-search-card-icon" icon="fa-solid fa-scale-balanced" onClick={() => pickSchool(index, card)} />}
 							<Card cardTitle={card.cardTitle} cardContent={card.cardContent} cardItem={card.cardItem} cardItem2={card.cardItem2} />
 						</div>
 					))}
