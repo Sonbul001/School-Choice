@@ -10,6 +10,7 @@ export default function ComparePopup(props) {
 	const closePopup = () => {
 		props.openClosePopup();
 	};
+	/* { name: "School 1", address: "city 1", type: "National", gender: "Mixed", rating: "4.5", startingFees: "1000", map: "https://www.google.com/maps" } */
 
 	library.add(faCircleXmark);
 	return (
@@ -18,7 +19,7 @@ export default function ComparePopup(props) {
 				<Card.Body>
 					<FontAwesomeIcon onClick={closePopup} className="compare-popup-xmark" icon="fa-solid fa-circle-xmark" />
 					<Card.Title className="compare-popup-title">
-						Compare between {props.schools[0].cardTitle} and {props.schools[1].cardTitle}
+						Compare between {props.schools[0].name} and {props.schools[1].name}
 						<hr />
 					</Card.Title>
 					<Card.Text>
@@ -28,20 +29,20 @@ export default function ComparePopup(props) {
 									<Col key={index}>
 										<Card className="compare-popup-school">
 											<Card.Body>
-												<Card.Title className="compare-popup-school-title">{school.cardTitle}</Card.Title>
+												<Card.Title className="compare-popup-school-title">{school.name}</Card.Title>
 												<Card.Text className="compare-popup-school-text">
 													<ListGroup className="compare-popup-school-information">
 														<ListGroup.Item id="compare-popup-school-information-item">
 															<strong id="compare-popup-school-information-item-strong">Rating: </strong>
-															5.0
+															{school.rating}
 														</ListGroup.Item>
 														<ListGroup.Item id="compare-popup-school-information-item">
 															<strong id="compare-popup-school-information-item-strong">School Type: </strong>
-															National
+															{school.type}
 														</ListGroup.Item>
 														<ListGroup.Item id="compare-popup-school-information-item">
 															<strong id="compare-popup-school-information-item-strong">Genders: </strong>
-															Mixed
+															{school.gender}
 														</ListGroup.Item>
 														<ListGroup.Item id="compare-popup-school-information-item">
 															<strong id="compare-popup-school-information-item-strong">Educational Level: </strong>
@@ -49,7 +50,7 @@ export default function ComparePopup(props) {
 														</ListGroup.Item>
 														<ListGroup.Item id="compare-popup-school-information-item">
 															<strong id="compare-popup-school-information-item-strong">Minimum Fees: </strong>
-															10000
+															{school.startingFees}
 														</ListGroup.Item>
 														<ListGroup.Item id="compare-popup-school-information-item">
 															<strong id="compare-popup-school-information-item-strong">Maximum Fees: </strong>

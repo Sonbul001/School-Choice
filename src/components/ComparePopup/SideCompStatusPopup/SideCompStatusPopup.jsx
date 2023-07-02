@@ -39,6 +39,7 @@ export default function SideCompStatusPopup(props) {
 	return (
 		<>
 			<div className="side-comp-status-compare-popup">{showPopup && <ComparePopup schools={props.schools} openClosePopup={() => openClosePopup()} />}</div>
+
 			<div className="side-comp-status" style={{ right: move, transition: "all 0.3s ease-in-out" }}>
 				<div className="left-side-comp-status" onClick={handleShow}>
 					<div className="left-side-comp-status-num">{props.schools.length}</div>
@@ -51,8 +52,8 @@ export default function SideCompStatusPopup(props) {
 					<div className="right-side-comp-status-schools">
 						{props.schools.map((school, index) => (
 							<div key={index} className="right-side-comp-status-school-item">
-								<div className="right-side-comp-status-school-item-title">{school.cardTitle}</div>
-								<FontAwesomeIcon className="right-side-comp-status-school-xmark" icon="fa-solid fa-circle-xmark" onClick={() => pickSchool(index, school)} />
+								<div className="right-side-comp-status-school-item-title">{school.name}</div>
+								<FontAwesomeIcon className="right-side-comp-status-school-xmark" icon="fa-solid fa-circle-xmark" onClick={() => pickSchool(props.picked.at(index), school)} />
 							</div>
 						))}
 						{!clickable ? (

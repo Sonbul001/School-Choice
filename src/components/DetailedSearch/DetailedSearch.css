@@ -13,14 +13,28 @@
 	width: 500px;
 }
 
+.detailed-search-cards {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: start;
+	width: 1360px;
+	justify-content: baseline;
+	padding: 40px;
+	margin-bottom: 40px;
+	margin-top: 0;
+	min-width: 30%;
+}
+
 .detailed-search-card-icon {
 	position: relative;
 	width: 25px;
 	height: 25px;
 	margin: 0;
 	z-index: 10;
-	margin-left: 3rem;
-	margin-bottom: -3.5rem;
+	margin-left: 18.2rem;
+	/* margin-top: 5rem; */
+	margin-bottom: -22.2rem;
 	cursor: pointer;
 	transition: all 0.3s ease-in-out;
 }

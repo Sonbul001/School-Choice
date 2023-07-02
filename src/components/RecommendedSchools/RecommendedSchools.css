@@ -1,9 +1,21 @@
 .recommended-schools--component {
-    padding: 1rem;
-    border-top: 1px solid black;
+	padding: 1rem;
+	border-top: 1px solid black;
 }
 
 .recommended-schools--component h2 {
-    margin-top: 2%;
-    font-weight: bold;
+	margin-top: 2%;
+	font-weight: bold;
+}
+
+.recommended-schools-carousel {
+	max-width: 1300px;
+	margin-left: 10rem;
+	margin-right: 10rem;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.recommended-schools-card-item {
+	padding-left: 2.2rem;
 }

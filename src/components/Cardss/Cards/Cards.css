@@ -1,0 +1,14 @@
+.cards {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: start;
+	width: 1360px;
+	justify-content: baseline;
+	padding: 40px;
+	margin-bottom: 40px;
+	margin-top: 0;
+	min-width: 30%;
+	margin-left: 50%;
+	transform: translateX(-50%);
+}
