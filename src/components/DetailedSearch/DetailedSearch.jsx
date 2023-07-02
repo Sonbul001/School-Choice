@@ -10,6 +10,27 @@ import DetailedSearchbar from './DetailedSearchbar/DetailedSearchbar';
 
 
 function DetailedSearchPage() {
+  const staticCards = [
+    { cardTitle: "Card 1", cardContent: "Card content 1", cardItems: ["card item 1", "card item 2", "card item 3"] },
+    { cardTitle: "Card 2", cardContent: "Card content 2", cardItems: ["card item 1", "card item 2", "card item 3"] },
+    { cardTitle: "Card 3", cardContent: "Card content 3", cardItems: ["card item 1", "card item 2", "card item 3"] },
+    { cardTitle: "Card 1", cardContent: "Card content 1", cardItems: ["card item 1", "card item 2", "card item 3"] },
+    { cardTitle: "Card 2", cardContent: "Card content 2", cardItems: ["card item 1", "card item 2", "card item 3"] },
+    { cardTitle: "Card 3", cardContent: "Card content 3", cardItems: ["card item 1", "card item 2", "card item 3"] },
+    { cardTitle: "Card 1", cardContent: "Card content 1", cardItems: ["card item 1", "card item 2", "card item 3"] },
+    { cardTitle: "Card 2", cardContent: "Card content 2", cardItems: ["card item 1", "card item 2", "card item 3"] },
+    { cardTitle: "Card 3", cardContent: "Card content 3", cardItems: ["card item 1", "card item 2", "card item 3"] },
+    { cardTitle: "Card 1", cardContent: "Card content 1", cardItems: ["card item 1", "card item 2", "card item 3"] },
+    { cardTitle: "Card 2", cardContent: "Card content 2", cardItems: ["card item 1", "card item 2", "card item 3"] },
+    { cardTitle: "Card 3", cardContent: "Card content 3", cardItems: ["card item 1", "card item 2", "card item 3"] },
+    { cardTitle: "Card 1", cardContent: "Card content 1", cardItems: ["card item 1", "card item 2", "card item 3"] },
+    { cardTitle: "Card 2", cardContent: "Card content 2", cardItems: ["card item 1", "card item 2", "card item 3"] },
+    { cardTitle: "Card 3", cardContent: "Card content 3", cardItems: ["card item 1", "card item 2", "card item 3"] },
+    { cardTitle: "Card 1", cardContent: "Card content 1", cardItems: ["card item 1", "card item 2", "card item 3"] },
+    { cardTitle: "Card 2", cardContent: "Card content 2", cardItems: ["card item 1", "card item 2", "card item 3"] },
+    { cardTitle: "Card 3", cardContent: "Card content 3", cardItems: ["card item 1", "card item 2", "card item 3"] }
+  ];
+
   return (
     <div className='DetailedSearchPage'>
 
@@ -30,7 +51,7 @@ function DetailedSearchPage() {
       </div>
 
       <div className='cards'>
-        <Cards />
+        <Cards cards={staticCards} />
       </div>
 
 

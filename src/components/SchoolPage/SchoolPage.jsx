@@ -8,6 +8,8 @@ import './SchoolPage.css';
 import Fees from "./Fees";
 import Rating from "./Rating";
 import RecommendedSchools from "../RecommendedSchools/RecommendedSchools";
+import Location from "./Location";
+import Levels from "./Levels";
 
 
 //Fetching data from backend should be in this component and pass data as props to all components
@@ -22,27 +24,19 @@ function SchoolPage() {
     const feeData = [
         {
             classroom: "kg1",
-            boys: "2000",
-            girls: "1000",
-            available: true
+            fees: "2000"
         },
         {
             classroom: "kg1",
-            boys: "2000",
-            girls: "1000",
-            available: true
+            fees: "2000"
         },
         {
             classroom: "kg1",
-            boys: "2000",
-            girls: "1000",
-            available: true
+            fees: "2000"
         },
         {
             classroom: "kg1",
-            boys: "2000",
-            girls: "1000",
-            available: true
+            fees: "2000"
         }
     ]
 
@@ -91,33 +85,37 @@ function SchoolPage() {
             </div>
             <div className='school-page-about'>
                 <About
-                    images= {images}
-                    type= "International"
-                    level= "Nursery And Elementary"
-                    gender= "Boys And Girls"
-                    about= "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+                    images={images}
+                    type="International"
+                    gender="Boys And Girls"
+                    about="Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+                />
+            </div>
+
+            <div className="school-page-levels">
+                <Levels
+                    levels={['Preparatory', 'Preliminary', 'Primary', 'Incubation', 'Secondary']}
+                />
+            </div>
+            <div className='school-page-fees'>
+                <Fees
+                    fees={feeData}
                 />
             </div>
             <div className='school-page-dates'>
                 <Dates
-                    morningFrom='09:00AM'
-                    morningTo='04:00PM'
-                    eveningFrom='05:00PM'
-                    eveningTo='09:00PM'
-                    supervisor='Karim Sonbul'
-                    spec='All Grades'
-                    mobile='0123456789'
+                    mobileNumbers={['0123456789', '9876543210', '1234567890']}
                     email='karim@gmail.com'
                 />
             </div>
-            <div className='school-page-fees'>
-                <Fees 
-                    fees= {feeData}
-                />
+
+            <div className="school-page-location">
+                <Location location='123 Main Street, City, Country' />
             </div>
+
             <div className='school-page-rating'>
-                <Rating 
-                    reviews= {reviews}
+                <Rating
+                    reviews={reviews}
                 />
             </div>
             <div className='school-page-recommended'>

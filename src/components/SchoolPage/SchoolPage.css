@@ -129,10 +129,11 @@
 
 .school-page-dates-card-text, .school-page-fees-card-text {
     border-top: 1px solid rgba(0, 0, 0, 0.5);
+    text-align: center;
 }
 
-.school-page-fees-card-title, .school-page-rating-card-title {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+.school-page-fees-card-text .table, .school-page-dates-card-text .table {
+    table-layout: fixed;
 }
 
 .school-page-dates-card-text-head {

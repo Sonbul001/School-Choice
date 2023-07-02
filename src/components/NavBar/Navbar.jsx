@@ -46,7 +46,6 @@ function Navbar() {
                                 <NavDropdown.Item href="/courses">Courses</NavDropdown.Item>
                             </NavDropdown>
                         </li>
-                        <li><a href='#'>Contact Us</a></li>
                         {isLogged()}
 
                     </ul>
