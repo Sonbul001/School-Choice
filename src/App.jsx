@@ -16,6 +16,7 @@ import SavedCourses from "./components/SavedCourses/SavedCoursesPage/SavedCourse
 import SavedTests from "./components/SavedTests/SavedTestsPage/SavedTestsPage";
 import AddSchoolPopup from "./components/AdminsDashboardSchools/AddSchoolPopup/AddSchoolPopup";
 import Aboutus from "./components/AboutUs/AboutUs";
+import AdminLogin from "./components/LoginPage/AdminLogin";
 
 function App() {
 	return (
@@ -24,6 +25,7 @@ function App() {
 				<Routes>
 					<Route path="/" exact Component={HomePage} />
 					<Route path="/login" exact Component={Login} />
+					<Route path="/adminLogin" exact Component={AdminLogin} />
 					<Route path="/signup" exact Component={SignUp} />
 					<Route path="/search" exact Component={DetailedSearchPage} />
 					<Route path="/exams" exact Component={ExamsPage} />

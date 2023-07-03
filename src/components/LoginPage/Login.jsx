@@ -2,6 +2,7 @@ import React from "react";
 import "./Login.css";
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Logo from "../../assets/Logo2.png";
+import { Link } from "react-router-dom";
 
 function Login() {
 	return (
@@ -12,12 +13,12 @@ function Login() {
 						<div className="logo-container">
 							<img className="logo" src={Logo}></img>
 						</div>
-						<h1>Sign in</h1>
+						<h1>Applicant</h1>
 						<input type="email" placeholder="Email" />
 						<input type="password" placeholder="Password" />
-						<a href="#" className="login-link">
-							Forgot your password?
-						</a>
+						<Link to="/adminLogin" className="login-link">
+							Sign in as admin ?
+						</Link>
 						<button className="login--button">Login</button>
 					</form>
 				</div>
