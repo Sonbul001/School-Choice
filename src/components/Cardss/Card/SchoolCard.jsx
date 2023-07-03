@@ -4,13 +4,13 @@ import "../../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Logo from "../../../assets/Logo2.png";
 import { Tabs, Tab, Col, Container, Row, Table, Card, ListGroup, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFlag, faPeopleGroup } from "@fortawesome/free-solid-svg-icons";
+import { faFlag, faPeopleGroup, faStar } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import "./SchoolCardComp.css";
+import "./SchoolCard.css";
 
-function SchoolCardComp(props) {
+function SchoolCard(props) {
 	const { name, address, type, gender, rating, startingFees, map } = props.schoolInfo;
-	library.add(faFlag, faPeopleGroup);
+	library.add(faFlag, faPeopleGroup, faStar);
 	// const [rate, setRate] = useState(0);
 	// const handleRating = (value) => {
 	// 	setRate(value);
@@ -32,6 +32,7 @@ function SchoolCardComp(props) {
 						</div>
 						<Col className="school-card-header-right">
 							<Card.Text className="school-card-header-right-text">{rating}</Card.Text>
+							<FontAwesomeIcon className="school-card-header-right-icons" icon="fa-solid fa-star" />
 						</Col>
 					</Row>
 				</Card.Header>
@@ -57,4 +58,4 @@ function SchoolCardComp(props) {
 	);
 }
 
-export default SchoolCardComp;
+export default SchoolCard;

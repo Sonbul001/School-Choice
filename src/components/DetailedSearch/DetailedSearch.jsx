@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../../components/NavBar/Navbar";
 import Footer from "../../components/Footer/Footer";
-import SchoolCardComp from "../Cardss/Card/SchoolCardComp";
-import "../Cardss/Card/SchoolCardComp.css";
+import SchoolCard from "../Cardss/Card/SchoolCard";
+import "../Cardss/Card/SchoolCard.css";
 import DetailedSearchHeading from "./DetailedSearchHeader/DetailedSearchHeading";
 import DetailedSearchSidebar from "./DetailedSearchSidebar/DetailedSearchSidebar";
 import "./DetailedSearch.css";
@@ -87,7 +87,7 @@ function DetailedSearchPage() {
 					{staticCards.map((card, index) => (
 						<div key={index} className="detailed-search-card-item">
 							{picked.includes(index) ? <FontAwesomeIcon className="detailed-search-card-icon" icon="fa-solid fa-scale-unbalanced-flip" onClick={() => pickSchool(index, card)} /> : <FontAwesomeIcon className="detailed-search-card-icon" icon="fa-solid fa-scale-balanced" onClick={() => pickSchool(index, card)} />}
-							<SchoolCardComp schoolInfo={card} />
+							<SchoolCard schoolInfo={card} />
 						</div>
 					))}
 				</div>

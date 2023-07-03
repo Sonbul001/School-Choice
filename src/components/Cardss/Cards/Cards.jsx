@@ -1,6 +1,6 @@
 import React from "react";
-import SchoolCardComp from "../Card/SchoolCardComp";
-import "../Card/SchoolCardComp.css";
+import SchoolCard from "../Card/SchoolCard";
+import "../Card/SchoolCard.css";
 import "./Cards.css";
 
 export default function Cards(props) {
@@ -25,7 +25,7 @@ export default function Cards(props) {
 	return (
 		<div className="cards">
 			{staticCards.map((card, index) => (
-				<SchoolCardComp schoolInfo={card} />
+				<SchoolCard schoolInfo={card} />
 			))}
 		</div>
 	);

@@ -1,6 +1,6 @@
 import React from "react";
 import Carousel from "../Exams/Carousel/Carousel";
-import SchoolCardComp from "../Cardss/Card/SchoolCardComp";
+import SchoolCard from "../Cardss/Card/SchoolCard";
 
 import "./RecommendedSchools.css";
 
@@ -29,7 +29,7 @@ export default function RecommendedSchools(props) {
 				<Carousel show={3}>
 					{staticCards.map((recommendedSchool, index) => (
 						<div key={index} className="recommended-schools-card-item">
-							<SchoolCardComp schoolInfo={recommendedSchool} />
+							<SchoolCard schoolInfo={recommendedSchool} />
 						</div>
 					))}
 				</Carousel>
