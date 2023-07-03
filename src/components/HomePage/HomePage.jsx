@@ -3,7 +3,7 @@ import Navbar from "../NavBar/Navbar";
 import Header from "../Heading/Heading";
 import "./HomePage.css";
 import Footer from "../Footer/Footer";
-import Cards from "../Cardss/Cards/Cards";
+import SchoolCardList from "../SchoolCardComp/SchoolCardList/SchoolCardList";
 
 function HomePage() {
 	return (
@@ -16,7 +16,7 @@ function HomePage() {
 			</div>
 
 			<div className="home-page-cards">
-				<Cards />
+				<SchoolCardList />
 			</div>
 
 			<div className="footer">

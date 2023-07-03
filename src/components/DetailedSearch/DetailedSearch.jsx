@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../../components/NavBar/Navbar";
 import Footer from "../../components/Footer/Footer";
-import SchoolCard from "../Cardss/Card/SchoolCard";
-import "../Cardss/Card/SchoolCard.css";
+import SchoolCard from "../SchoolCardComp/SchoolCard/SchoolCard";
+import "../SchoolCardComp/SchoolCard/SchoolCard.css";
 import DetailedSearchHeading from "./DetailedSearchHeader/DetailedSearchHeading";
 import DetailedSearchSidebar from "./DetailedSearchSidebar/DetailedSearchSidebar";
 import "./DetailedSearch.css";

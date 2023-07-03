@@ -1,9 +1,9 @@
 import React from "react";
-import SchoolCard from "../Card/SchoolCard";
-import "../Card/SchoolCard.css";
-import "./Cards.css";
+import SchoolCard from "../SchoolCard/SchoolCard";
+import "../SchoolCard/SchoolCard.css";
+import "./SchoolCardList.css";
 
-export default function Cards(props) {
+export default function SchoolCardList(props) {
 	const staticCards = [
 		{ name: "School 1", address: "city 1", type: "National", gender: "Mixed", rating: "4.5", startingFees: "1000", map: "https://www.google.com/maps" },
 		{ name: "School 2", address: "city 2", type: "International", gender: "Mixed", rating: "4", startingFees: "50000", map: "https://www.google.com/maps" },

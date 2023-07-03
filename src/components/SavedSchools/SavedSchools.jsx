@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../NavBar/Navbar";
 import Footer from "../Footer/Footer";
 import Sidebar from "../SideBar/Sidebar";
-import Cards from "../Cardss/Cards/Cards";
+import Cards from "../SchoolCardComp/SchoolCardList/SchoolCardList";
 import RecommendedSchools from "../RecommendedSchools/RecommendedSchools";
 import "./SavedSchools.css";
 

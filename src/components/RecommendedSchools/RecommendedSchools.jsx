@@ -1,6 +1,6 @@
 import React from "react";
 import Carousel from "../Exams/Carousel/Carousel";
-import SchoolCard from "../Cardss/Card/SchoolCard";
+import SchoolCard from "../SchoolCardComp/SchoolCard/SchoolCard";
 
 import "./RecommendedSchools.css";
 
