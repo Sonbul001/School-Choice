@@ -16,6 +16,7 @@ import SavedCourses from "./components/SavedCourses/SavedCoursesPage/SavedCourse
 import SavedTests from "./components/SavedTests/SavedTestsPage/SavedTestsPage";
 import AddSchoolPopup from "./components/AdminsDashboardSchools/AddSchoolPopup/AddSchoolPopup";
 import Aboutus from "./components/AboutUs/AboutUs";
+import SideCompStatusPopup from "./components/ComparePopup/SideCompStatusPopup/SideCompStatusPopup";
 
 function App() {
 	return (
@@ -38,6 +39,7 @@ function App() {
 					<Route path="/schoolCard" exact Component={SchoolCard} />
 					<Route path="/addSchool" exact Component={AddSchoolPopup} />
 					<Route path="/aboutus" exact Component={Aboutus} />
+					<Route path="/sideCompStatusPopup" exact Component={SideCompStatusPopup} />
 				</Routes>
 			</Router>
 		</div>
