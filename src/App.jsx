@@ -13,7 +13,8 @@ import AdminsCoursesDashboard from "./components/AdminsDashboardCourses/AdminsCo
 import AdminsSchools from "./components/AdminsDashboardSchools/AdminsSchools";
 import SavedCourses from "./components/SavedCourses/SavedCoursesPage/SavedCoursesPage";
 import SavedTests from "./components/SavedTests/SavedTestsPage/SavedTestsPage";
-import SideCompStatusPopup from "./components/ComparePopup/SideCompStatusPopup/SideCompStatusPopup";
+import AddSchoolPopup from "./components/AdminsDashboardSchools/AddSchoolPopup/AddSchoolPopup";
+import Aboutus from "./components/AboutUs/AboutUs";
 
 function App() {
 	return (
@@ -33,7 +34,8 @@ function App() {
 					<Route path="/savedCourses" exact Component={SavedCourses} />
 					<Route path="/SavedTests" exact Component={SavedTests} />
 					<Route path="/savedSchools" exact Component={SavedSchools} />
-					<Route path="/sideCompStatusPopup" exact Component={SideCompStatusPopup} />
+					<Route path="/addSchool" exact Component={AddSchoolPopup} />
+					<Route path="/aboutus" exact Component={Aboutus} />
 				</Routes>
 			</Router>
 		</div>

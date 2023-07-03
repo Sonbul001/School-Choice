@@ -1,30 +1,30 @@
-.heading{
-    background-color:#0e2e58;
-    margin-top: 50px;
+.heading {
+    background-color: #6FB3B8;
     margin-bottom: 20px;
     height: 200px;
     padding-top: 10px;
     padding-left: 12px;
 
 }
-.heading:hover{
-    box-shadow: 0 8px 20px 0 rgba(0,0,0,0.2);
+
+.heading:hover {
+    box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.2);
     transform: scale(1.01);
     transition: 600ms;
-    
-    
+
+
 }
 
 
-.firstLine{
-    color:  #fff;
+.firstLine {
+    color: #fff;
     font-weight: 500;
     margin-left: 5px;
     font-size: 1.2rem;
 }
 
-.Moto{
-    color:  #fff;
+.Moto {
+    color: #fff;
     font-weight: 700;
     margin-left: 15px;
     font-size: 1.5rem;
@@ -32,8 +32,8 @@
 
 }
 
-.textBody{
-    color:  #fff;
-    margin-left: 5px ;
-    
+.textBody {
+    color: #fff;
+    margin-left: 5px;
+
 }

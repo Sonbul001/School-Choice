@@ -5,12 +5,14 @@ import Logo from "../../assets/Logo2.png";
 
 function SignUp() {
 	return (
-		<div className="body">
+		<div className='body'>
 			<div class="container-signUp" id="container">
+
 				<div class="form-container sign-in-container">
-					<form action="#" className="signup-form">
-						<div className="logo-container">
-							<img className="logo" src={Logo}></img>
+					<form action="#">
+						<div className='logo-container'>
+
+							<img className='logo' src={Logo}></img>
 						</div>
 						<h1>Sign Up</h1>
 						<input type="text" placeholder="Full Name" />
@@ -18,28 +20,23 @@ function SignUp() {
 						<input type="text" placeholder="Phone" />
 						<input type="email" placeholder="Email" />
 						<input type="password" placeholder="Password" />
-						<button className="signup--button">Sign Up</button>
+						<button className='signup--button'>Sign Up</button>
 					</form>
 				</div>
 				<div class="overlay-container">
 					<div class="overlay">
 						<div class="overlay-panel overlay-right">
 							<h1>Already Have an Account?</h1>
-							<button
-								onClick={() => {
-									window.location = "login";
-								}}
-								class="signup--button ghost"
-								id="signUp"
-							>
-								Login
-							</button>
+							<button onClick={() => { window.location = 'login' }} class="signup--button ghost" id="signUp">Login</button>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+
 	);
+
+
 }
 
 export default SignUp;

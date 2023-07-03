@@ -1,0 +1,112 @@
+.quick-search-bar {
+    width: 90%;
+    display: flex;
+    padding: 20px;
+    margin: auto;
+    justify-content: space-between;
+    border-radius: 50px;
+    background-color: #6FB3B8;
+}
+
+.quick-search-bar-circle {
+    width: 105px;
+    height: 93px;
+    background-color: #537888;
+    border-radius: 50%;
+    margin: auto 0;
+    display: flex;
+    text-align: center;
+    align-items: center;
+
+}
+
+.circle-text {
+    font-weight: 18px;
+    color: #F6F6F2;
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+.quick-search-form {
+    display: flex;
+    margin: auto 0;
+    background-color: #6FB3B8;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    padding: 0;
+
+}
+
+.quick-search-form label {
+    font-size: 14px;
+    margin: 5px 10px 5px 8px;
+    font-family: 'Roboto';
+    color: #F6F6F2;
+    font-weight: lighter;
+}
+
+.quick-search--content {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    float: left;
+}
+
+.quick-search-input {
+    vertical-align: middle;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    width: 170px;
+    height: 48px;
+    text-align: center;
+}
+
+.quick-search-input-radio {
+    width: 18px;
+    height: 18px;
+    margin-right: 5px;
+}
+
+.quick-search-bar input[type=radio] {
+    accent-color: black;
+}
+
+.quick-search-button-div {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 0;
+    flex-direction: row;
+}
+
+.quick-search-button-div img {
+    display: flex;
+    position: absolute;
+    margin-top: 16px;
+    margin-bottom: 20px;
+    margin-left: 40px;
+    font-weight: lighter;
+}
+
+.quick-search-button-div button {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 158px;
+    width: 213px;
+    padding: 5px 10px;
+    background-color: #537888;
+    color: #F6F6F2;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 24px;
+}
+
+.quick-search-button-div button:hover {
+    background-color: #262f38;
+}

@@ -57,7 +57,6 @@ function DetailedSearchPage() {
 			setSchool(schools.filter((school) => school.name !== card.name));
 		}
 	};
-
 	useEffect(() => {
 		console.log("schools", schools);
 		console.log("picked", picked);

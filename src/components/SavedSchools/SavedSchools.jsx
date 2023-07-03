@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../NavBar/Navbar";
 import Footer from "../Footer/Footer";
 import Sidebar from "../SideBar/Sidebar";
-import Cards from "../SchoolCardComp/SchoolCardList/SchoolCardList";
+import SchoolCardList from "../SchoolCardComp/SchoolCardList/SchoolCardList";
 import RecommendedSchools from "../RecommendedSchools/RecommendedSchools";
 import "./SavedSchools.css";
 
@@ -18,7 +18,7 @@ function SavedSchools() {
 				<div className="savedSchools--component--main">
 					<h2>Favorite Schools</h2>
 					<div>
-						<Cards />
+						<SchoolCardList />
 					</div>
 					<RecommendedSchools />
 				</div>

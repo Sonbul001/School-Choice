@@ -8,7 +8,6 @@ function About(props) {
             <Tab eventKey="about" title="About">
                 <ListGroup className='school-page-about-listgroup'>
                     <ListGroup.Item><strong>School Type: </strong>{props.type}</ListGroup.Item>
-                    <ListGroup.Item><strong>Education Level: </strong>{props.level}</ListGroup.Item>
                     <ListGroup.Item><strong>Gender: </strong>{props.gender}</ListGroup.Item>
                 </ListGroup>
                 <p>{props.about}</p>

@@ -1,44 +1,47 @@
-nav{
+.Navbar > nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: #1b2430;
     padding: 20px 80px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
 
 }
 
 
-.Nav-img{
-    
+.Nav-img {
+
     width: 50px;
     height: 40px;
 }
 
 
-#nav-items{
+#nav-items {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-#nav-items li{
+
+#nav-items li {
     list-style: none;
-    padding: 0 20px ;
+    padding: 0 20px;
     position: relative;
 }
-#nav-items a{
+
+#nav-items a {
     text-decoration: none;
     font-size: 1.3rem;
     font-weight: 600;
     color: #fff;
     transition: 0.3s ease-in-out;
-    
+
 }
-#nav-items a:hover{
+
+#nav-items a:hover {
     color: #17cf97;
 }
 
-#nav-items a.active::after{
+#nav-items a.active::after {
     content: "";
     width: 30%;
     height: 2px;
@@ -47,4 +50,3 @@ nav{
     bottom: -4px;
     left: 20px;
 }
-
