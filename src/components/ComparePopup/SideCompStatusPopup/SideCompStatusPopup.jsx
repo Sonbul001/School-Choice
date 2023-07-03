@@ -25,6 +25,8 @@ export default function SideCompStatusPopup(props) {
 	useEffect(() => {
 		if (props.schools.length === 2) {
 			setClickable(true);
+		} else {
+			setClickable(false);
 		}
 	}, [props.schools]);
 
