@@ -40,6 +40,7 @@ export default function SideCompStatusPopup(props) {
 
 	return (
 		<>
+			{showPopup && <div className="compare-popup-shadow"></div>}
 			<div className="side-comp-status-compare-popup">{showPopup && <ComparePopup schools={props.schools} openClosePopup={() => openClosePopup()} />}</div>
 			<div className="side-comp-status" style={{ right: move, transition: "all 0.3s ease-in-out" }}>
 				<div className="left-side-comp-status" onClick={handleShow}>
