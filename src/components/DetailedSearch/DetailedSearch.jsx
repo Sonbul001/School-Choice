@@ -75,13 +75,12 @@ function DetailedSearchPage() {
 				<DetailedSearchbar />
 			</div>
 
-			<div className="sidebar">
-				<DetailedSearchSidebar />
-			</div>
-
 			<div className="detailed-search-side-comp-status-popup">{picked.length > 0 && <SideCompStatusPopup picked={picked} schools={schools} pickSchool={pickSchool} />}</div>
 
-			<div>
+			<div className="detailed-search-side-bar-cards">
+				<div className="sidebar">
+					<DetailedSearchSidebar />
+				</div>
 				<div className="detailed-search-cards">
 					{staticCards.map((card, index) => (
 						<div key={index} className="detailed-search-card-item">
