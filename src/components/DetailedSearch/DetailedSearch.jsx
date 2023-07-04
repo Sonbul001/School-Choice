@@ -74,7 +74,6 @@ function DetailedSearchPage() {
 			<div className="searchbar">
 				<DetailedSearchbar />
 			</div>
-
 			<div className="detailed-search-side-comp-status-popup">{picked.length > 0 && <SideCompStatusPopup picked={picked} schools={schools} pickSchool={pickSchool} />}</div>
 
 			<div className="detailed-search-side-bar-cards">

@@ -25,6 +25,8 @@ export default function SideCompStatusPopup(props) {
 	useEffect(() => {
 		if (props.schools.length === 2) {
 			setClickable(true);
+		} else {
+			setClickable(false);
 		}
 	}, [props.schools]);
 
@@ -38,6 +40,7 @@ export default function SideCompStatusPopup(props) {
 
 	return (
 		<>
+			{showPopup && <div className="compare-popup-shadow"></div>}
 			<div className="side-comp-status-compare-popup">{showPopup && <ComparePopup schools={props.schools} openClosePopup={() => openClosePopup()} />}</div>
 			{showPopup && <div className="side-comp-status-compare-popup-overlay"></div>}
 			<div className="side-comp-status" style={{ right: move, transition: "all 0.3s ease-in-out" }}>
