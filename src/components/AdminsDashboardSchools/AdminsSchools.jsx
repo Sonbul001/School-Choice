@@ -1,7 +1,7 @@
 import Footer from "../Footer/Footer";
 import AdminNavbar from "../AdminsNavbar/AdminNavbar";
 import AddSchoolPopup from "./AddSchoolPopup/AddSchoolPopup";
-import SchoolCard from "./SchoolCard/SchoolCard";
+import SchoolAdminCard from "./SchoolCard/SchoolAdminCard";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import "./AdminsSchools.css";
@@ -155,7 +155,7 @@ export default function AdminsSchools() {
 				{schools.map((school, index) => {
 					return (
 						<div>
-							<SchoolCard school={school} key={index} index={index} openClosePopup={() => openClosePopup()} />
+							<SchoolAdminCard school={school} key={index} index={index} openClosePopup={() => openClosePopup()} />
 							<br />
 						</div>
 					);

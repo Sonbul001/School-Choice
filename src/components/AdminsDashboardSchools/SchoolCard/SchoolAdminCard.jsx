@@ -4,10 +4,10 @@ import Button from "react-bootstrap/Button";
 import logo from "../../../assets/logo.png";
 import AddSchoolPopup from "../AddSchoolPopup/AddSchoolPopup";
 import { useState, useEffect } from "react";
-import "./SchoolCard.css";
+import "./SchoolAdminCard.css";
 import { faL } from "@fortawesome/free-solid-svg-icons";
 
-export default function SchoolCard(props) {
+export default function SchoolAdminCard(props) {
 	const [showPopup, setShowPopup] = useState(false);
 
 	const openClosePopup = () => {

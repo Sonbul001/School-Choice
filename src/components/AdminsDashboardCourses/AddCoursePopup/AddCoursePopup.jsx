@@ -4,11 +4,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import "./AddCoursePopup.css";
-import { useState } from "react";
+import { Tabs, Tab, Col, Container, Row, Table, Card, ListGroup } from "react-bootstrap";
+import { useState, useEffect } from "react";
 
 function AddCoursePopup(props) {
 	library.add(faCircleXmark);
-	const [course, setCourse] = useState({ courseName: "", courseLink: "", schoolType: "", coursePrice: 0, courseProvider: "", courseLocation: "", grade: props.grade });
+	const [course, setCourse] = useState({ courseName: "", about: "", duration: "", courseLink: "", schoolType: "", coursePrice: 0, courseProvider: "", courseLocation: "", grade: props.grade });
 
 	const handleSubmit = (e) => {
 		e.preventDefault();

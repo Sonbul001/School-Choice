@@ -1,0 +1,142 @@
+.side-comp-status-compare-popup-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 100;
+}
+
+.side-comp-status-compare-popup {
+	position: fixed;
+	height: auto;
+	color: white;
+	z-index: 20;
+	width: 80rem;
+	/* height: auto; */
+	margin-left: 50%;
+	transform: translateX(-50%);
+	/* margin-top: 10%; */
+	z-index: 110;
+}
+
+.side-comp-status {
+	position: fixed;
+	top: 20%;
+	right: 0;
+	height: auto;
+	z-index: 90;
+	display: flex;
+	justify-content: space-between;
+	align-items: start;
+}
+
+.left-side-comp-status {
+	/* position: fixed; */
+	padding: 20px;
+	box-sizing: border-box;
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+	overflow: hidden;
+	background-color: #1b2430;
+	color: white;
+	height: 50px;
+	width: 50px;
+}
+
+.left-side-comp-status-num {
+	position: relative;
+	border-radius: 50%;
+	background-color: #35ffa7;
+	color: #000000;
+	text-align: center;
+	width: 20px;
+	height: 20px;
+	margin: 0;
+	margin-top: -1rem;
+	z-index: 999;
+	margin-bottom: -0.7rem;
+	margin-left: -1rem;
+}
+
+.left-side-comp-status-img-icon {
+	position: relative;
+	width: 30px;
+	height: 30px;
+	margin: 0;
+	margin-left: -0.6rem;
+}
+
+.right-side-comp-status {
+	/* position: fixed; */
+	padding: 20px;
+	box-sizing: border-box;
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+	overflow: hidden;
+	background-color: #1b2430;
+	color: white;
+	width: 250px;
+	height: auto;
+}
+
+.right-side-comp-status-title {
+	font-size: large;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+.right-side-comp-status-schools {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+
+.right-side-comp-status-school-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	font-size: large;
+}
+
+.right-side-comp-status-schools-button {
+	background-color: #ffffff;
+	color: #1b2430;
+	border: none;
+	border-radius: 5px;
+	padding: 3px;
+	cursor: pointer;
+	text-decoration: none;
+	width: 100px;
+	align-self: center;
+	margin-top: 10px;
+	transition: all 0.3s ease-in-out;
+}
+
+.right-side-comp-status-schools-text {
+	background-color: #888888;
+	color: #1b2430;
+	border: none;
+	border-radius: 5px;
+	padding: 3px;
+	text-decoration: none;
+	width: 100px;
+	align-self: center;
+	text-align: center;
+	margin-top: 10px;
+}
+
+.right-side-comp-status-school-xmark {
+	transition: all 0.3s ease-in-out;
+	cursor: pointer;
+}
+
+.right-side-comp-status-school-xmark:hover {
+	transform: scale(1.1);
+}
+
+.right-side-comp-status-schools-button:hover {
+	cursor: pointer;
+	transform: scale(1.1);
+}

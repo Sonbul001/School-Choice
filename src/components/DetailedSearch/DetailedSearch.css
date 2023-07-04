@@ -1,16 +1,54 @@
-.sidebar{
-    height: 100%;
-    background-color: #f5f5f5;
-    float: left;
-    z-index: 1;
-    overflow-x: hidden;
-    margin-top: 100px;
-    margin-left: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
-    /*inline*/
-    display: inline;
-    width: 500px;
-
+.detailed-search-side-bar-cards {
+	display: flex;
+	flex-direction: row;
+	justify-content: start;
+	padding: 40px;
+	margin-bottom: 40px;
+	margin-top: 0;
+	min-width: 30%;
 }
 
+.sidebar {
+	height: 100%;
+	background-color: #f5f5f5;
+	float: left;
+	z-index: 1;
+	overflow-x: hidden;
+	margin-top: 100px;
+	margin-left: 20px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+	/*inline*/
+	display: inline;
+	width: 500px;
+}
+
+.detailed-search-cards {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: start;
+	width: 100rem;
+	justify-content: baseline;
+	padding: 40px;
+	margin-bottom: 40px;
+	margin-top: 0;
+	min-width: 30%;
+}
+
+.detailed-search-card-icon {
+	position: relative;
+	width: 25px;
+	height: 25px;
+	margin: 0;
+	z-index: 10;
+	margin-left: 18.2rem;
+	/* margin-top: 5rem; */
+	margin-bottom: -22.2rem;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+}
+
+.detailed-search-card-icon:hover {
+	transform: scale(1.1);
+}

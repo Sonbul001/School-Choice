@@ -1,10 +1,9 @@
 import React from "react";
-import Carousel from "../Exams/Carousel/Carousel";
-import SchoolCard from "../SchoolCardComp/SchoolCard/SchoolCard";
+import SchoolCard from "../SchoolCard/SchoolCard";
+import "../SchoolCard/SchoolCard.css";
+import "./SchoolCardList.css";
 
-import "./RecommendedSchools.css";
-
-export default function RecommendedSchools(props) {
+export default function SchoolCardList(props) {
 	const staticCards = [
 		{ name: "School 1", address: "city 1", type: "National", gender: "Mixed", rating: "4.5", startingFees: "1000", map: "https://www.google.com/maps" },
 		{ name: "School 2", address: "city 2", type: "International", gender: "Mixed", rating: "4", startingFees: "50000", map: "https://www.google.com/maps" },
@@ -22,18 +21,12 @@ export default function RecommendedSchools(props) {
 		{ name: "School 14", address: "city 14", type: "International", gender: "Girls", rating: "5", startingFees: "50000", map: "https://www.google.com/maps" },
 		{ name: "School 15", address: "city 15", type: "National", gender: "Girls", rating: "4", startingFees: "60000", map: "https://www.google.com/maps" },
 	];
+
 	return (
-		<div className="recommended-schools--component">
-			<h2>Recommended Schools</h2>
-			<div className="recommended-schools-carousel">
-				<Carousel show={3}>
-					{staticCards.map((recommendedSchool, index) => (
-						<div key={index} className="recommended-schools-card-item">
-							<SchoolCard schoolInfo={recommendedSchool} />
-						</div>
-					))}
-				</Carousel>
-			</div>
+		<div className="cards">
+			{staticCards.map((card, index) => (
+				<SchoolCard schoolInfo={card} />
+			))}
 		</div>
 	);
 }
