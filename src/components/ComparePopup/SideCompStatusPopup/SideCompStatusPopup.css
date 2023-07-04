@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .side-comp-status-compare-popup-overlay {
 	position: fixed;
 	top: 0;
@@ -6,6 +7,17 @@
 	right: 0;
 	background-color: rgba(0, 0, 0, 0.5);
 	z-index: 100;
+=======
+.compare-popup-shadow {
+	/* display: none; */
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(165, 85, 85, 0);
+	z-index: 200;
+>>>>>>> 8e641ab (fixed the ability to click on the 'x' while the compare popup is up)
 }
 
 .side-comp-status-compare-popup {
@@ -17,6 +29,7 @@
 	/* height: auto; */
 	margin-left: 50%;
 	transform: translateX(-50%);
+	z-index: 1000;
 	/* margin-top: 10%; */
 	z-index: 110;
 }
@@ -26,7 +39,11 @@
 	top: 20%;
 	right: 0;
 	height: auto;
+<<<<<<< HEAD
 	z-index: 90;
+=======
+	z-index: 100;
+>>>>>>> 8e641ab (fixed the ability to click on the 'x' while the compare popup is up)
 	display: flex;
 	justify-content: space-between;
 	align-items: start;

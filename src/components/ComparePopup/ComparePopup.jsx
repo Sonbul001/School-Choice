@@ -14,7 +14,7 @@ export default function ComparePopup(props) {
 
 	library.add(faCircleXmark);
 	return (
-		<div className="compare-popup-shadow">
+		<div>
 			<Card className="compare-popup">
 				<Card.Body>
 					<FontAwesomeIcon onClick={closePopup} className="compare-popup-xmark" icon="fa-solid fa-circle-xmark" />
