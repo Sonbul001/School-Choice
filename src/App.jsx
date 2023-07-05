@@ -16,6 +16,7 @@ import SavedTests from "./components/SavedTests/SavedTestsPage/SavedTestsPage";
 import Aboutus from "./components/AboutUs/AboutUs";
 import AdminLogin from "./components/LoginPage/AdminLogin";
 import Courses from "./components/Courses/Courses/Courses";
+import ApplicantProfile from "./components/ApplicantProfile/ApplicantProfile";
 
 function App() {
 	return (
@@ -26,6 +27,7 @@ function App() {
 					<Route path="/login" exact Component={Login} />
 					<Route path="/adminLogin" exact Component={AdminLogin} />
 					<Route path="/signup" exact Component={SignUp} />
+					<Route path="/applicant" exact Component={ApplicantProfile} />
 					<Route path="/search" exact Component={DetailedSearchPage} />
 					<Route path="/exams" exact Component={ExamsPage} />
 					<Route path="/courses" exact Component={CoursesPage} />
