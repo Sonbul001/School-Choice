@@ -2,13 +2,12 @@ import React from 'react';
 import Logo from '../../assets/Logo2.png';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import './Navbar.css';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { FaUser } from 'react-icons/fa';
 
 let loggedIn = false;
-
-
-function alo() {
-    return <li><a href='#'>Logout</a></li>;
-}
 
 function isLogged() {
     if (loggedIn) {
@@ -28,6 +27,17 @@ function isLogged() {
 
 
 function Navbar() {
+    const [loggedIn, setLoggedIn] = useState(false)
+    const navigate = useNavigate();
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (token) setLoggedIn(true);
+    })
+
+    const logOut = () => {
+        localStorage.removeItem('token');
+        navigate('/login', {replace:true});
+    }
 
     return (
         <div className='Navbar'>
@@ -35,6 +45,7 @@ function Navbar() {
                 <img className='Nav-img' src={Logo}></img>
                 <div>
                     <ul id='nav-items'>
+                        {loggedIn && <li><a href='/applicant' className='navbar-applicant-username'><FaUser /> Username</a></li>}  
                         <li><a href='/'>Home</a></li>
                         <li><a href='/search'>Schools</a></li>
                         <li>
@@ -46,8 +57,11 @@ function Navbar() {
                                 <NavDropdown.Item href="/courses">Courses</NavDropdown.Item>
                             </NavDropdown>
                         </li>
-                        {isLogged()}
-
+                        {loggedIn && <li><a href='#' onClick={logOut}>Logout</a></li>}
+                        {!loggedIn &&
+                            [<li><a href='/signup'>Sign Up</a></li>,
+                            <li><a href='/login'>Login</a></li>]
+                        }
                     </ul>
                 </div>
             </nav>

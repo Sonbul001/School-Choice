@@ -5,50 +5,50 @@ import usernameLogo from '../../assets/username-logo.png';
 import favoritesLogo from '../../assets/favorites-logo.png';
 import testsLogo from '../../assets/tests-logo.png';
 import coursesLogo from '../../assets/courses-logo.png';
-import settingsLogo from '../../assets/settings-logo.png';
-import { Link } from 'react-router-dom';
-
-const Sidebar = () => {
+import { FaUserAlt, FaSchool, FaUser } from 'react-icons/fa';
+import { PiExamFill } from 'react-icons/pi';
+import { GiTeacher } from 'react-icons/gi';
+const Sidebar = (props) => {
     const [username, setUserName] = useState("");
-    useEffect(() => {
-        const getApplicant = async () => {
-          try {
-            const response = await fetch('http://localhost:3000/applicants/profile', {
-              headers: {
-                Authorization: 'Bearer ' + localStorage.getItem('token')
-              }
-            });
-            if (response.status != 401) {
-              const data = await response.json();
-              setUserName(data.fullName);
-            } else {
-              throw new Error('Unauthorized');
-            }
-          } catch (error) {
-            console.error('Error:', error);
-            alert('Failed to fetch data from the server.');
-          }
-        };
+    // useEffect(() => {
+    //     const getApplicant = async () => {
+    //       try {
+    //         const response = await fetch('http://localhost:3000/applicants/profile', {
+    //           headers: {
+    //             Authorization: 'Bearer ' + localStorage.getItem('token')
+    //           }
+    //         });
+    //         if (response.status != 401) {
+    //           const data = await response.json();
+    //           setUserName(data.fullName);
+    //         } else {
+    //           throw new Error('Unauthorized');
+    //         }
+    //       } catch (error) {
+    //         console.error('Error:', error);
+    //         alert('Failed to fetch data from the server.');
+    //       }
+    //     };
     
-        getApplicant();
-      }, []);
+    //     getApplicant();
+    //   }, []);
     return (
         <div className="sidebar--component">
             <div className="sidebar--component--item">
-                <img src={usernameLogo} alt="Username Logo" />
-                <Link to={"/applicant"}>{username}</Link>
+                <FaUser className='sidebar--component--item--icon'/>
+                <p onClick={() => props.choice(1)}>kdjsadjadsjsnajdjakdjsadjadsjsnajdjakdjsadjadsjsnajdjakdjsadjadsjsnajdjakdjsadjadsjsnajdja</p>
             </div>
             <div className="sidebar--component--item">
-                <img src={favoritesLogo} alt="Favorites Logo" />
-                <Link to={"/savedSchools"}>Schools</Link>
+                <FaSchool className='sidebar--component--item--icon'/>
+                <p onClick={() => props.choice(2)}>Schools</p>
             </div>
             <div className="sidebar--component--item">
-                <img src={testsLogo} alt="Tests Logo" />
-                <Link to={"/savedTests"}>Exams</Link>
+                <PiExamFill className='sidebar--component--item--icon'/>
+                <p onClick={() => props.choice(3)}>Exams</p>
             </div>
             <div className="sidebar--component--item">
-                <img src={coursesLogo} alt="Courses Logo" />
-                <Link to={"/savedCourses"}>Courses</Link>
+                <GiTeacher className='sidebar--component--item--icon'/>
+                <p onClick={() => props.choice(4)}>Courses</p>
             </div>
         </div>
     );

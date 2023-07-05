@@ -22,7 +22,7 @@ function Login() {
       .then(data => {
         if (data.access_token) {
           localStorage.setItem("token", data.access_token);
-          navigate('/applicant');
+          navigate('/');
         } else {
           window.alert("Incorrect email or password.");
         }

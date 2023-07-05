@@ -24,7 +24,7 @@ export default function SchoolCardList(props) {
 
 	return (
 		<div className="cards">
-			{props.schools.map((card, index) => (
+			{staticCards.map((card, index) => (
 				<SchoolCard schoolInfo={card} key={index}/>
 			))}
 		</div>
