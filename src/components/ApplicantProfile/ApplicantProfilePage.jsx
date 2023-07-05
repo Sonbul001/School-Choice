@@ -14,33 +14,33 @@ function ApplicantProfilePage() {
   const [editable, setEditable] = useState(false);
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   const getApplicant = async () => {
-  //     try {
-  //       const response = await fetch('http://localhost:3000/applicants/profile', {
-  //         headers: {
-  //           Authorization: 'Bearer ' + localStorage.getItem('token')
-  //         }
-  //       });
-  //       if (response.status != 401) {
-  //         const data = await response.json();
-  //         console.log(data);
-  //         setFullName(data.fullName);
-  //         setEmail(data.email);
-  //         setPhone(data.phone);
-  //         setAddress(data.address);
-  //         setCity(data.city);
-  //       } else {
-  //         throw new Error('Unauthorized');
-  //       }
-  //     } catch (error) {
-  //       console.error('Error:', error);
-  //       alert('Failed to fetch data from the server.');
-  //     }
-  //   };
+  useEffect(() => {
+    const getApplicant = async () => {
+      try {
+        const response = await fetch('http://localhost:3000/applicants/profile', {
+          headers: {
+            Authorization: 'Bearer ' + localStorage.getItem('token')
+          }
+        });
+        if (response.status != 401) {
+          const data = await response.json();
+          console.log(data);
+          setFullName(data.fullName);
+          setEmail(data.email);
+          setPhone(data.phone);
+          setAddress(data.address);
+          setCity(data.city);
+        } else {
+          throw new Error('Unauthorized');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Failed to fetch data from the server.');
+      }
+    };
 
-  //   getApplicant();
-  // }, []);
+    getApplicant();
+  }, []);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -187,7 +187,7 @@ function ApplicantProfilePage() {
           <Button variant="secondary" onClick={() => setShowDeleteModal(false)}>
             Cancel
           </Button>
-          <Button variant="danger" onClick={handleDelete}>
+          <Button className="applicant-profile-page-delete-btn" variant="danger" onClick={handleDelete}>
             Delete Account
           </Button>
         </Modal.Footer>
