@@ -24,7 +24,6 @@ export default function RecommendedSchools(props) {
 	];
 	return (
 		<div className="recommended-schools--component">
-			<h2>Recommended Schools</h2>
 			<div className="recommended-schools-carousel">
 				<Carousel show={3}>
 					{staticCards.map((recommendedSchool, index) => (
