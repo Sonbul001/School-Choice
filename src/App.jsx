@@ -28,7 +28,7 @@ function App() {
 					<Route path="/login" exact Component={Login} />
 					<Route path="/adminLogin" exact Component={AdminLogin} />
 					<Route path="/signup" exact Component={SignUp} />
-					<Route path="/applicant" exact Component={ApplicantProfile} />
+					<Route path="/applicantProfile" exact Component={ApplicantProfile} />
 					<Route path="/search" exact Component={DetailedSearchPage} />
 					<Route path="/exams" exact Component={ExamsPage} />
 					<Route path="/courses" exact Component={CoursesPage} />
