@@ -16,6 +16,7 @@ import SavedTests from "./components/SavedTests/SavedTestsPage/SavedTestsPage";
 import Aboutus from "./components/AboutUs/AboutUs";
 import AdminLogin from "./components/LoginPage/AdminLogin";
 import ApplicantProfile from "./components/ApplicantProfile/ApplicantProfile";
+import ApplicantDashboard from "./components/ApplicantDashboard/ApplicantDashboard";
 
 function App() {
 	return (
@@ -26,7 +27,7 @@ function App() {
 					<Route path="/login" exact Component={Login} />
 					<Route path="/adminLogin" exact Component={AdminLogin} />
 					<Route path="/signup" exact Component={SignUp} />
-					<Route path="/applicant" exact Component={ApplicantProfile} />
+					<Route path="/applicantProfile" exact Component={ApplicantProfile} />
 					<Route path="/search" exact Component={DetailedSearchPage} />
 					<Route path="/exams" exact Component={ExamsPage} />
 					<Route path="/courses" exact Component={CoursesPage} />
@@ -34,9 +35,10 @@ function App() {
 					<Route path="/admins/courses" exact Component={AdminsCoursesDashboard} />
 					<Route path="/school" exact Component={SchoolPage} />
 					<Route path="/admins/schools" exact Component={AdminsSchools} />
-					<Route path="/savedCourses" exact Component={SavedCourses} />
+					<Route path="/applicant" exact Component={ApplicantDashboard} />
+					{/* <Route path="/savedCourses" exact Component={SavedCourses} />
 					<Route path="/SavedTests" exact Component={SavedTests} />
-					<Route path="/savedSchools" exact Component={SavedSchools} />
+					<Route path="/savedSchools" exact Component={SavedSchools} /> */}
 					<Route path="/aboutus" exact Component={Aboutus} />
 				</Routes>
 			</Router>
