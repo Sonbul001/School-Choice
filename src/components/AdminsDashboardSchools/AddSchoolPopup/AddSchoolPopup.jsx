@@ -199,7 +199,7 @@ export default function AddSchoolPopup(props) {
 	const handlePhoneChange = (event, index) => {
 		const { name, value } = event.target;
 		const newPhones = [...phones];
-		newPhones[index] = { ...newPhones[index], [name]: value };
+		newPhones[index] = value;
 		setPhones(newPhones);
 	};
 

@@ -14,7 +14,7 @@ export default function SchoolAdminCard(props) {
 		setShowPopup(!showPopup);
 	};
 
-	console.log(props.school);
+	// console.log(props.school);
 
 	return (
 		<div>
