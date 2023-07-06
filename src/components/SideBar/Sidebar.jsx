@@ -1,34 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Sidebar.css'
 
 import usernameLogo from '../../assets/username-logo.png';
 import favoritesLogo from '../../assets/favorites-logo.png';
 import testsLogo from '../../assets/tests-logo.png';
 import coursesLogo from '../../assets/courses-logo.png';
-import settingsLogo from '../../assets/settings-logo.png';
-
-const Sidebar = () => {
+import { FaUserAlt, FaSchool, FaUser } from 'react-icons/fa';
+import { PiExamFill } from 'react-icons/pi';
+import { GiTeacher } from 'react-icons/gi';
+const Sidebar = (props) => {
     return (
         <div className="sidebar--component">
             <div className="sidebar--component--item">
-                <img src={usernameLogo} alt="Username Logo" />
-                <a href="#">Username</a>
+                <FaUser className='sidebar--component--item--icon'/>
+                <p onClick={() => props.choice(1)}>{props.username}</p>
             </div>
             <div className="sidebar--component--item">
-                <img src={favoritesLogo} alt="Favorites Logo" />
-                <a href="#">Favorites</a>
+                <FaSchool className='sidebar--component--item--icon'/>
+                <p onClick={() => props.choice(2)}>Schools</p>
             </div>
             <div className="sidebar--component--item">
-                <img src={testsLogo} alt="Tests Logo" />
-                <a href="#">Exams</a>
+                <PiExamFill className='sidebar--component--item--icon'/>
+                <p onClick={() => props.choice(3)}>Exams</p>
             </div>
             <div className="sidebar--component--item">
-                <img src={coursesLogo} alt="Courses Logo" />
-                <a href="#">Courses</a>
-            </div>
-            <div className="sidebar--component--item">
-                <img src={settingsLogo} alt="Settings Logo" />
-                <a href="#">Settings</a>
+                <GiTeacher className='sidebar--component--item--icon'/>
+                <p onClick={() => props.choice(4)}>Courses</p>
             </div>
         </div>
     );

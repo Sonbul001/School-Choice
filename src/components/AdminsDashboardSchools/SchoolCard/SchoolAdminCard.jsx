@@ -72,15 +72,16 @@ export default function SchoolAdminCard(props) {
 								<hr id="admins-school-card-information-hr" />
 								<p className="admins-school-card-information-about">{props.school.about}</p>
 								<hr id="admins-school-card-information-hr" />
-								<Carousel interval={null} className="admins-school-card-information-carousel">
-									{props.school.imgs.map((img) => {
+								{props.school.images &&
+									<Carousel interval={null} className="admins-school-card-information-carousel">
+									{props.school.images.map((img) => {
 										return (
 											<Carousel.Item>
 												<img id="admins-school-card-information-carousel-item" src={img} alt="First slide" />
 											</Carousel.Item>
 										);
 									})}
-								</Carousel>
+								</Carousel>}
 							</Tab>
 							<Tab eventKey="communication" title="Communication" id="admins-school-card-communication-tab">
 								<Container fluid className="admins-school-card-communication">

@@ -1,0 +1,22 @@
+.applicant-dashboard-sidebar {
+    flex: 0 0 auto;
+    height: 100vh;
+    display: flex;
+}
+
+.applicant-dashboard-container {
+    display: flex;
+    min-height: 100%;
+}
+
+.applicant-dashboard {
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.applicant-dashboard-content {
+    flex: 1 1 auto;
+    padding: 20px;
+    height: 100vh;
+    overflow: auto;
+}
