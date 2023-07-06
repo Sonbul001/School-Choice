@@ -10,12 +10,7 @@ export default function SavedCourseInfo(props) {
 
             <div className='course--component--left'>
                 <Course
-                    logo='../../../assets/Logo2.png'
-                    courseName={props.courseName}
-                    schoolType={props.schoolType}
-                    coursePriceType={props.coursePriceType}
-                    courseLocation={props.courseLocation}
-                    courseProvider={props.courseProvider}
+                    course={props.course}
                 />
             </div>
 

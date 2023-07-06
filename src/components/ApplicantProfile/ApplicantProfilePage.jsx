@@ -4,43 +4,15 @@ import { useNavigate } from 'react-router-dom';
 import './ApplicantProfilePage.css';
 import { AiFillEye } from 'react-icons/ai';
 
-function ApplicantProfilePage() {
-  const [fullName, setFullName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [address, setAddress] = useState('');
-  const [city, setCity] = useState('');
+function ApplicantProfilePage(props) {
+  const [fullName, setFullName] = useState(props.user.fullName);
+  const [email, setEmail] = useState(props.user.email);
+  const [phone, setPhone] = useState(props.user.phone);
+  const [address, setAddress] = useState(props.user.address);
+  const [city, setCity] = useState(props.user.city);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [editable, setEditable] = useState(false);
   const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   const getApplicant = async () => {
-  //     try {
-  //       const response = await fetch('http://localhost:3000/applicants/profile', {
-  //         headers: {
-  //           Authorization: 'Bearer ' + localStorage.getItem('token')
-  //         }
-  //       });
-  //       if (response.status != 401) {
-  //         const data = await response.json();
-  //         console.log(data);
-  //         setFullName(data.fullName);
-  //         setEmail(data.email);
-  //         setPhone(data.phone);
-  //         setAddress(data.address);
-  //         setCity(data.city);
-  //       } else {
-  //         throw new Error('Unauthorized');
-  //       }
-  //     } catch (error) {
-  //       console.error('Error:', error);
-  //       alert('Failed to fetch data from the server.');
-  //     }
-  //   };
-
-  //   getApplicant();
-  // }, []);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
