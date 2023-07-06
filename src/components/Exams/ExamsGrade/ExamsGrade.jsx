@@ -1,5 +1,6 @@
 import React from "react";
 import Exams from "../Exams/Exams";
+import AdminsPaginationExams from "../AdminsExams/AdminsPaginationExams";
 
 import "./ExamsGrade.css";
 
@@ -11,9 +12,10 @@ export default function ExamsGrade(props) {
 			</div>
 
 			<div className="exams--page--exam--grade--Exams">
-				<Exams price={0} />
+				{props.user === "admin" ? <AdminsPaginationExams /> : <Exams />}
+				{/* <Exams price={0} />
 
-				<Exams price={100} />
+				<Exams price={100} /> */}
 			</div>
 		</div>
 	);
