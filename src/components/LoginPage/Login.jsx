@@ -46,14 +46,14 @@ function Login() {
               placeholder="Email"
               value={email}
               onChange={(event) => setEmail(event.target.value)}
-			  required
+              required
             />
             <input
               type="password"
               placeholder="Password"
               value={password}
               onChange={(event) => setPassword(event.target.value)}
-			  required
+              required
             />
             <Link to="/adminLogin" className="login-link">
               Sign in as admin ?
