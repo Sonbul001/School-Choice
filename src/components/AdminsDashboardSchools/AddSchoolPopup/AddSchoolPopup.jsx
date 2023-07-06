@@ -279,9 +279,20 @@ export default function AddSchoolPopup(props) {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		const newSchool = { ...school, feesSection, type, educationLevel, gender, imgs, advertised, phones };
+		const token = localStorage.getItem('token');
+		fetch('http://localhost:3000/schools/school', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				'Authorization': `Bearer ${token}`
+
+			},
+			body: JSON.stringify(school)
+		})
+			.then(response => response.json())
+			.then(data => console.log(data))
+			.catch(error => console.error(error));
 		closePopup();
-		console.log("New School:", newSchool);
 	};
 
 	return (
