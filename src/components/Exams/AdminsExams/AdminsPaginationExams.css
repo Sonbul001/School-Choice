@@ -1,0 +1,63 @@
+.admins-pagination-exams {
+	display: flex;
+	justify-content: center;
+	align-items: start;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	list-style-type: none;
+	gap: 20px;
+}
+
+.pagination-container {
+	display: flex;
+	justify-content: center;
+	/* align-items: center; */
+	margin-top: 20px;
+	margin-bottom: 20px;
+	list-style-type: none;
+	gap: 20px;
+}
+
+.pagination-active-page {
+	transition: all 0.2s ease-in-out;
+	transform: scale(1.4);
+}
+
+.admins-pagination-exams-edit-button {
+	position: relative;
+	z-index: 1;
+	margin-left: 1rem;
+	margin-bottom: -4.2rem;
+	width: 23px;
+	height: auto;
+	color: rgb(108, 108, 108);
+	transition: all 0.3s ease-in-out;
+}
+
+.admins-pagination-exams-edit-button:hover {
+	cursor: pointer;
+	transform: scale(1.1);
+}
+
+.admins-pagination-exams-edit-popup {
+	position: absolute;
+	z-index: 2;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.admins-pagination-exams-delete-button {
+	position: relative;
+	z-index: 1;
+	margin-left: -1.5rem;
+	margin-bottom: -6.1rem;
+	width: 23px;
+	height: auto;
+	color: rgb(133, 0, 0);
+	transition: all 0.3s ease-in-out;
+}
+
+.admins-pagination-exams-delete-button:hover {
+	cursor: pointer;
+	transform: scale(1.1);
+}
