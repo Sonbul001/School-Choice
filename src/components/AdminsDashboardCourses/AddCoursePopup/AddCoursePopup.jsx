@@ -68,6 +68,7 @@ function AddCoursePopup(props) {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		setCourse({ ...course, grade: props.grade });
 		console.log(course);
 		closePopup();
 	};
