@@ -9,6 +9,7 @@
 	margin-left: 50%;
 	transform: translateX(-50%);
 	align-self: center;
+	z-index: 100;
 }
 
 .add-test {

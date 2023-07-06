@@ -15,6 +15,7 @@ import SavedCourses from "./components/SavedCourses/SavedCoursesPage/SavedCourse
 import SavedTests from "./components/SavedTests/SavedTestsPage/SavedTestsPage";
 import Aboutus from "./components/AboutUs/AboutUs";
 import AdminLogin from "./components/LoginPage/AdminLogin";
+import Courses from "./components/Courses/Courses/Courses";
 
 function App() {
 	return (
@@ -36,6 +37,7 @@ function App() {
 					<Route path="/SavedTests" exact Component={SavedTests} />
 					<Route path="/savedSchools" exact Component={SavedSchools} />
 					<Route path="/aboutus" exact Component={Aboutus} />
+					<Route path="/coursesPagination" exact Component={Courses} />
 				</Routes>
 			</Router>
 		</div>

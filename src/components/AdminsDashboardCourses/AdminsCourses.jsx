@@ -48,7 +48,7 @@ function AdminCoursesDashboard() {
 									Add Course
 								</Button>
 							</div>
-							<CoursesGrade grade={courseGrade.grade} />
+							<CoursesGrade grade={courseGrade.grade} user="admin" />
 							<div className="exams-popup">{showPopup && selected === index ? <AddCoursePopup openClosePopup={() => openClosePopup()} grade={courseGrade.grade} /> : null}</div>
 						</div>
 					))}

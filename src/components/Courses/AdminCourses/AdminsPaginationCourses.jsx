@@ -2,9 +2,14 @@ import Carousel from "../../Exams/Carousel/Carousel";
 import Course from "../Course/Course";
 import { useState, useEffect } from "react";
 import ReactPaginate from "react-paginate";
-import "./Courses.css";
+import { Button } from "react-bootstrap";
+import { faPenToSquare, faBan } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import "./AdminsPaginationCourses.css";
+import AddCoursePopup from "../../AdminsDashboardCourses/AddCoursePopup/AddCoursePopup";
 
-export default function Courses(props) {
+export default function AdminsPaginationCourses(props) {
 	// const [course, setCourse] = useState({ courseName: "", about: "", objectives: "", learningOutcomes: "", duration: "", courseLink: "", schoolType: "", coursePrice: 0, courseProvider: "", courseLocation: "", grade: props.grade });
 	const courses = [
 		{
@@ -139,9 +144,10 @@ export default function Courses(props) {
 		},
 		// Add more course objects as needed
 	];
-
+	library.add(faPenToSquare, faBan);
 	const [currentPage, setCurrentPage] = useState(0);
 	const [totalPages, setTotalPages] = useState(0);
+	const [showPopupIndex, setShowPopupIndex] = useState(-1);
 	const itemsPerPage = 5;
 
 	useEffect(() => {
@@ -162,14 +168,26 @@ export default function Courses(props) {
 		setOpenCourse(courseName);
 	};
 
+	const handleDeleteCourse = (courseName) => {
+		console.log(courseName);
+	};
+
+	const openClosePopup = (index) => {
+		setShowPopupIndex(showPopupIndex === index ? -1 : index);
+	};
+
 	return (
 		<div>
-			<div className="pagination-courses">
+			<div className="admins-pagination-courses">
 				{subset.map((course, index) => (
-					<Course key={index} course={course} onCourseClick={handleCourseClick} openCourse={openCourse} />
+					<div key={index}>
+						<div className="admins-pagination-courses-edit-popup">{showPopupIndex === index && <AddCoursePopup openClosePopup={() => openClosePopup(index)} grade={props.grade} course={course} index={index} />}</div>
+						<FontAwesomeIcon className="admins-pagination-courses-edit-button" icon="pen-to-square" onClick={() => openClosePopup(index)} />
+						<FontAwesomeIcon className="admins-pagination-courses-delete-button" icon="fa-solid fa-ban" onClick={() => handleDeleteCourse(course.courseName)} />
+						<Course key={index} course={course} onCourseClick={handleCourseClick} openCourse={openCourse} />
+					</div>
 				))}
 			</div>
-
 			<ReactPaginate previousLabel={"<"} nextLabel={">"} breakLabel={"..."} pageCount={totalPages} onPageChange={handlePageChange} forcePage={currentPage} containerClassName={"pagination-container"} activeClassName={"pagination-active-page"} pageClassName={"pagination-pages"} />
 		</div>
 	);
