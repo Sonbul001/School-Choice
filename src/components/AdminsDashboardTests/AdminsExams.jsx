@@ -48,7 +48,7 @@ function AdminTestsDashboard() {
 									Add Test
 								</Button>
 							</div>
-							<ExamsGrade grade={examGrade.grade} />
+							<ExamsGrade grade={examGrade.grade} user="admin" />
 							<div className="exams-popup">{showPopup && selected === index ? <AddTestPopup openClosePopup={() => openClosePopup()} grade={examGrade.grade} /> : null}</div>
 						</div>
 					))}

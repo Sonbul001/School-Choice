@@ -1,0 +1,45 @@
+.applicant-profile-page-title {
+    color: black;
+    font-weight: bold;
+    text-align: left;
+}
+
+.applicant-profile-page-delete-btn {
+    margin: 30px;
+    margin-left: 0;
+    margin-top: 0;
+}
+
+.applicant-profile-page-save-btn {
+    margin: 30px;
+    margin-left: 0;
+    margin-top: 0;
+}
+
+.applicant-profile-page-edit-btn {
+    margin-top: 20px;
+}
+
+.applicant-profile-page-form {
+    margin: 25px 0;
+}
+
+.applicant-profile-page-password {
+    display: flex;
+    gap: 2px;
+    height: max-content;
+}
+
+.applicant-profile-page-password-input {
+    margin: 0;
+}
+
+.applicant-profile-page-form-label {
+    color: black;
+    padding-left: 5px;
+}
+
+.applicant-profile-page-container {
+    margin: 0;
+    padding: 1rem;
+}

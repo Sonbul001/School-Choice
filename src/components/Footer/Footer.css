@@ -8,12 +8,12 @@
 }
 
 .myFooter {
-	/* position: absolute; */
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
 	align-items: flex-end;
 	height: fit-content;
+	background-color: #6FB3B8;
 }
 
 .footer-logo {

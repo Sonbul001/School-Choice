@@ -50,3 +50,7 @@
     bottom: -4px;
     left: 20px;
 }
+
+.navbar-applicant-username svg{
+    vertical-align: inherit;
+}

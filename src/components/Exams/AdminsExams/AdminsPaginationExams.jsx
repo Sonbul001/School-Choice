@@ -5,7 +5,8 @@ import ReactPaginate from "react-paginate";
 import { faPenToSquare, faBan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import "./Exams.css";
+import AddTestPopup from "../../AdminsDashboardTests/AddTestPopup/AddTestPopup";
+import "./AdminsPaginationExams.css";
 
 export default function AdminsPaginationExams(props) {
 	const exams = [
@@ -15,7 +16,7 @@ export default function AdminsPaginationExams(props) {
 			description: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum",
 			subject: "English",
 			link: "https://www.udemy.com/course/complete-react-developer-zero-to-mastery/",
-			price: 0,
+			price: 1,
 		},
 		{
 			logo: "../../../assets/Logo2.png",
@@ -116,11 +117,22 @@ export default function AdminsPaginationExams(props) {
 		setOpenExam(examName);
 	};
 
+	const handleDeleteExam = (examName) => {
+		console.log(examName);
+	};
+
+	const openClosePopup = (index) => {
+		setShowPopupIndex(showPopupIndex === index ? -1 : index);
+	};
+
 	return (
 		<div>
 			<div className="admins-pagination-exams">
 				{subset.map((exam, index) => (
 					<div key={index}>
+						<div className="admins-pagination-exams-edit-popup">{showPopupIndex === index && <AddTestPopup openClosePopup={() => openClosePopup(index)} grade={props.grade} exam={exam} index={index} />}</div>
+						<FontAwesomeIcon className="admins-pagination-exams-edit-button" icon="pen-to-square" onClick={() => openClosePopup(index)} />
+						<FontAwesomeIcon className="admins-pagination-exams-delete-button" icon="fa-solid fa-ban" onClick={() => handleDeleteExam(exam.name)} />
 						<Exam key={index} exam={exam} onExamClick={handleExamClick} openExam={openExam} />
 					</div>
 				))}

@@ -2,136 +2,30 @@ import Footer from "../Footer/Footer";
 import AdminNavbar from "../AdminsNavbar/AdminNavbar";
 import AddSchoolPopup from "./AddSchoolPopup/AddSchoolPopup";
 import SchoolAdminCard from "./SchoolCard/SchoolAdminCard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import "./AdminsSchools.css";
 import logo from "../../assets/logo.png";
 
 export default function AdminsSchools() {
-	const schools = [
-		{
-			id: 1,
-			name: "School 1",
-			logo: logo,
-			about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl eget ultricies aliquam, quam nisl lacinia nisl, vitae aliqua",
-			type: ["National", "IGCSE"],
-			educationLevel: ["KG", "Primary", "Preparatory", "Secondary"],
-			gender: "Mixed",
-			address: "Address",
-			advertised: false,
-			map: "google.maps/example",
-			city: "zayed",
-			imgs: [logo, logo, logo],
-			website: "http://www.example.com",
-			phones: ["0123456789", "0123456789"],
-			email: "school@gmail.com",
-			feesSection: [
-				{
-					type: "National",
-					fees: [
-						{
-							classroom: "kg1",
-							fee: "2000",
-						},
-						{
-							classroom: "kg1",
-							fee: "2000",
-						},
-						{
-							classroom: "kg1",
-							fee: "2000",
-						},
-						{
-							classroom: "kg1",
-							fee: "2000",
-						},
-					],
-				},
-				{
-					type: "IGCSE",
-					fees: [
-						{
-							classroom: "kg1",
-							fee: "2000",
-						},
-						{
-							classroom: "kg1",
-							fee: "2000",
-						},
-						{
-							classroom: "kg1",
-							fee: "2000",
-						},
-						{
-							classroom: "kg1",
-							fee: "2000",
-						},
-					],
-				},
-			],
-		},
-		{
-			id: 1,
-			name: "School 1",
-			logo: logo,
-			about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl eget ultricies aliquam, quam nisl lacinia nisl, vitae aliqua",
-			type: ["National", "IGCSE"],
-			educationLevel: ["KG", "Primary", "Preparatory", "Secondary"],
-			gender: "mixed",
-			address: "Address",
-			advertised: true,
-			map: "google.maps/example",
-			city: "zayed",
-			imgs: [logo, logo, logo],
-			website: "http://www.example.com",
-			phones: ["0123456789", "0123456789"],
-			email: "school@gmail.com",
-			feesSection: [
-				{
-					type: "National",
-					fees: [
-						{
-							classroom: "kg1",
-							fee: "2000",
-						},
-						{
-							classroom: "kg1",
-							fee: "2000",
-						},
-						{
-							classroom: "kg1",
-							fee: "2000",
-						},
-						{
-							classroom: "kg1",
-							fee: "2000",
-						},
-					],
-				},
-				{
-					type: "IGCSE",
-					fees: [
-						{
-							classroom: "kg1",
-							fee: "2000",
-						},
-						{
-							classroom: "kg1",
-							fee: "2000",
-						},
-						{
-							classroom: "kg1",
-							fee: "2000",
-						},
-						{
-							classroom: "kg1",
-							fee: "2000",
-						},
-					],
-				},
-			],
-		},
-	];
+	const [schools, setSchools] = useState([]);
+	useEffect(() => {
+		const getSchools = async () => {
+			try {
+				const response = await fetch('http://localhost:3000/schools/school');
+				if (response.status != 401) {
+					const data = await response.json();
+					setSchools(data);
+				} else {
+					throw new Error('Unauthorized');
+				}
+			} catch (error) {
+				console.error('Error:', error);
+				alert('Failed to fetch data from the server.');
+			}
+		};
+		getSchools();
+	}, []);
 
 	const [showPopup, setShowPopup] = useState(false);
 
