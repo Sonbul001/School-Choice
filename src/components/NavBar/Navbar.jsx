@@ -7,27 +7,8 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa';
 
-let loggedIn = false;
-
-function isLogged() {
-    if (loggedIn) {
-        return <li><a href='#'>Logout</a></li>;
-    }
-    else {
-
-        return ([
-            <li><a href='/signup'>Sign Up</a></li>,
-            <li><a href='/login'>Login</a></li>
-        ]
-        )
-
-    }
-
-}
-
-
 function Navbar() {
-    const [loggedIn, setLoggedIn] = useState(false)
+    const [loggedIn, setLoggedIn] = useState(true)
     const navigate = useNavigate();
     useEffect(() => {
         const token = localStorage.getItem('token');
