@@ -37,12 +37,7 @@ export default function SavedCourses(props) {
             {courses.map((course, index) => (
                 <SavedCourseInfo
                     key={index}
-                    courseName={course.courseName}
-                    description={course.description}
-                    schoolType={course.schoolType}
-                    coursePriceType={course.coursePriceType}
-                    courseLocation={course.courseLocation}
-                    courseProvider={course.courseProvider}
+                    course={course}
                 />
             ))}
         </div>

@@ -8,11 +8,29 @@ import { useNavigate } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa';
 
 function Navbar() {
-    const [loggedIn, setLoggedIn] = useState(true)
+    const [loggedIn, setLoggedIn] = useState(false)
+    const [user, setUser] = useState('')
     const navigate = useNavigate();
     useEffect(() => {
         const token = localStorage.getItem('token');
-        if (token) setLoggedIn(true);
+        if (token) {
+            setLoggedIn(true);
+            fetch('http://localhost:3000/applicants/profile', {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                setUser(data.fullName);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+
+
     })
 
     const logOut = () => {
@@ -26,7 +44,7 @@ function Navbar() {
                 <img className='Nav-img' src={Logo}></img>
                 <div>
                     <ul id='nav-items'>
-                        {loggedIn && <li><a href='/applicant' className='navbar-applicant-username'><FaUser /> Username</a></li>}  
+                        {loggedIn && <li><a href='/applicant' className='navbar-applicant-username'><FaUser /> {user}</a></li>}  
                         <li><a href='/'>Home</a></li>
                         <li><a href='/search'>Schools</a></li>
                         <li>

@@ -27,7 +27,7 @@ function SignUp() {
 		};
 
 		try {
-			const response = await fetch("http://localhost:3000/applicants", {
+			const response = await fetch("http://localhost:3000/applicants/signup", {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
@@ -51,7 +51,7 @@ function SignUp() {
 		<div className="body">
 			<div class="container-signUp" id="container">
 				<div class="form-container sign-in-container">
-					<form>
+					<form onSubmit={handleSubmit}>
 						<div className="logo-container">
 							<img className="logo" src={Logo} alt="Logo" />
 						</div>
