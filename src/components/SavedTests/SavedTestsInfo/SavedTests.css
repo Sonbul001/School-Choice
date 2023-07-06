@@ -1,15 +1,14 @@
 .savedTests--container {
-    background-color: #1f252c;
     padding: 20px;
-    margin-top: 20px;
     width: 100%;
-    color: white;
     font-weight: bold;
 }
 
 .savedTests--container h2 {
-    color: #ffffff;
+    color: black;
     margin-bottom: 10px;
+    text-align: left;
+    font-weight: bold;
 }
 
 .savedTests--container .savedTestsInfo {
