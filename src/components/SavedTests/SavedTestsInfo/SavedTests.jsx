@@ -1,46 +1,74 @@
 //This Should contain collection of all Saved Tests 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import SavedTestInfo from '../SavedTest/SavedTest';
 import './SavedTests.css'
 
-export default function SavedTests(props) {
-    const exams = [
-        {
-            logo: '../../../assets/Logo2.png',
-            examName: 'Test 1',
-            price: 10,
-            schoolType: 'School Type 1',
-            description: 'Description'
-        },
-        {
-            logo: '../../../assets/Logo2.png',
-            examName: 'Test 2',
-            price: 20,
-            schoolType: 'School Type 2',
-            description: 'Description'
-        },
-        {
-            logo: '../../../assets/Logo2.png',
-            examName: 'Test 3',
-            price: 30,
-            schoolType: 'School Type 3',
-            description: 'Description'
-        }
-    ];
+export default function SavedTests() {
+    const [savedExams, setSavedExams] = useState([]);
+    const [recommendedExams, setRecommendedExams] = useState([]);
+
+    useEffect(() => {
+        const getSavedExams = async () => {
+            try {
+                const response = await fetch('http://localhost:3000/applicants/saved-exams', {
+                    headers: {
+                        Authorization: 'Bearer ' + localStorage.getItem('token')
+                    }
+                });
+                if (response.status != 401) {
+                    const data = await response.json();
+                    setSavedExams(data);
+                } else {
+                    throw new Error('Unauthorized');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Failed to fetch data from the server.');
+            }
+        };
+        const getRecommendedExams = async () => {
+            try {
+                const response = await fetch('http://localhost:3000/applicants/recommended-exams', {
+                    headers: {
+                        Authorization: 'Bearer ' + localStorage.getItem('token')
+                    }
+                });
+                if (response.status != 401) {
+                    const data = await response.json();
+                    setRecommendedExams(data);
+                } else {
+                    throw new Error('Unauthorized');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Failed to fetch data from the server.');
+            }
+        };
+
+        getSavedExams();
+        getRecommendedExams();
+    }, []);
 
     return (
         <div className='savedTests--container'>
-            <h2>Saved Exams</h2>
-
-            {exams.map((exam, index) => (
-                <SavedTestInfo
-                    key={index}
-                    description={exam.description}
-                    examName={exam.examName}
-                    price={exam.price}
-                    schoolType={exam.schoolType}
-                />
-            ))}
+            <div>
+                <h2>Saved Exams</h2>
+                {savedExams.map((exam, index) => (
+                    <SavedTestInfo
+                        key={index}
+                        exam={exam}
+                    />
+                ))}
+            </div>
+            <div>
+                <h2>Recommended Exams</h2>
+                {recommendedExams.map((exam, index) => (
+                    <SavedTestInfo
+                        key={index}
+                        exam={exam}
+                    />
+                ))}
+            </div>
         </div>
     )
 }

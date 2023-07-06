@@ -23,7 +23,7 @@ export default function Course(props) {
 
 	const handleShow = () => {
 		setShow(!show);
-		props.onCourseClick(props.course.courseName);
+		props.onCourseClick(props.course.name);
 		if (show) {
 			setWidth(30);
 			setHeight("39rem");
@@ -34,12 +34,12 @@ export default function Course(props) {
 	};
 
 	useEffect(() => {
-		if (props.openCourse !== props.course.courseName) {
+		if (props.openCourse !== props.course.name) {
 			setShow(true);
 			setWidth(18);
 			setHeight("23rem");
 		}
-	}, [props.openCourse, props.course.courseName]);
+	}, [props.openCourse, props.course.name]);
 
 	const handleSave = () => {
 		setSaved(!saved);
@@ -53,7 +53,7 @@ export default function Course(props) {
 				{show ? <FaArrowCircleDown className="course-card-show-button" onClick={handleShow} style={{ transition: "0.5s ease-in-out" }} /> : <FaArrowCircleDown className="course-card-show-button" onClick={handleShow} style={{ transition: "0.5s ease-in-out", transform: "rotate(180deg)" }} />}
 				{saved ? <FontAwesomeIcon icon={solidBookmark} className="course--save--logo " onClick={handleSave} /> : <FontAwesomeIcon icon={regularBookmark} className="course--save--logo " onClick={handleSave} />}
 				<Card.Body>
-					<Card.Title className="course-card-title">{props.course.courseName}</Card.Title>
+					<Card.Title className="course-card-title">{props.course.name}</Card.Title>
 					<hr className="course-car-horizontal-line" />
 					<div className="course-card-price-provider">
 						{props.course.coursePrice > 0 ? <Card.Text className="course-card-price">{props.course.coursePrice} EGP</Card.Text> : <Card.Text className="course-card-price">Free</Card.Text>}
