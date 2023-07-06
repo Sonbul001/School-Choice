@@ -106,7 +106,7 @@ input {
 	overflow: hidden;
 	width: 768px;
 	max-width: 100%;
-	min-height: 650px;
+	min-height: 800px;
 }
 
 .form-container {
@@ -218,4 +218,9 @@ input {
 
 .logo-container {
 	margin-bottom: 80px;
+	text-align: center;
+}
+
+.signup-title {
+	text-align: center;
 }
