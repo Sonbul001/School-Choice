@@ -1,5 +1,7 @@
 .applicant-profile-page-title {
     color: black;
+    font-weight: bold;
+    text-align: left;
 }
 
 .applicant-profile-page-delete-btn {
@@ -35,4 +37,9 @@
 .applicant-profile-page-form-label {
     color: black;
     padding-left: 5px;
+}
+
+.applicant-profile-page-container {
+    margin: 0;
+    padding: 1rem;
 }

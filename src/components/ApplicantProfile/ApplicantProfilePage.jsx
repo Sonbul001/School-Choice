@@ -97,7 +97,7 @@ function ApplicantProfilePage() {
     <Container className="applicant-profile-page-container">
       <Row>
         <Col>
-          <h1 className='applicant-profile-page-title'>Applicant Profile Page</h1>
+          <h2 className='applicant-profile-page-title'>Applicant Profile Page</h2>
           <Form className="applicant-profile-page-form" onSubmit={handleSubmit}>
             <Button className="applicant-profile-page-edit-btn" variant="primary" onClick={handleEdit}>
               Edit
