@@ -46,9 +46,9 @@ export default function ApplicantDashboard() {
                 <div className="applicant-dashboard-content">
 
                     {userProfile && sidebarChoice == 1 && <ApplicantProfilePage user={userProfile} />}
-                    {sidebarChoice == 2 && <SavedSchools user={userProfile} />}
-                    {sidebarChoice == 3 && <SavedTests user={userProfile} />}
-                    {sidebarChoice == 4 && <SavedCourses user={userProfile} />}
+                    {sidebarChoice == 2 && <SavedSchools />}
+                    {sidebarChoice == 3 && <SavedTests />}
+                    {sidebarChoice == 4 && <SavedCourses />}
 
                 </div>
             </div>

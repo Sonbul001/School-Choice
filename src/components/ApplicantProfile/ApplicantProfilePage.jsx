@@ -16,49 +16,51 @@ function ApplicantProfilePage(props) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // try {
-    // 	const response = await fetch("http://localhost:3000/applicants", {
-    // 		method: "PUT",
-    // 		headers: {
-    // 			"Content-Type": "application/json",
-    // 		},
-    // 		body: JSON.stringify(data),
-    // 	});
+    try {
+      const token = localStorage.getItem('token');
+      const data = { fullName, email, phone, address, city };
+    	const response = await fetch("http://localhost:3000/applicants/applicant", {
+    		method: "PATCH",
+    		headers: {
+    			"Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
+    		},
+    		body: JSON.stringify(data),
+    	});
 
-    // 	if (!response.ok) {
-    // 		throw new Error("Network response was not ok");
-    // 	}
+    	if (!response.ok) {
+    		throw new Error("Network response was not ok");
+    	}
 
-    // 	alert("Sign up successful!");
-    // 	navigate('/login');
-    // } catch (error) {
-    // 	console.error("Error:", error);
-    // 	alert("Sign up failed. Please try again.");
-    // }
-    console.log('updated')
+    	alert("Update Successfull");
+      window.location.reload();
+    } catch (error) {
+    	console.error("Error:", error);
+    	alert("Update Failed");
+    }
   };
 
   const handleDelete = async () => {
-  //   try {
-  //     const response = await fetch('http://localhost:3000/applicants/applicant', {
-  //       method: 'DELETE',
-  //       headers: {
-  //         Authorization: 'Bearer ' + localStorage.getItem('token')
-  //       }
-  //     });
+    try {
+      const token = localStorage.getItem('token');
+      const response = await fetch('http://localhost:3000/applicants/applicant', {
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
   
-  //     if (!response.ok) {
-  //       throw new Error('Network response was not ok');
-  //     }
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
   
-  //     alert('Account has been deleted successfully.');
-  //     navigate('/login');
-  //   } catch (error) {
-  //     console.error('Error:', error);
-  //     alert('Failed to delete the account. Please try again.');
-  //   }
-  //   setShowDeleteModal(false);
-  //   console.log('deleted')
+      alert('Account has been deleted successfully.');
+      navigate('/login');
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Failed to delete the account. Please try again.');
+    }
+    setShowDeleteModal(false);
   };
 
   const handleEdit = () => {
