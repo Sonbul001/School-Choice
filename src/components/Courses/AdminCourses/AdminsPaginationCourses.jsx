@@ -10,11 +10,11 @@ import "./AdminsPaginationCourses.css";
 import AddCoursePopup from "../../AdminsDashboardCourses/AddCoursePopup/AddCoursePopup";
 
 export default function AdminsPaginationCourses(props) {
-	// const [course, setCourse] = useState({ courseName: "", about: "", objectives: "", learningOutcomes: "", duration: "", courseLink: "", schoolType: "", coursePrice: 0, courseProvider: "", courseLocation: "", grade: props.grade });
+	// const [course, setCourse] = useState({ name: "", about: "", objectives: "", learningOutcomes: "", duration: "", courseLink: "", schoolType: "", coursePrice: 0, courseProvider: "", courseLocation: "", grade: props.grade });
 	const courses = [
 		{
 			logo: "../../../assets/Logo2.png",
-			courseName: "course 1",
+			name: "course 1",
 			about: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum",
 			duration: "1 month",
 			courseLink: "https://www.udemy.com/course/complete-react-developer-zero-to-mastery/",
@@ -27,7 +27,7 @@ export default function AdminsPaginationCourses(props) {
 		},
 		{
 			logo: "../../../assets/Logo2.png",
-			courseName: "course 2",
+			name: "course 2",
 			about: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum",
 			duration: "1 month",
 			courseLink: "https://www.udemy.com/course/complete-react-developer-zero-to-mastery/",
@@ -40,7 +40,7 @@ export default function AdminsPaginationCourses(props) {
 		},
 		{
 			logo: "../../../assets/Logo2.png",
-			courseName: "course 3",
+			name: "course 3",
 			about: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum",
 			duration: "1 month",
 			courseLink: "https://www.udemy.com/course/complete-react-developer-zero-to-mastery/",
@@ -53,7 +53,7 @@ export default function AdminsPaginationCourses(props) {
 		},
 		{
 			logo: "../../../assets/Logo2.png",
-			courseName: "course 4",
+			name: "course 4",
 			about: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum",
 			duration: "1 month",
 			courseLink: "https://www.udemy.com/course/complete-react-developer-zero-to-mastery/",
@@ -66,7 +66,7 @@ export default function AdminsPaginationCourses(props) {
 		},
 		{
 			logo: "../../../assets/Logo2.png",
-			courseName: "course 5",
+			name: "course 5",
 			about: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum",
 			duration: "1 month",
 			courseLink: "https://www.udemy.com/course/complete-react-developer-zero-to-mastery/",
@@ -79,7 +79,7 @@ export default function AdminsPaginationCourses(props) {
 		},
 		{
 			logo: "../../../assets/Logo2.png",
-			courseName: "course 6",
+			name: "course 6",
 			about: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum",
 			duration: "1 month",
 			courseLink: "https://www.udemy.com/course/complete-react-developer-zero-to-mastery/",
@@ -92,7 +92,7 @@ export default function AdminsPaginationCourses(props) {
 		},
 		{
 			logo: "../../../assets/Logo2.png",
-			courseName: "course 7",
+			name: "course 7",
 			about: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum",
 			duration: "1 month",
 			courseLink: "https://www.udemy.com/course/complete-react-developer-zero-to-mastery/",
@@ -105,7 +105,7 @@ export default function AdminsPaginationCourses(props) {
 		},
 		{
 			logo: "../../../assets/Logo2.png",
-			courseName: "course 8",
+			name: "course 8",
 			about: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum",
 			duration: "1 month",
 			courseLink: "https://www.udemy.com/course/complete-react-developer-zero-to-mastery/",
@@ -118,7 +118,7 @@ export default function AdminsPaginationCourses(props) {
 		},
 		{
 			logo: "../../../assets/Logo2.png",
-			courseName: "course 9",
+			name: "course 9",
 			about: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum",
 			duration: "1 month",
 			courseLink: "https://www.udemy.com/course/complete-react-developer-zero-to-mastery/",
@@ -131,7 +131,7 @@ export default function AdminsPaginationCourses(props) {
 		},
 		{
 			logo: "../../../assets/Logo2.png",
-			courseName: "course 10",
+			name: "course 10",
 			about: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum",
 			duration: "1 month",
 			courseLink: "https://www.udemy.com/course/complete-react-developer-zero-to-mastery/",
@@ -151,12 +151,12 @@ export default function AdminsPaginationCourses(props) {
 	const itemsPerPage = 5;
 
 	useEffect(() => {
-		setTotalPages(Math.ceil(courses.length / itemsPerPage));
+		setTotalPages(Math.ceil(props.courses.length / itemsPerPage));
 	}, []);
 
 	const startIndex = currentPage * itemsPerPage;
 	const endIndex = startIndex + itemsPerPage;
-	const subset = courses.slice(startIndex, endIndex);
+	const subset = props.courses.slice(startIndex, endIndex);
 
 	const handlePageChange = (selectedPage) => {
 		setCurrentPage(selectedPage.selected);
@@ -164,12 +164,12 @@ export default function AdminsPaginationCourses(props) {
 
 	const [openCourse, setOpenCourse] = useState("");
 
-	const handleCourseClick = (courseName) => {
-		setOpenCourse(courseName);
+	const handleCourseClick = (name) => {
+		setOpenCourse(name);
 	};
 
-	const handleDeleteCourse = (courseName) => {
-		console.log(courseName);
+	const handleDeleteCourse = (name) => {
+		console.log(name);
 	};
 
 	const openClosePopup = (index) => {
@@ -183,7 +183,7 @@ export default function AdminsPaginationCourses(props) {
 					<div key={index}>
 						<div className="admins-pagination-courses-edit-popup">{showPopupIndex === index && <AddCoursePopup openClosePopup={() => openClosePopup(index)} grade={props.grade} course={course} index={index} />}</div>
 						<FontAwesomeIcon className="admins-pagination-courses-edit-button" icon="pen-to-square" onClick={() => openClosePopup(index)} />
-						<FontAwesomeIcon className="admins-pagination-courses-delete-button" icon="fa-solid fa-ban" onClick={() => handleDeleteCourse(course.courseName)} />
+						<FontAwesomeIcon className="admins-pagination-courses-delete-button" icon="fa-solid fa-ban" onClick={() => handleDeleteCourse(course.name)} />
 						<Course key={index} course={course} onCourseClick={handleCourseClick} openCourse={openCourse} />
 					</div>
 				))}

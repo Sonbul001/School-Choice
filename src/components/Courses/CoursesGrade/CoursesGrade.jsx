@@ -11,7 +11,7 @@ export default function CoursesGrade(props) {
 				<h2>{props.grade}</h2>
 			</div>
 
-			<div className="courses--page--course--grade--courses">{props.user === "admin" ? <AdminsPaginationCourses grade={props.grade} /> : <Courses grade={props.grade} />}</div>
+			<div className="courses--page--course--grade--courses">{props.user === "admin" ? <AdminsPaginationCourses grade={props.grade} courses={props.courses}/> : <Courses grade={props.grade} courses={props.courses} />}</div>
 		</div>
 	);
 }
