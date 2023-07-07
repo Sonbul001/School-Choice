@@ -18,6 +18,7 @@ import AdminLogin from "./components/LoginPage/AdminLogin";
 import Courses from "./components/Courses/Courses/Courses";
 import ApplicantProfile from "./components/ApplicantProfile/ApplicantProfile";
 import ApplicantDashboard from "./components/ApplicantDashboard/ApplicantDashboard";
+import SavedCoursesPage from "./components/SavedCourses/SavedCoursesPage/SavedCoursesPage";
 
 function App() {
 	return (
@@ -37,6 +38,7 @@ function App() {
 					<Route path="/school" exact Component={SchoolPage} />
 					<Route path="/admins/schools" exact Component={AdminsSchools} />
 					<Route path="/applicant" exact Component={ApplicantDashboard} />
+					<Route path="/savedCoursesPage" exact Component={SavedCoursesPage} />
 					{/* <Route path="/savedCourses" exact Component={SavedCourses} />
 					<Route path="/SavedTests" exact Component={SavedTests} />
 					<Route path="/savedSchools" exact Component={SavedSchools} /> */}

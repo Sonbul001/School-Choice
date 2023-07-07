@@ -20,10 +20,11 @@ export default function exam(props) {
 	const [show, setShow] = useState(true);
 	const [width, setWidth] = useState(18);
 	const [height, setHeight] = useState("22rem");
+	const [userExams, setUserExams] = useState([]);
 
 	const handleShow = () => {
 		setShow(!show);
-		props.onExamClick(props.exam.name);
+		props.onExamClick(props.exam.id);
 		if (show) {
 			setWidth(30);
 			setHeight("30rem");
@@ -34,15 +35,55 @@ export default function exam(props) {
 	};
 
 	useEffect(() => {
-		if (props.openExam !== props.exam.name) {
+		fetch(`http://localhost:3000/applicants/profile`, {
+			headers: {
+				Authorization: `Bearer ${localStorage.getItem("token")}`,
+			},
+		})
+			.then((response) => response.json())
+			.then((data) => setUserExams(data.savedExams))
+			.catch((err) => console.error(err));
+		if (props.openExam !== props.exam.id) {
 			setShow(true);
 			setWidth(18);
 			setHeight("22rem");
 		}
-	}, [props.openExam, props.exam.name]);
+	}, [props.openExam, props.exam.id]);
+
+	useEffect(() => {
+		if (localStorage.getItem("token") && userExams.some((exam) => exam.id === props.exam.id)) {
+			setSaved(true);
+		} else {
+			setSaved(false);
+		}
+	}, [userExams, props.exam.id]);
 
 	const handleSave = () => {
-		setSaved(!saved);
+		if (!saved && localStorage.getItem("token")) {
+			fetch(`http://localhost:3000/applicants/save-exam/${props.exam.id}`, {
+				method: "POST",
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem("token")}`,
+				},
+			})
+				.then((response) => response.json())
+				.then(() => alert("Exam saved successfully"))
+				.catch((error) => console.error(error));
+			setSaved(!saved);
+		} else if (saved && localStorage.getItem("token")) {
+			fetch(`http://localhost:3000/applicants/unsave-exam/${props.exam.id}`, {
+				method: "DELETE",
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem("token")}`,
+				},
+			})
+				.then((response) => response.json())
+				.then(() => alert("Exam unsaved successfully"))
+				.catch((error) => console.error(error));
+			setSaved(!saved);
+		} else {
+			alert("Please login first");
+		}
 	};
 	return (
 		<div>

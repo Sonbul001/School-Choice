@@ -19,35 +19,35 @@ export default function Course(props) {
 	const [saved, setSaved] = useState(false);
 	const [show, setShow] = useState(true);
 	const [width, setWidth] = useState(18);
-	const [height, setHeight] = useState("23rem");
-	const [duration, setDuration] = useState('');
+	const [height, setHeight] = useState("27rem");
+	const [duration, setDuration] = useState("");
 	const [userCourses, setUserCourses] = useState([]);
 
 	const handleShow = () => {
 		setShow(!show);
-		props.onCourseClick(props.course.name);
+		props.onCourseClick(props.course.id);
 		if (show) {
 			setWidth(30);
-			setHeight("39rem");
+			setHeight("36rem");
 		} else {
 			setWidth(18);
-			setHeight("23rem");
+			setHeight("27rem");
 		}
 	};
 
 	useEffect(() => {
 		fetch(`http://localhost:3000/applicants/profile`, {
 			headers: {
-				Authorization: `Bearer ${localStorage.getItem('token')}`
-			}
+				Authorization: `Bearer ${localStorage.getItem("token")}`,
+			},
 		})
-			.then(response => response.json())
-			.then(data => setUserCourses(data.savedCourses))
-			.catch(err => console.error(err));
-		if (props.openCourse !== props.course.name) {
+			.then((response) => response.json())
+			.then((data) => setUserCourses(data.savedCourses))
+			.catch((err) => console.error(err));
+		if (props.openCourse !== props.course.id) {
 			setShow(true);
 			setWidth(18);
-			setHeight("23rem");
+			setHeight("27rem");
 		}
 		const date1 = new Date(props.course.startDate);
 		const date2 = new Date(props.course.endDate);
@@ -58,42 +58,41 @@ export default function Course(props) {
 		} else {
 			setDuration(`${newDurationMonths} Months`);
 		}
-	}, [props.openCourse, props.course.name]);
+	}, [props.openCourse, props.course.id]);
 
 	useEffect(() => {
-		if (userCourses.some((course) => course.id === props.course.id)) {
+		if (localStorage.getItem("token") && userCourses.some((course) => course.id === props.course.id)) {
 			setSaved(true);
 		} else {
 			setSaved(false);
 		}
 	}, [userCourses, props.course.id]);
 	const handleSave = () => {
-		if (!saved && localStorage.getItem('token')) {
+		if (!saved && localStorage.getItem("token")) {
 			fetch(`http://localhost:3000/applicants/save-course/${props.course.id}`, {
-				method: 'POST',
+				method: "POST",
 				headers: {
-					Authorization: `Bearer ${localStorage.getItem('token')}`
-				}
+					Authorization: `Bearer ${localStorage.getItem("token")}`,
+				},
 			})
-				.then(response => response.json())
-				.then(() => alert('Course saved successfully'))
-				.catch(error => console.error(error));
+				.then((response) => response.json())
+				.then(() => alert("Course saved successfully"))
+				.catch((error) => console.error(error));
 			setSaved(!saved);
-		} else if (saved && localStorage.getItem('token')) {
+		} else if (saved && localStorage.getItem("token")) {
 			fetch(`http://localhost:3000/applicants/unsave-course/${props.course.id}`, {
-				method: 'DELETE',
+				method: "DELETE",
 				headers: {
-					Authorization: `Bearer ${localStorage.getItem('token')}`
-				}
+					Authorization: `Bearer ${localStorage.getItem("token")}`,
+				},
 			})
-				.then(response => response.json())
-				.then(() => alert('Course unsaved successfully'))
-				.catch(error => console.error(error));
+				.then((response) => response.json())
+				.then(() => alert("Course unsaved successfully"))
+				.catch((error) => console.error(error));
 			setSaved(!saved);
 		} else {
-			alert('Please login first');
+			alert("Please login first");
 		}
-
 	};
 	// library.add(faBookmark);
 	return (
@@ -102,7 +101,7 @@ export default function Course(props) {
 				<Card.Img className="course-card-logo" variant="top" src={Logo} />
 				{show ? <FaArrowCircleDown className="course-card-show-button" onClick={handleShow} style={{ transition: "0.5s ease-in-out" }} /> : <FaArrowCircleDown className="course-card-show-button" onClick={handleShow} style={{ transition: "0.5s ease-in-out", transform: "rotate(180deg)" }} />}
 				{saved ? <FontAwesomeIcon icon={solidBookmark} className="course--save--logo " onClick={handleSave} /> : <FontAwesomeIcon icon={regularBookmark} className="course--save--logo " onClick={handleSave} />}
-				<Card.Body>
+				<Card.Body className="course-card-body">
 					<Card.Title className="course-card-title">{props.course.name}</Card.Title>
 					<hr className="course-car-horizontal-line" />
 					<div className="course-card-price-provider">
@@ -120,7 +119,7 @@ export default function Course(props) {
 						</div>
 					</div>
 				</Card.Body>
-				<Card.Footer style={{ marginTop: "-3rem" }}>
+				<Card.Footer>
 					<div className="course-card-footer">
 						<div className="course-card-footer-type">
 							<img src={earth} className="course--earth--logo" alt="..." />

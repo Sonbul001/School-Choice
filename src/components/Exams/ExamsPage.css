@@ -1,0 +1,7 @@
+.exams--page--search--bar {
+	/* display: flex; */
+	margin-bottom: 20px;
+	margin-left: 50%;
+	transform: translateX(-50%);
+	/* width: 80%; */
+}

@@ -5,7 +5,6 @@ import ReactPaginate from "react-paginate";
 import "./Courses.css";
 
 export default function Courses(props) {
-
 	const [currentPage, setCurrentPage] = useState(0);
 	const [totalPages, setTotalPages] = useState(0);
 	const itemsPerPage = 5;
