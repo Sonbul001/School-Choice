@@ -1,14 +1,14 @@
 .course--component--left {
-    display: flex;
-    /* align-items: center; */
-    padding: 1%;
-    border: 1px solid #ccc;
-    /* height: auto; */
-    background-color: white;
+	display: flex;
+	/* align-items: center; */
+	padding: 1%;
+	border: 1px solid #ccc;
+	/* height: auto; */
+	background-color: white;
 }
 
-.course--component--left>* {
-    margin-right: 0px;
+.course--component--left > * {
+	margin-right: 0px;
 }
 
 /* .course--component--right {
@@ -18,6 +18,5 @@
 } */
 
 .course--component--container {
-    display: flex;
-
+	/* display: flex; */
 }

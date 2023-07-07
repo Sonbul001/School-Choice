@@ -18,6 +18,7 @@ import AdminLogin from "./components/LoginPage/AdminLogin";
 import Courses from "./components/Courses/Courses/Courses";
 import ApplicantProfile from "./components/ApplicantProfile/ApplicantProfile";
 import ApplicantDashboard from "./components/ApplicantDashboard/ApplicantDashboard";
+import SavedCoursesPage from "./components/SavedCourses/SavedCoursesPage/SavedCoursesPage";
 
 function App() {
 	return (

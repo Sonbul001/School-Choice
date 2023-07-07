@@ -1,5 +1,15 @@
 .school-card {
-	width: 300px;
+	width: 18rem;
+	height: 30rem;
+	margin-left: 32px;
+	margin-top: 20px;
+}
+
+.school-card:hover {
+	box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.2);
+	transform: scale(101%);
+	transition: 600ms;
+	cursor: pointer;
 }
 
 .school-card-header-row {
@@ -56,15 +66,18 @@
 }
 
 .school-card-img {
-	width: 300px;
+	width: auto;
 	height: 200px;
 }
 
 .school-card-body {
 	display: flex;
 	flex-direction: column;
+	/* <<<<<<< HEAD
 	align-items: left;
 	text-align: left;
+======= */
+	align-items: center;
 }
 
 .school-card-body-title {
@@ -103,15 +116,16 @@
 	padding: 5px 20px;
 }
 
-#cardd {
+/* #cardd {
 	width: 18rem;
 	margin-left: 32px;
 	margin-top: 20px;
-}
+	height: 28rem;
+} */
 
-#cardd:hover {
+/* #cardd:hover {
 	box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.2);
-	transform: scale(1.03);
+	transform: scale(101%);
 	transition: 600ms;
 	cursor: pointer;
-}
+} */
