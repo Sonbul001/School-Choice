@@ -5,11 +5,11 @@ import ReactPaginate from "react-paginate";
 import "./Courses.css";
 
 export default function Courses(props) {
-	// const [course, setCourse] = useState({ courseName: "", about: "", objectives: "", learningOutcomes: "", duration: "", courseLink: "", schoolType: "", coursePrice: 0, courseProvider: "", courseLocation: "", grade: props.grade });
+	// const [course, setCourse] = useState({ name: "", about: "", objectives: "", learningOutcomes: "", duration: "", courseLink: "", schoolType: "", coursePrice: 0, courseProvider: "", courseLocation: "", grade: props.grade });
 	const courses = [
 		{
 			logo: "../../../assets/Logo2.png",
-			courseName: "course 1",
+			name: "course 1",
 			about: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum",
 			duration: "1 month",
 			courseLink: "https://www.udemy.com/course/complete-react-developer-zero-to-mastery/",
@@ -22,7 +22,7 @@ export default function Courses(props) {
 		},
 		{
 			logo: "../../../assets/Logo2.png",
-			courseName: "course 2",
+			name: "course 2",
 			about: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum",
 			duration: "1 month",
 			courseLink: "https://www.udemy.com/course/complete-react-developer-zero-to-mastery/",
@@ -35,7 +35,7 @@ export default function Courses(props) {
 		},
 		{
 			logo: "../../../assets/Logo2.png",
-			courseName: "course 3",
+			name: "course 3",
 			about: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum",
 			duration: "1 month",
 			courseLink: "https://www.udemy.com/course/complete-react-developer-zero-to-mastery/",
@@ -48,7 +48,7 @@ export default function Courses(props) {
 		},
 		{
 			logo: "../../../assets/Logo2.png",
-			courseName: "course 4",
+			name: "course 4",
 			about: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum",
 			duration: "1 month",
 			courseLink: "https://www.udemy.com/course/complete-react-developer-zero-to-mastery/",
@@ -61,7 +61,7 @@ export default function Courses(props) {
 		},
 		{
 			logo: "../../../assets/Logo2.png",
-			courseName: "course 5",
+			name: "course 5",
 			about: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum",
 			duration: "1 month",
 			courseLink: "https://www.udemy.com/course/complete-react-developer-zero-to-mastery/",
@@ -74,7 +74,7 @@ export default function Courses(props) {
 		},
 		{
 			logo: "../../../assets/Logo2.png",
-			courseName: "course 6",
+			name: "course 6",
 			about: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum",
 			duration: "1 month",
 			courseLink: "https://www.udemy.com/course/complete-react-developer-zero-to-mastery/",
@@ -87,7 +87,7 @@ export default function Courses(props) {
 		},
 		{
 			logo: "../../../assets/Logo2.png",
-			courseName: "course 7",
+			name: "course 7",
 			about: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum",
 			duration: "1 month",
 			courseLink: "https://www.udemy.com/course/complete-react-developer-zero-to-mastery/",
@@ -100,7 +100,7 @@ export default function Courses(props) {
 		},
 		{
 			logo: "../../../assets/Logo2.png",
-			courseName: "course 8",
+			name: "course 8",
 			about: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum",
 			duration: "1 month",
 			courseLink: "https://www.udemy.com/course/complete-react-developer-zero-to-mastery/",
@@ -113,7 +113,7 @@ export default function Courses(props) {
 		},
 		{
 			logo: "../../../assets/Logo2.png",
-			courseName: "course 9",
+			name: "course 9",
 			about: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum",
 			duration: "1 month",
 			courseLink: "https://www.udemy.com/course/complete-react-developer-zero-to-mastery/",
@@ -126,7 +126,7 @@ export default function Courses(props) {
 		},
 		{
 			logo: "../../../assets/Logo2.png",
-			courseName: "course 10",
+			name: "course 10",
 			about: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum",
 			duration: "1 month",
 			courseLink: "https://www.udemy.com/course/complete-react-developer-zero-to-mastery/",
@@ -158,8 +158,8 @@ export default function Courses(props) {
 
 	const [openCourse, setOpenCourse] = useState("");
 
-	const handleCourseClick = (courseName) => {
-		setOpenCourse(courseName);
+	const handleCourseClick = (name) => {
+		setOpenCourse(name);
 	};
 
 	return (
