@@ -1,57 +1,42 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Navbar from "../../components/NavBar/Navbar";
 import CoursesPageHeader from "./CoursesPageHeader/CoursesPageHeader";
+import Course from "./Course/Course";
+
+import { Card, Button } from "react-bootstrap";
+import { FaLock } from "react-icons/fa";
+import Courses from "./Courses/Courses";
 import CoursesGrade from "./CoursesGrade/CoursesGrade";
-import CourseSearchBar from "./CourseSearchBar/CourseSearchBar";
 import Footer from "../Footer/Footer";
 
+const courseGrades = [
+	{
+		grade: "Grade 1",
+	},
+	{
+		grade: "Grade 2",
+	},
+	{
+		grade: "Grade 3",
+	},
+];
+
 function CoursesPage() {
-	const [searchText, setSearchText] = useState("");
-	const [courses, setCourses] = useState([]);
-
-	useEffect(() => {
-		fetch("http://localhost:3000/courses/course")
-			.then((response) => response.json())
-			.then((data) => setCourses(data))
-			.catch((error) => console.error(error));
-	}, []);
-
-	const groupedCourses = courses.reduce((result, course) => {
-		const classroom = course.classroom;
-		if (!result[classroom]) {
-			result[classroom] = [];
-		}
-		result[classroom].push(course);
-		return result;
-	}, {});
-
-	const courseGrades = Object.keys(groupedCourses).map((classroom) => ({
-		grade: classroom,
-		courses: groupedCourses[classroom],
-	}));
-
-	const handleOnSearch = (searchText) => {
-		setSearchText(searchText);
-	};
-
 	return (
 		<div className="courses--page">
 			<div className="navBar">
 				<Navbar />
 			</div>
+
 			<div className="header">
 				<CoursesPageHeader />
 			</div>
-
-			<div className="exams--page--search--bar">
-				<CourseSearchBar onSearch={handleOnSearch} />
-			</div>
-
 			<div style={{ marginBottom: 50 }} className="courses--page--course--grade--courses">
 				{courseGrades.map((courseGrade, index) => (
-					<CoursesGrade key={index} grade={courseGrade.grade} courses={courseGrade.courses} />
+					<CoursesGrade key={index} grade={courseGrade.grade} />
 				))}
 			</div>
+
 			<div className="footer">
 				<Footer />
 			</div>
