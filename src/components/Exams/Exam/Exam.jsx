@@ -19,7 +19,7 @@ export default function exam(props) {
 	const [saved, setSaved] = useState(false);
 	const [show, setShow] = useState(true);
 	const [width, setWidth] = useState(18);
-	const [height, setHeight] = useState("22rem");
+	const [height, setHeight] = useState("24rem");
 	const [userExams, setUserExams] = useState([]);
 	const [boughtExams, setBoughtExams] = useState([]);
 	const [buttonText, setButtonText] = useState("Buy");
@@ -32,7 +32,7 @@ export default function exam(props) {
 			setHeight("30rem");
 		} else {
 			setWidth(18);
-			setHeight("22rem");
+			setHeight("24rem");
 		}
 	};
 
@@ -56,7 +56,7 @@ export default function exam(props) {
 		if (props.openExam !== props.exam.id) {
 			setShow(true);
 			setWidth(18);
-			setHeight("22rem");
+			setHeight("24rem");
 		}
 	}, [props.openExam, props.exam.id]);
 

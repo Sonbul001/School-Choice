@@ -70,18 +70,22 @@ export default function Exams(props) {
 				)}
 			</div>
 			<ReactPaginate previousLabel={"<"} nextLabel={">"} breakLabel={"..."} pageCount={totalPages} onPageChange={handlePageChange} forcePage={currentPage} containerClassName={"pagination-container"} activeClassName={"pagination-active-page"} pageClassName={"pagination-pages"} />
-			<h2 className="exams-exams-title">Locked Exams:</h2>
-			<div className="admins-pagination-exams">
-				{subset2.map(
-					(exam, index) =>
-						exam.price > 0 && (
-							<div key={index}>
-								<Exam key={index} exam={exam} onExamClick={handleExamClick} openExam={openExam} />
-							</div>
-						)
-				)}
-			</div>
-			<ReactPaginate previousLabel={"<"} nextLabel={">"} breakLabel={"..."} pageCount={totalPages2} onPageChange={handlePageChange2} forcePage={currentPage} containerClassName={"pagination-container"} activeClassName={"pagination-active-page"} pageClassName={"pagination-pages"} />
+			{subset2.length > 0 && (
+				<div>
+					<h2 className="exams-exams-title">Locked Exams:</h2>
+					<div className="admins-pagination-exams">
+						{subset2.map(
+							(exam, index) =>
+								exam.price > 0 && (
+									<div key={index}>
+										<Exam key={index} exam={exam} onExamClick={handleExamClick} openExam={openExam} />
+									</div>
+								)
+						)}
+					</div>
+					<ReactPaginate previousLabel={"<"} nextLabel={">"} breakLabel={"..."} pageCount={totalPages2} onPageChange={handlePageChange2} forcePage={currentPage} containerClassName={"pagination-container"} activeClassName={"pagination-active-page"} pageClassName={"pagination-pages"} />
+				</div>
+			)}
 		</div>
 	);
 }
