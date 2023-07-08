@@ -1,15 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../../components/NavBar/Navbar";
 import CoursesPageHeader from "./CoursesPageHeader/CoursesPageHeader";
-import Course from "./Course/Course";
-import CourseSearchBar from "./CourseSearchBar/CourseSearchBar";
-import { Card, Button } from "react-bootstrap";
-import { FaLock } from "react-icons/fa";
-import Courses from "./Courses/Courses";
 import CoursesGrade from "./CoursesGrade/CoursesGrade";
+import CourseSearchBar from "./CourseSearchBar/CourseSearchBar";
 import Footer from "../Footer/Footer";
+import Course from "./Course/Course";
 import "./CoursesPage.css";
-import { useState, useEffect } from "react";
 
 function CoursesPage() {
 	const [onSearch, setOnSearch] = useState("");
@@ -53,7 +49,6 @@ function CoursesPage() {
 			<div className="navBar">
 				<Navbar />
 			</div>
-
 			<div className="header">
 				<CoursesPageHeader />
 			</div>
