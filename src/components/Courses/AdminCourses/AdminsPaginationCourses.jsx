@@ -11,139 +11,6 @@ import AddCoursePopup from "../../AdminsDashboardCourses/AddCoursePopup/AddCours
 
 export default function AdminsPaginationCourses(props) {
 	// const [course, setCourse] = useState({ name: "", about: "", objectives: "", learningOutcomes: "", duration: "", courseLink: "", schoolType: "", coursePrice: 0, courseProvider: "", courseLocation: "", grade: props.grade });
-	const courses = [
-		{
-			logo: "../../../assets/Logo2.png",
-			name: "course 1",
-			about: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum",
-			duration: "1 month",
-			courseLink: "https://www.udemy.com/course/complete-react-developer-zero-to-mastery/",
-			schoolType: "International",
-			coursePrice: 0,
-			courseProvider: "Udemy",
-			courseLocation: "Online",
-			startDate: "2021-05-01",
-			endDate: "2021-05-30",
-		},
-		{
-			logo: "../../../assets/Logo2.png",
-			name: "course 2",
-			about: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum",
-			duration: "1 month",
-			courseLink: "https://www.udemy.com/course/complete-react-developer-zero-to-mastery/",
-			schoolType: "International",
-			coursePrice: 0,
-			courseProvider: "Udemy",
-			courseLocation: "Online",
-			startDate: "2021-05-01",
-			endDate: "2021-05-30",
-		},
-		{
-			logo: "../../../assets/Logo2.png",
-			name: "course 3",
-			about: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum",
-			duration: "1 month",
-			courseLink: "https://www.udemy.com/course/complete-react-developer-zero-to-mastery/",
-			schoolType: "International",
-			coursePrice: 0,
-			courseProvider: "Udemy",
-			courseLocation: "Online",
-			startDate: "2021-05-01",
-			endDate: "2021-05-30",
-		},
-		{
-			logo: "../../../assets/Logo2.png",
-			name: "course 4",
-			about: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum",
-			duration: "1 month",
-			courseLink: "https://www.udemy.com/course/complete-react-developer-zero-to-mastery/",
-			schoolType: "International",
-			coursePrice: 0,
-			courseProvider: "Udemy",
-			courseLocation: "Online",
-			startDate: "2021-05-01",
-			endDate: "2021-05-30",
-		},
-		{
-			logo: "../../../assets/Logo2.png",
-			name: "course 5",
-			about: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum",
-			duration: "1 month",
-			courseLink: "https://www.udemy.com/course/complete-react-developer-zero-to-mastery/",
-			schoolType: "International",
-			coursePrice: 0,
-			courseProvider: "Udemy",
-			courseLocation: "Online",
-			startDate: "2021-05-01",
-			endDate: "2021-05-30",
-		},
-		{
-			logo: "../../../assets/Logo2.png",
-			name: "course 6",
-			about: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum",
-			duration: "1 month",
-			courseLink: "https://www.udemy.com/course/complete-react-developer-zero-to-mastery/",
-			schoolType: "International",
-			coursePrice: 0,
-			courseProvider: "Udemy",
-			courseLocation: "Online",
-			startDate: "2021-05-01",
-			endDate: "2021-05-30",
-		},
-		{
-			logo: "../../../assets/Logo2.png",
-			name: "course 7",
-			about: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum",
-			duration: "1 month",
-			courseLink: "https://www.udemy.com/course/complete-react-developer-zero-to-mastery/",
-			schoolType: "International",
-			coursePrice: 0,
-			courseProvider: "Udemy",
-			courseLocation: "Online",
-			startDate: "2021-05-01",
-			endDate: "2021-05-30",
-		},
-		{
-			logo: "../../../assets/Logo2.png",
-			name: "course 8",
-			about: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum",
-			duration: "1 month",
-			courseLink: "https://www.udemy.com/course/complete-react-developer-zero-to-mastery/",
-			schoolType: "International",
-			coursePrice: 0,
-			courseProvider: "Udemy",
-			courseLocation: "Online",
-			startDate: "2021-05-01",
-			endDate: "2021-05-30",
-		},
-		{
-			logo: "../../../assets/Logo2.png",
-			name: "course 9",
-			about: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum",
-			duration: "1 month",
-			courseLink: "https://www.udemy.com/course/complete-react-developer-zero-to-mastery/",
-			schoolType: "International",
-			coursePrice: 0,
-			courseProvider: "Udemy",
-			courseLocation: "Online",
-			startDate: "2021-05-01",
-			endDate: "2021-05-30",
-		},
-		{
-			logo: "../../../assets/Logo2.png",
-			name: "course 10",
-			about: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum ipsum lorem ipsum lorem ipsum",
-			duration: "1 month",
-			courseLink: "https://www.udemy.com/course/complete-react-developer-zero-to-mastery/",
-			schoolType: "International",
-			coursePrice: 0,
-			courseProvider: "Udemy",
-			courseLocation: "Online",
-			startDate: "2021-05-01",
-			endDate: "2021-05-30",
-		},
-		// Add more course objects as needed
-	];
 	library.add(faPenToSquare, faBan);
 	const [currentPage, setCurrentPage] = useState(0);
 	const [totalPages, setTotalPages] = useState(0);
@@ -153,7 +20,7 @@ export default function AdminsPaginationCourses(props) {
 	useEffect(() => {
 		setTotalPages(Math.ceil(props.courses.length / itemsPerPage));
 	}, []);
-
+	console.log(props.courses);
 	const startIndex = currentPage * itemsPerPage;
 	const endIndex = startIndex + itemsPerPage;
 	const subset = props.courses.slice(startIndex, endIndex);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Tabs, Tab, Col, Container, Row, Table, Card, ListGroup, Form, Button } from "react-bootstrap";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,22 +13,20 @@ export default function CourseSearchBar(props) {
 		setSearchText(event.target.value);
 	};
 
-	const handleSubmit = (event) => {
-		event.preventDefault();
+	useEffect(() => {
 		props.onSearch(searchText);
-	};
+	}, [searchText]);
+
+	// const handleSubmit = (event) => {
+	// 	event.preventDefault();
+	// 	props.onSearch(searchText);
+	// };
 
 	return (
 		<div>
-			<Form onSubmit={handleSubmit} className="exam-search-bar">
+			<Form className="exam-search-bar">
 				<Form.Group className="exam-search-bar-input">
 					<Form.Control type="text" placeholder="Enter Course Name" value={searchText} onChange={handleSearchTextChange} />
-				</Form.Group>
-				<Form.Group className="exam-search-bar-button">
-					<Button variant="primary" type="submit">
-						<FontAwesomeIcon icon={faMagnifyingGlass} />
-						Search
-					</Button>
 				</Form.Group>
 			</Form>
 		</div>
