@@ -5,13 +5,15 @@ import AdminsPaginationCourses from "../AdminCourses/AdminsPaginationCourses";
 import "./CoursesGrade.css";
 
 export default function CoursesGrade(props) {
+	console.log(props.user);
+	console.log(props.course);
 	return (
 		<div className="courses--page--course--grade">
 			<div className="courses--page--course--grade--title">
 				<h2>{props.grade}</h2>
 			</div>
 
-			<div className="courses--page--course--grade--courses">{props.user === "admin" ? <AdminsPaginationCourses grade={props.grade} courses={props.courses}/> : <Courses grade={props.grade} courses={props.courses} />}</div>
+			<div className="courses--page--course--grade--courses">{props.user === "admin" ? <AdminsPaginationCourses grade={props.grade} courses={props.courses} /> : <Courses grade={props.grade} courses={props.courses} />}</div>
 		</div>
 	);
 }

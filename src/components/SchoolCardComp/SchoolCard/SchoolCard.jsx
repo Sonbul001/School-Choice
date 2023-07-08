@@ -12,8 +12,8 @@ import { useNavigate } from "react-router-dom";
 function SchoolCard(props) {
 	const navigate = useNavigate();
 	const handleNavigate = () => {
-		navigate('/school', {state : {school: props.schoolInfo}})
-	}
+		navigate("/school", { state: { school: props.schoolInfo } });
+	};
 	const { name, logo, about, type, educationLevel, gender, address, advertised, map, city, images, website, phones, email, MinimumFee, MaximumFee } = props.schoolInfo;
 	library.add(faFlag, faPeopleGroup, faStar);
 	return (
@@ -27,7 +27,7 @@ function SchoolCard(props) {
 								<FontAwesomeIcon className="school-card-header-left-icons-item" icon="fa-solid fa-people-group" />
 							</Col>
 							<Col>
-								{type && <Card.Text className="school-card-header-left-text">{Array.isArray(type) && type.includes('National') ? 'National' : 'International'}</Card.Text>}
+								{type && <Card.Text className="school-card-header-left-text">{Array.isArray(type) && type.includes("National") ? "National" : "International"}</Card.Text>}
 								<Card.Text className="school-card-header-left-text">{gender}</Card.Text>
 							</Col>
 						</div>
