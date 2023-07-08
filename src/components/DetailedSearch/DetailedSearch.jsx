@@ -72,7 +72,6 @@ function DetailedSearchPage() {
 	}
 
 	const applyFilters = (filters) => {
-		const queryParams = new URLSearchParams(filters).toString();
 		const url = `http://localhost:3000/schools/filter`;
 		fetch(url, {
 			method: 'POST',

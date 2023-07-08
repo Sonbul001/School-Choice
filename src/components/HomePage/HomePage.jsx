@@ -8,6 +8,9 @@ import SchoolCardList from "../SchoolCardComp/SchoolCardList/SchoolCardList";
 
 function HomePage() {
 	const [schools, setSchools] = useState([]);
+	const filteredSchoolsFunc = (data) => {
+		setSchools(data)
+	}
 	useEffect(() => {
 		const getSchools = async () => {
 			try {
@@ -33,7 +36,7 @@ function HomePage() {
 			<div className="header">
 				<Header />
 			</div>
-			<QuickSearch />
+			<QuickSearch schools={filteredSchoolsFunc}/>
 
 			<h2>Featured Schools</h2>
 			<div className="home-page-cards">

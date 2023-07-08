@@ -8,6 +8,42 @@ import Form from "react-bootstrap/Form";
 import "./AddSchoolPopup.css";
 import logo from "../../../assets/logo.png";
 
+// Object { name: "name1", logo: "logo1", about: "about1", type: [], educationLevel: [], gender: "", address: "address1", advertised: false, map: "map1", city: "city1", … }
+// ​
+// about: "about1"
+// ​
+// address: "address1"
+// ​
+// advertised: false
+// ​
+// city: "city1"
+// ​
+// educationLevel: Array []
+// ​
+// email: "email1@example.com"
+// ​
+// feesSection: Array [ {…} ]
+// ​
+// gender: ""
+// ​
+// images: Array [ "image1", "image" ]
+// ​
+// logo: "logo1"
+// ​
+// map: "map1"
+// ​
+// name: "name1"
+// ​
+// phones: Array [ "phone1", "phone" ]
+// ​
+// type: Array []
+// ​
+// website: "website1"
+// ​
+// <prototype>: Object { … }
+// AddSchoolPopup.jsx:207:10
+
+
 export default function AddSchoolPopup(props) {
 	let feeTemp = { classroom: "", fee: "" };
 	let feesSectionTemp = { type: "", fees: [feeTemp] };
@@ -15,8 +51,6 @@ export default function AddSchoolPopup(props) {
 	let educationLevelTemp = [];
 	let imagesTemp = [];
 	let phonesTemp = "";
-
-	// const classrooms = ["KG 1", "KG 2", "Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5", "Grade 6", "Grade 7", "Grade 8", "Grade 9", "Grade 10", "Grade 11", "Grade 12"];
 
 	let schoolTemp = {
 		name: "",
@@ -29,7 +63,7 @@ export default function AddSchoolPopup(props) {
 		advertised: false,
 		map: "",
 		city: "",
-		imgs: imagesTemp,
+		images: imagesTemp,
 		website: "",
 		phones: [phonesTemp],
 		email: "",
@@ -37,139 +71,68 @@ export default function AddSchoolPopup(props) {
 	};
 
 	if (props.school !== undefined) {
-		// feeTemp = props.school.feesSection[0].fees[0];
-		// feesSectionTemp = props.school.feesSection[0];
-		// typeTemp = props.school.type;
-		// educationLevelTemp = props.school.educationLevel;
-		// imagesTemp = props.school.imgs;
-		// phonesTemp = props.school.phones[0];
 
 		schoolTemp = {
 			name: props.school.name,
-			// logo: props.school.logo,
+			logo: props.school.logo,
 			about: props.school.about,
-			// type: typeTemp,
-			// educationLevel: educationLevelTemp,
+			type: props.school.type,
+			educationLevel: props.school.educationLevel,
 			gender: props.school.gender,
 			address: props.school.address,
 			advertised: props.school.advertised,
 			map: props.school.map,
 			city: props.school.city,
-			// imgs: imagesTemp,
+			images: props.school.images,
 			website: props.school.website,
-			// phones: [phonesTemp],
+			phones: props.school.phones,
 			email: props.school.email,
-			// feesSection: [feesSectionTemp],
+			feesSection: props.school.feesSection
 		};
 	}
 
 	library.add(faCircleXmark);
-	// const [fees, setFees] = useState([feeTemp]);
 	const [feesSection, setFeesSection] = useState([feesSectionTemp]);
 	const [school, setSchool] = useState(schoolTemp);
 	const [type, setType] = useState(typeTemp);
 	const [educationLevel, setEducationLevel] = useState(educationLevelTemp);
 	const [gender, setGender] = useState("");
-	const [imgs, setImgs] = useState(imagesTemp);
+	const [images, setimages] = useState(imagesTemp);
 	const [advertised, setAdvertised] = useState(false);
 	const [phones, setPhones] = useState([phonesTemp]);
-	// const [selectClasses, setSelectClasses] = useState([{ type: "", classrooms: [{ classroom: "", option: false }] }]);
-
-	// const handleSelectedClasses = (classroom, type) => {
-	// 	const newSelectClasses = [...selectClasses];
-	// 	newSelectClasses.forEach((selectClass) => {
-	// 		if (selectClass.type === type) {
-	// 			selectClass.classrooms.forEach((room) => {
-	// 				if (room.classroom === "") {
-	// 					room.classroom = classroom;
-	// 					room.option = !room.option;
-	// 				}
-	// 			});
-	// 		}
-	// 	});
-	// 	setSelectClasses(newSelectClasses);
-	// 	console.log(selectClasses);
-	// };
-
-	// const handleSelectedClasses = (classroom, type) => {
-	// 	const newSelectClasses = [...selectClasses];
-	// 	const newSelectedClasses = [...selectedClasses];
-	// 	newSelectClasses.forEach((selectClass) => {
-	// 		if (selectClass.type === type) {
-	// 			selectClass.options = selectClass.options.filter((option) => option !== classroom);
-	// 		}
-	// 	});
-	// 	newSelectedClasses.forEach((selectedClass) => {
-	// 		if (selectedClass.type === type) {
-	// 			selectedClass.selectedOptions.push(classroom);
-	// 		}
-	// 	});
-	// 	setSelectClasses(newSelectClasses);
-	// 	setSelectedClasses(newSelectedClasses);
-	// 	console.log(selectedClasses);
-	// 	console.log(selectClasses);
-	// };
-
-	// const handleSelectedClasses = (classroom, type) => {
-	// 	const newSelectClasses = [...selectClasses];
-	// 	newSelectClasses.forEach((selectClass) => {
-	// 		if (selectClass.type === type) {
-	// 			selectClass.classrooms[classroom] = !selectClass.classrooms[classroom];
-	// 		}
-	// 	});
-	// 	setSelectClasses(newSelectClasses);
-	// 	console.log(selectClasses);
-	// };
-
-	// const handleSelectedClassChange = (type, feeIndex) => {
-	// 	const newSelectClasses = [...selectClasses];
-	// 	const newSelectedClasses = [...selectedClasses];
-	// 	const newClassrooms = classrooms;
-	// 	newSelectedClasses.forEach((selectedClass) => {
-	// 		if (selectedClass.type === type) {
-	// 			selectedClass.selectedOptions = selectedClass.selectedOptions.splice(feeIndex, 1);
-	// 			selectedClass.selectedOptions.forEach((selectedOption) => {
-	// 				newClassrooms.filter((classroom) => classroom !== selectedOption);
-	// 			});
-	// 		}
-	// 	});
-	// 	newSelectClasses.forEach((selectClass) => {
-	// 		if (selectClass.type === type) {
-	// 			selectClass.options = newClassrooms;
-	// 		}
-	// 	});
-	// 	setSelectClasses(newSelectClasses);
-	// 	setSelectedClasses(newSelectedClasses);
-	// };
 
 	if (props.school !== undefined) {
 		useEffect(() => {
 			setFeesSection(props.school.feesSection);
 			setType(props.school.type);
 			setEducationLevel(props.school.educationLevel);
-			// setImgs(props.school.imgs);
+			setimages(props.school.images);
 			setPhones(props.school.phones);
 			setGender(props.school.gender);
 			console.log(props.school.feesSection);
-		}, [props.school.feesSection, props.school.type, props.school.educationLevel, props.school.imgs, props.school.phones, props.school.gender]);
+		}, [props.school.feesSection, props.school.type, props.school.educationLevel, props.school.images, props.school.phones, props.school.gender]);
 	}
 
-	const handleImageAdd = (event) => {
-		const fileList = event.target.files;
-		if (fileList.length === 0) {
-			return;
-		}
-		const newImages = [...imgs];
-		const imagesArray = Array.from(fileList);
-		const images = imagesArray.map((image) => URL.createObjectURL(image));
-		newImages.push(...images);
-		setImgs(newImages);
+	const handleImageAdd = () => {
+		const newImages = [...images];
+		newImages.push(imagesTemp);
+		setimages(newImages);
+		school.images = images;
 	};
 
 	const handleImageRemove = (index) => {
-		const newImages = [...imgs];
+		const newImages = [...images];
 		newImages.splice(index, 1);
-		setImgs(newImages);
+		setimages(newImages);
+		school.images = images
+	};
+
+	const handleImageChange = (event, index) => {
+		const { name, value } = event.target;
+		const newImages = [...images];
+		newImages[index] = value;
+		setimages(newImages);
+		school.images = images
 	};
 
 	const handleCheckboxChangeType = (event) => {
@@ -180,20 +143,25 @@ export default function AddSchoolPopup(props) {
 		} else {
 			setType(type.filter((checkedItem) => checkedItem !== item));
 		}
+		school.type = type
 	};
 
-	const handleCheckboxChangeEducationLevel = (event) => {
+	const handleCheckboxChangeEducationLevel = async (event) => {
 		const item = event.target.value;
 		const isChecked = event.target.checked;
+		console.log(educationLevel)
 		if (isChecked) {
-			setEducationLevel([...educationLevel, item]);
+			setEducationLevel((educationLevel) => [...educationLevel, item]);
 		} else {
-			setEducationLevel(educationLevel.filter((checkedItem) => checkedItem !== item));
+			setEducationLevel((educationLevel) => educationLevel.filter((checkedItem) => checkedItem !== item));
 		}
+		console.log(educationLevel)
+		school.educationLevel = educationLevel
 	};
 
 	const handleGenderChange = (event) => {
 		setGender(event.target.value);
+		school.gender = gender;
 	};
 
 	const handlePhoneChange = (event, index) => {
@@ -201,18 +169,21 @@ export default function AddSchoolPopup(props) {
 		const newPhones = [...phones];
 		newPhones[index] = value;
 		setPhones(newPhones);
+		school.phones = phones;
 	};
 
 	const handleAddPhone = () => {
 		const newPhones = [...phones];
 		newPhones.push(phonesTemp);
 		setPhones(newPhones);
+		school.phones = phones;
 	};
 
 	const handleRemovePhone = (index) => {
 		const newPhones = [...phones];
 		newPhones.splice(index, 1);
 		setPhones(newPhones);
+		school.phones = phones;
 	};
 
 	const setFeesSectionTemp = () => {
@@ -222,36 +193,27 @@ export default function AddSchoolPopup(props) {
 			newFeesSection.push({ type: type, fees: [feeTemp] });
 		});
 		setFeesSection(newFeesSection);
+		school.feesSection = feesSection;
 	};
 
-	// const setTypesForClasses = () => {
-	// 	const newType = [...type];
-	// 	const newSelectClasses = [];
-	// 	const newSelectedClasses = [];
-	// 	newType.forEach((type) => {
-	// 		newSelectClasses.push({ type: type, classrooms: [{ classroom: "", option: false }] });
-	// 	});
-	// 	setSelectClasses(newSelectClasses);
-	// };
 	if (props.school === undefined) {
 		useEffect(() => {
 			setFeesSectionTemp();
-			// setTypesForClasses();
-		}, [type]);
+		}, []);
 	}
 
 	const handleAddFeeInFeeSection = (index) => {
 		const newFeesSection = [...feesSection];
 		newFeesSection[index].fees.push(feeTemp);
 		setFeesSection(newFeesSection);
-		selectClasses[index].classrooms.push({ classroom: "", option: false });
-		setSelectClasses(selectClasses);
+		school.feesSection = feesSection;
 	};
 
 	const handleRemoveFeeInFeeSection = (index, feeIndex) => {
 		const newFeesSection = [...feesSection];
 		newFeesSection[index].fees.splice(feeIndex, 1);
 		setFeesSection(newFeesSection);
+		school.feesSection = feesSection;
 	};
 
 	const handleFeeChangeInFeeSection = (event, index, feeIndex) => {
@@ -259,10 +221,13 @@ export default function AddSchoolPopup(props) {
 		const newFeesSection = [...feesSection];
 		newFeesSection[index].fees[feeIndex] = { ...newFeesSection[index].fees[feeIndex], [name]: value };
 		setFeesSection(newFeesSection);
+		school.feesSection = feesSection;
 	};
 
 	const handleAdvertisementChange = () => {
 		setAdvertised(!advertised);
+		school.advertised = advertised;
+		console.log(school.advertised)
 	};
 
 	const handleInputChange = (event) => {
@@ -279,19 +244,20 @@ export default function AddSchoolPopup(props) {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		const token = localStorage.getItem('token');
-		fetch('http://localhost:3000/schools/school', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-				'Authorization': `Bearer ${token}`
+		console.log(school)
+		// const token = localStorage.getItem('token');
+		// fetch('http://localhost:3000/schools/school', {
+		// 	method: 'POST',
+		// 	headers: {
+		// 		'Content-Type': 'application/json',
+		// 		'Authorization': `Bearer ${token}`
 
-			},
-			body: JSON.stringify(school)
-		})
-			.then(response => response.json())
-			.then(data => console.log(data))
-			.catch(error => console.error(error));
+		// 	},
+		// 	body: JSON.stringify(school)
+		// })
+		// 	.then(response => response.json())
+		// 	.then(data => console.log(data))
+		// 	.catch(error => console.error(error));
 		closePopup();
 	};
 
@@ -311,7 +277,6 @@ export default function AddSchoolPopup(props) {
 							<Form.Control type="text" name="city" value={school.city} onChange={handleInputChange} />
 						</Form.Group>
 					</Row>
-					{/* <hr className="admin-school-from-hori-line" /> */}
 					<Row>
 						<Form.Group as={Col} className="admin-school-form-group">
 							<Form.Label className="admin-school-form-group-checklist-item-label">School Address </Form.Label>
@@ -322,7 +287,6 @@ export default function AddSchoolPopup(props) {
 							<Form.Control type="text" name="map" value={school.map} onChange={handleInputChange} />
 						</Form.Group>
 					</Row>
-					{/* <hr className="admin-school-from-hori-line" /> */}
 					<Row>
 						<Form.Group as={Col} className="admin-school-form-group">
 							<Form.Label className="admin-school-form-group-checklist-item-label">School Website </Form.Label>
@@ -330,7 +294,7 @@ export default function AddSchoolPopup(props) {
 						</Form.Group>
 						<Form.Group as={Col} className="admin-school-form-group">
 							<Form.Label className="admin-school-form-group-checklist-item-label">Advertised </Form.Label>
-							<Form.Check type="checkbox" name="advertised" value={advertised} onChange={handleAdvertisementChange} />
+							<Form.Check type="checkbox" name="advertised" value={school.advertised} onChange={handleAdvertisementChange} />
 						</Form.Group>
 					</Row>
 					<hr className="admin-school-from-hori-line" />
@@ -341,7 +305,7 @@ export default function AddSchoolPopup(props) {
 					<hr className="admin-school-from-hori-line" />
 					<Form.Group>
 						<Form.Label className="admin-school-form-group-checklist-item-label">School Logo</Form.Label>
-						<Form.Control type="file" name="logo" value={school.logo} onChange={handleInputChange} />
+						<Form.Control type="text" placeholder="Enter a link" name="logo" value={school.logo} onChange={handleInputChange} />
 					</Form.Group>
 					<hr className="admin-school-from-hori-line" />
 					<Row className="admin-school-form-group-checklist">
@@ -365,24 +329,27 @@ export default function AddSchoolPopup(props) {
 							<Form.Check type="checkbox" label="American" value="American" checked={type.includes("American")} onChange={handleCheckboxChangeType} />
 							<Form.Check type="checkbox" label="Lycee" value="Lycee" checked={type.includes("Lycee")} onChange={handleCheckboxChangeType} />
 							<Form.Check type="checkbox" label="German" value="German" checked={type.includes("German")} onChange={handleCheckboxChangeType} />
-							<Form.Check type="checkbox" label="Canadian" value="Canadian" checked={type.includes("Canadian")} onChange={handleCheckboxChangeType} />
+							<Form.Check type="checkbox" label="IB" value="IB" checked={type.includes("IB")} onChange={handleCheckboxChangeType} />
 						</Form.Group>
 					</Row>
 					<hr className="admin-school-from-hori-line" />
-					<Form.Group>
-						<Form.Label className="admin-school-form-group-checklist-item-label">Add Images</Form.Label>
-						<Form.Control type="file" name="imgs" defaultValue={imgs} multiple onChange={handleImageAdd} />
-						<Form.Label className="admin-school-form-group-checklist-item-label">Remove Images</Form.Label>
-						<div className="admin-school-form-imgs">
-							{imgs.map((img, index) => (
-								<div key={index}>
-									<FontAwesomeIcon onClick={() => handleImageRemove(index)} className="admin-school-form-imgs-xmark" icon="fa-solid fa-circle-xmark" />
-									<img className="admin-school-form-imgs-item" src={img} alt={index + 1} />
-									{console.log(img)}
-								</div>
-							))}
-						</div>
+					<Form.Group className="admin-school-form-group-checklist-items">
+						<Form.Label className="admin-school-form-group-checklist-item-label">Images</Form.Label>
 					</Form.Group>
+					{images.map((image, index) => (
+						<div key={index}>
+							<Form.Label className="admin-school-form-group-checklist-item-label">Image {index + 1}</Form.Label>
+							<Form.Control type="text" placeholder="Enter a link" name="images" value={image} onChange={(event) => handleImageChange(event, index)} />
+							{images.length === 1 ? null : (
+								<Button variant="danger" className="admin-school-form-group-checklist-button" type="button" onClick={() => handleImageRemove(index)}>
+									Remove
+								</Button>
+							)}
+						</div>
+					))}
+					<Button className="admin-school-form-group-checklist-button" type="button" onClick={handleImageAdd}>
+						Add Image
+					</Button>
 					<hr className="admin-school-from-hori-line" />
 					<Form.Group className="admin-school-form-group-checklist-items">
 						<Form.Label className="admin-school-form-group-checklist-item-label">Contact Numbers</Form.Label>
