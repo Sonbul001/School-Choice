@@ -27,6 +27,15 @@ function SchoolPage() {
         .then(data => setReviews(data))
         .catch(err => console.error(err))
     }, [])
+
+    const [recommededSchools, setRecommendedSchools] = useState([])
+
+	useEffect(() => {
+		fetch(`http://localhost:3000/applicants/recommended-schools-by-school/${schoolData.id}`)
+		.then(response => response.json())
+		.then(data => setRecommendedSchools(data))
+		.catch(err => console.error(err))
+	}, [])
     // const reviews = [
     //     {
     //         totalRating: 4,
@@ -115,7 +124,7 @@ function SchoolPage() {
             </div>
             <div className='school-page-recommended'>
                 <RecommendedSchools 
-                    id={schoolData.id}
+                    schools={recommededSchools}
                 />
             </div>
             <div className='footer'>

@@ -19,7 +19,7 @@ function AdminLogin() {
     })
       .then(response => response.json())
       .then(data => {
-        if (data.access_token) {
+        if (data.access_token && data.user_role == 'admin') {
           localStorage.setItem("token", data.access_token);
           navigate('/admins/schools');
         } else {
