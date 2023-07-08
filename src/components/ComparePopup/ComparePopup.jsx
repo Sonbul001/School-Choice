@@ -35,7 +35,7 @@ export default function ComparePopup(props) {
 													<ListGroup className="compare-popup-school-information">
 														<ListGroup.Item id="compare-popup-school-information-item">
 															<strong id="compare-popup-school-information-item-strong">School Type: </strong>
-															{school.type}
+															{school.type.join(", ")}
 														</ListGroup.Item>
 														<ListGroup.Item id="compare-popup-school-information-item">
 															<strong id="compare-popup-school-information-item-strong">Genders: </strong>
