@@ -28,7 +28,7 @@ function AdminNavbar({ page, user }) {
 				</a>
 				<a className="item-link" href="/admins/tests" style={{ textDecoration: page === "tests" ? "underline" : "none", textDecorationColor: "#17cf97" }}>
 					<FontAwesomeIcon className="item-icons" icon="fa-solid fa-file-pdf" size="xs" />
-					Tests
+					Exams
 				</a>
 				<a className="item-link" href="/admins/courses" style={{ textDecoration: page === "courses" ? "underline" : "none", textDecorationColor: "#17cf97" }}>
 					<FontAwesomeIcon className="item-icons" icon="fa-solid fa-person-chalkboard" size="xs" />

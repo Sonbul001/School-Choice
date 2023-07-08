@@ -117,8 +117,17 @@ export default function AdminsPaginationExams(props) {
 		setOpenExam(examName);
 	};
 
-	const handleDeleteExam = (examName) => {
-		console.log(examName);
+	const handleDeleteExam = (id) => {
+		fetch(`http://localhost:3000/exams/exam/${id}`, {
+			method: 'DELETE',
+			headers: {
+				Authorization: `Bearer ${localStorage.getItem('token')}`,
+			},
+		})
+			.then(response => response.json())
+			.then(() => alert('Exam Deleted successfully'))
+			.then(() => window.location.reload())
+			.catch(err => console.error(err))
 	};
 
 	const openClosePopup = (index) => {
@@ -130,9 +139,9 @@ export default function AdminsPaginationExams(props) {
 			<div className="admins-pagination-exams">
 				{subset.map((exam, index) => (
 					<div key={index}>
-						<div className="admins-pagination-exams-edit-popup">{showPopupIndex === index && <AddTestPopup openClosePopup={() => openClosePopup(index)} grade={props.grade} exam={exam} index={index} />}</div>
+						<div className="admins-pagination-exams-edit-popup">{showPopupIndex === index && <AddTestPopup openClosePopup={() => openClosePopup(index)} grade={props.grade} exam={exam} index={index} edit={true} />}</div>
 						<FontAwesomeIcon className="admins-pagination-exams-edit-button" icon="pen-to-square" onClick={() => openClosePopup(index)} />
-						<FontAwesomeIcon className="admins-pagination-exams-delete-button" icon="fa-solid fa-ban" onClick={() => handleDeleteExam(exam.name)} />
+						<FontAwesomeIcon className="admins-pagination-exams-delete-button" icon="fa-solid fa-ban" onClick={() => handleDeleteExam(exam.id)} />
 						<Exam key={index} exam={exam} onExamClick={handleExamClick} openExam={openExam} />
 					</div>
 				))}

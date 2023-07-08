@@ -92,7 +92,7 @@ export default function exam(props) {
 	return (
 		<div>
 			<Card style={{ width: `${width}rem`, height: `${height}`, transition: "0.5s ease-in-out" }}>
-				<Card.Img className="exam-card-logo" variant="top" src={Logo} />
+				<Card.Img className="exam-card-logo" variant="top" src={props.exam.logo} />
 				{show ? <FaArrowCircleDown className="exam-card-show-button" onClick={handleShow} style={{ transition: "0.5s ease-in-out" }} /> : <FaArrowCircleDown className="exam-card-show-button" onClick={handleShow} style={{ transition: "0.5s ease-in-out", transform: "rotate(180deg)" }} />}
 				{saved ? <FontAwesomeIcon icon={solidBookmark} className="exam--save--logo " onClick={handleSave} /> : <FontAwesomeIcon icon={regularBookmark} className="exam--save--logo " onClick={handleSave} />}
 				<Card.Body>

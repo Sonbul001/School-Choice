@@ -125,7 +125,7 @@ export default function Course(props) {
 					<div className="course-card-footer">
 						<div className="course-card-footer-type">
 							<img src={earth} className="course--earth--logo" alt="..." />
-							<small className="course-card-footer-type-text">{props.course.schoolType}</small>
+							<small className="course-card-footer-type-text">{props.course.type}</small>
 						</div>
 						{props.course.price > 0 ? (
 							<Button className="course-card-footer-button" variant="primary" href={props.course.link}>
