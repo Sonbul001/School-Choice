@@ -13,8 +13,10 @@ import earth from "../../../assets/earth.png";
 import "./Exam.css";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
+import { useLocation } from "react-router-dom";
 
 export default function exam(props) {
+	const location = useLocation();
 	library.add(FaPlus, FaArrowCircleDown);
 	const [saved, setSaved] = useState(false);
 	const [show, setShow] = useState(true);
@@ -35,18 +37,20 @@ export default function exam(props) {
 	};
 
 	useEffect(() => {
-		fetch(`http://localhost:3000/applicants/profile`, {
-			headers: {
-				Authorization: `Bearer ${localStorage.getItem("token")}`,
-			},
-		})
-			.then((response) => response.json())
-			.then((data) => setUserExams(data.savedExams))
-			.catch((err) => console.error(err));
-		if (props.openExam !== props.exam.id) {
-			setShow(true);
-			setWidth(18);
-			setHeight("22rem");
+		if (localStorage.getItem("token") && location.state) {
+			fetch(`http://localhost:3000/applicants/profile`, {
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem("token")}`,
+				},
+			})
+				.then((response) => response.json())
+				.then((data) => setUserExams(data.savedExams))
+				.catch((err) => console.error(err));
+			if (props.openExam !== props.exam.id) {
+				setShow(true);
+				setWidth(18);
+				setHeight("22rem");
+			}
 		}
 	}, [props.openExam, props.exam.id]);
 

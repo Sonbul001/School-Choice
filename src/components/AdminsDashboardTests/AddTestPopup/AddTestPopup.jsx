@@ -37,6 +37,16 @@ function AddTestPopup(props) {
 	const closePopup = () => {
 		props.openClosePopup();
 	};
+	// name varchar(255) 
+	// subject varchar(255) 
+	// description varchar(255) 
+	// maxGrade int 
+	// duration int 
+	// link varchar(255) 
+	// classroom varchar(255) 
+	// price int 
+	// logo varchar(255) 
+	// type varchar(255)
 
 	return (
 		<div className="add-test-popup-outer-container">
