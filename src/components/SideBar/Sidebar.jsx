@@ -8,6 +8,7 @@ import coursesLogo from "../../assets/courses-logo.png";
 import { FaUserAlt, FaSchool, FaUser } from "react-icons/fa";
 import { PiExamFill } from "react-icons/pi";
 import { GiTeacher } from "react-icons/gi";
+import { BsFillBasketFill } from "react-icons/bs";
 const Sidebar = (props) => {
 	return (
 		<div className="sidebar--component">
@@ -26,6 +27,12 @@ const Sidebar = (props) => {
 			<div className="sidebar--component--item">
 				<GiTeacher className="sidebar--component--item--icon" />
 				<p onClick={() => props.choice(4)}>Courses</p>
+			</div>
+			<div className="sidebar--component--item">
+				<BsFillBasketFill className="sidebar--component--item--icon" />
+				<p className="sidebar--component--item--label" onClick={() => props.choice(5)}>
+					Bought Exams
+				</p>
 			</div>
 		</div>
 	);

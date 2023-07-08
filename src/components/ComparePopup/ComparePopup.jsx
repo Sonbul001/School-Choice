@@ -7,7 +7,7 @@ import Button from "react-bootstrap/Button";
 import "./ComparePopup.css";
 
 export default function ComparePopup(props) {
-	console.log(props.schools)
+	console.log(props.schools);
 	const closePopup = () => {
 		props.openClosePopup();
 	};
@@ -43,7 +43,7 @@ export default function ComparePopup(props) {
 														</ListGroup.Item>
 														<ListGroup.Item id="compare-popup-school-information-item">
 															<strong id="compare-popup-school-information-item-strong">Educational Level: </strong>
-															Primary
+															{school.educationLevel.join(", ")}
 														</ListGroup.Item>
 														<ListGroup.Item id="compare-popup-school-information-item">
 															<strong id="compare-popup-school-information-item-strong">Minimum Fees: </strong>

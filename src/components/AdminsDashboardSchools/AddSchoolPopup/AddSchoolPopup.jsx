@@ -16,8 +16,6 @@ export default function AddSchoolPopup(props) {
 	let imagesTemp = [];
 	let phonesTemp = "";
 
-	// const classrooms = ["KG 1", "KG 2", "Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5", "Grade 6", "Grade 7", "Grade 8", "Grade 9", "Grade 10", "Grade 11", "Grade 12"];
-
 	let schoolTemp = {
 		name: "",
 		logo: "",
@@ -37,34 +35,20 @@ export default function AddSchoolPopup(props) {
 	};
 
 	if (props.school !== undefined) {
-		// feeTemp = props.school.feesSection[0].fees[0];
-		// feesSectionTemp = props.school.feesSection[0];
-		// typeTemp = props.school.type;
-		// educationLevelTemp = props.school.educationLevel;
-		// imagesTemp = props.school.imgs;
-		// phonesTemp = props.school.phones[0];
-
 		schoolTemp = {
 			name: props.school.name,
-			// logo: props.school.logo,
 			about: props.school.about,
-			// type: typeTemp,
-			// educationLevel: educationLevelTemp,
 			gender: props.school.gender,
 			address: props.school.address,
 			advertised: props.school.advertised,
 			map: props.school.map,
 			city: props.school.city,
-			// imgs: imagesTemp,
 			website: props.school.website,
-			// phones: [phonesTemp],
 			email: props.school.email,
-			// feesSection: [feesSectionTemp],
 		};
 	}
 
 	library.add(faCircleXmark);
-	// const [fees, setFees] = useState([feeTemp]);
 	const [feesSection, setFeesSection] = useState([feesSectionTemp]);
 	const [school, setSchool] = useState(schoolTemp);
 	const [type, setType] = useState(typeTemp);
@@ -73,81 +57,12 @@ export default function AddSchoolPopup(props) {
 	const [imgs, setImgs] = useState(imagesTemp);
 	const [advertised, setAdvertised] = useState(false);
 	const [phones, setPhones] = useState([phonesTemp]);
-	// const [selectClasses, setSelectClasses] = useState([{ type: "", classrooms: [{ classroom: "", option: false }] }]);
-
-	// const handleSelectedClasses = (classroom, type) => {
-	// 	const newSelectClasses = [...selectClasses];
-	// 	newSelectClasses.forEach((selectClass) => {
-	// 		if (selectClass.type === type) {
-	// 			selectClass.classrooms.forEach((room) => {
-	// 				if (room.classroom === "") {
-	// 					room.classroom = classroom;
-	// 					room.option = !room.option;
-	// 				}
-	// 			});
-	// 		}
-	// 	});
-	// 	setSelectClasses(newSelectClasses);
-	// 	console.log(selectClasses);
-	// };
-
-	// const handleSelectedClasses = (classroom, type) => {
-	// 	const newSelectClasses = [...selectClasses];
-	// 	const newSelectedClasses = [...selectedClasses];
-	// 	newSelectClasses.forEach((selectClass) => {
-	// 		if (selectClass.type === type) {
-	// 			selectClass.options = selectClass.options.filter((option) => option !== classroom);
-	// 		}
-	// 	});
-	// 	newSelectedClasses.forEach((selectedClass) => {
-	// 		if (selectedClass.type === type) {
-	// 			selectedClass.selectedOptions.push(classroom);
-	// 		}
-	// 	});
-	// 	setSelectClasses(newSelectClasses);
-	// 	setSelectedClasses(newSelectedClasses);
-	// 	console.log(selectedClasses);
-	// 	console.log(selectClasses);
-	// };
-
-	// const handleSelectedClasses = (classroom, type) => {
-	// 	const newSelectClasses = [...selectClasses];
-	// 	newSelectClasses.forEach((selectClass) => {
-	// 		if (selectClass.type === type) {
-	// 			selectClass.classrooms[classroom] = !selectClass.classrooms[classroom];
-	// 		}
-	// 	});
-	// 	setSelectClasses(newSelectClasses);
-	// 	console.log(selectClasses);
-	// };
-
-	// const handleSelectedClassChange = (type, feeIndex) => {
-	// 	const newSelectClasses = [...selectClasses];
-	// 	const newSelectedClasses = [...selectedClasses];
-	// 	const newClassrooms = classrooms;
-	// 	newSelectedClasses.forEach((selectedClass) => {
-	// 		if (selectedClass.type === type) {
-	// 			selectedClass.selectedOptions = selectedClass.selectedOptions.splice(feeIndex, 1);
-	// 			selectedClass.selectedOptions.forEach((selectedOption) => {
-	// 				newClassrooms.filter((classroom) => classroom !== selectedOption);
-	// 			});
-	// 		}
-	// 	});
-	// 	newSelectClasses.forEach((selectClass) => {
-	// 		if (selectClass.type === type) {
-	// 			selectClass.options = newClassrooms;
-	// 		}
-	// 	});
-	// 	setSelectClasses(newSelectClasses);
-	// 	setSelectedClasses(newSelectedClasses);
-	// };
 
 	if (props.school !== undefined) {
 		useEffect(() => {
 			setFeesSection(props.school.feesSection);
 			setType(props.school.type);
 			setEducationLevel(props.school.educationLevel);
-			// setImgs(props.school.imgs);
 			setPhones(props.school.phones);
 			setGender(props.school.gender);
 			console.log(props.school.feesSection);
@@ -224,19 +139,9 @@ export default function AddSchoolPopup(props) {
 		setFeesSection(newFeesSection);
 	};
 
-	// const setTypesForClasses = () => {
-	// 	const newType = [...type];
-	// 	const newSelectClasses = [];
-	// 	const newSelectedClasses = [];
-	// 	newType.forEach((type) => {
-	// 		newSelectClasses.push({ type: type, classrooms: [{ classroom: "", option: false }] });
-	// 	});
-	// 	setSelectClasses(newSelectClasses);
-	// };
 	if (props.school === undefined) {
 		useEffect(() => {
 			setFeesSectionTemp();
-			// setTypesForClasses();
 		}, [type]);
 	}
 
@@ -244,8 +149,6 @@ export default function AddSchoolPopup(props) {
 		const newFeesSection = [...feesSection];
 		newFeesSection[index].fees.push(feeTemp);
 		setFeesSection(newFeesSection);
-		selectClasses[index].classrooms.push({ classroom: "", option: false });
-		setSelectClasses(selectClasses);
 	};
 
 	const handleRemoveFeeInFeeSection = (index, feeIndex) => {
@@ -279,20 +182,37 @@ export default function AddSchoolPopup(props) {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		const token = localStorage.getItem('token');
-		fetch('http://localhost:3000/schools/school', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-				'Authorization': `Bearer ${token}`
-
-			},
-			body: JSON.stringify(school)
-		})
-			.then(response => response.json())
-			.then(data => console.log(data))
-			.catch(error => console.error(error));
-		closePopup();
+		const newSchool = {
+			name: school.name,
+			logo: school.logo,
+			about: school.about,
+			type: type,
+			educationLevel: educationLevel,
+			gender: gender,
+			address: school.address,
+			advertised: advertised,
+			map: school.map,
+			city: school.city,
+			imgs: imgs,
+			website: school.website,
+			phones: phones,
+			email: school.email,
+			feesSection: feesSection,
+		};
+		console.log(newSchool);
+		// const token = localStorage.getItem("token");
+		// fetch("http://localhost:3000/schools/school", {
+		// 	method: "POST",
+		// 	headers: {
+		// 		"Content-Type": "application/json",
+		// 		Authorization: `Bearer ${token}`,
+		// 	},
+		// 	body: JSON.stringify(school),
+		// })
+		// 	.then((response) => response.json())
+		// 	.then((data) => console.log(data))
+		// 	.catch((error) => console.error(error));
+		// closePopup();
 	};
 
 	return (

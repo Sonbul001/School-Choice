@@ -21,6 +21,8 @@ export default function exam(props) {
 	const [width, setWidth] = useState(18);
 	const [height, setHeight] = useState("22rem");
 	const [userExams, setUserExams] = useState([]);
+	const [boughtExams, setBoughtExams] = useState([]);
+	const [buttonText, setButtonText] = useState("Buy");
 
 	const handleShow = () => {
 		setShow(!show);
@@ -35,13 +37,21 @@ export default function exam(props) {
 	};
 
 	useEffect(() => {
-		fetch(`http://localhost:3000/applicants/profile`, {
-			headers: {
-				Authorization: `Bearer ${localStorage.getItem("token")}`,
-			},
-		})
+		// fetch(`http://localhost:3000/applicants/profile`, {
+		// 	headers: {
+		// 		Authorization: `Bearer ${localStorage.getItem("token")}`,
+		// 	},
+		// })
+		// 	.then((response) => response.json())
+		// 	.then((data) => setUserExams(data.savedExams))
+		// 	.catch((err) => console.error(err));
+		// fetch(`http://localhost:3000/applicants/profile`, {
+		// 	headers: {
+		// 		Authorization: `Bearer ${localStorage.getItem("token")}`,
+		// 	},
+		// })
 			.then((response) => response.json())
-			.then((data) => setUserExams(data.savedExams))
+			.then((data) => setBoughtExams(data.boughtExams))
 			.catch((err) => console.error(err));
 		if (props.openExam !== props.exam.id) {
 			setShow(true);
@@ -57,6 +67,12 @@ export default function exam(props) {
 			setSaved(false);
 		}
 	}, [userExams, props.exam.id]);
+
+	useEffect(() => {
+		if (localStorage.getItem("token") && boughtExams.some((exam) => exam.id === props.exam.id)) {
+			setButtonText("Download");
+		}
+	}, [boughtExams, props.exam.id]);
 
 	const handleSave = () => {
 		if (!saved && localStorage.getItem("token")) {
@@ -85,6 +101,24 @@ export default function exam(props) {
 			alert("Please login first");
 		}
 	};
+
+	const handleBuy = () => {
+		if (!boughtExams.some((exam) => exam.id === props.exam.id) && localStorage.getItem("token")) {
+			fetch(`http://localhost:3000/applicants/buy-exam/${props.exam.id}`, {
+				method: "POST",
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem("token")}`,
+				},
+			})
+				.then((response) => response.json())
+				.then(() => alert("Exam bought successfully"))
+				.catch((error) => console.error(error));
+			setButtonText("Link");
+		} else {
+			alert("Please login first");
+		}
+	};
+
 	return (
 		<div>
 			<Card style={{ width: `${width}rem`, height: `${height}`, transition: "0.5s ease-in-out" }}>
@@ -106,12 +140,18 @@ export default function exam(props) {
 				<Card.Footer style={{ marginTop: "-3rem" }}>
 					<div className="exam-card-footer">
 						{props.exam.price > 0 ? (
-							<Button className="exam-card-footer-button" variant="primary" href={props.exam.link}>
-								Buy
-							</Button>
+							buttonText === "Buy" ? (
+								<Button className="exam-card-footer-button" variant="primary" onClick={handleBuy}>
+									{buttonText}
+								</Button>
+							) : (
+								<Button className="exam-card-footer-button" variant="primary" href={props.exam.link}>
+									{buttonText}
+								</Button>
+							)
 						) : (
 							<Button className="exam-card-footer-button" variant="primary" href={props.exam.link}>
-								Contact
+								Link
 							</Button>
 						)}
 					</div>
