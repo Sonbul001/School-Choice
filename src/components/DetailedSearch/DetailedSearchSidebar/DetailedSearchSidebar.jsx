@@ -44,7 +44,7 @@ function DetailedSearchSidebar(props) {
 
           <Form.Group controlId="formBasicAddress">
             <label className='detailed--search--sidebar--label'>Type in City Name:</label>
-            <Form.Control type="text" placeholder="District... " value={city} onChange={(event) => setCity(event.target.value)} />
+            <Form.Control type="text" placeholder="City... " value={city} onChange={(event) => setCity(event.target.value)} />
           </Form.Group>
 
           <Form.Group controlId="formEducationLevel" className='detailed--search--sidebar--container'>

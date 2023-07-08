@@ -36,7 +36,7 @@ function SchoolCard(props) {
 				<Card.Img className="school-card-img" variant="top" src={logo} />
 				<Card.Body className="school-card-body">
 					<Card.Title className="school-card-body-title">{name}</Card.Title>
-					<small className="school-card-body-small">{address}</small>
+					<small className="school-card-body-small">{city}</small>
 				</Card.Body>
 				<Card.Footer className="school-card-footer">
 					<Row className="school-card-footer-row">
