@@ -37,9 +37,6 @@ function App() {
 					<Route path="/school" exact Component={SchoolPage} />
 					<Route path="/admins/schools" exact Component={AdminsSchools} />
 					<Route path="/applicant" exact Component={ApplicantDashboard} />
-					{/* <Route path="/savedCourses" exact Component={SavedCourses} />
-					<Route path="/SavedTests" exact Component={SavedTests} />
-					<Route path="/savedSchools" exact Component={SavedSchools} /> */}
 					<Route path="/aboutus" exact Component={Aboutus} />
 					<Route path="/coursesPagination" exact Component={Courses} />
 				</Routes>

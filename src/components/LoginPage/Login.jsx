@@ -20,7 +20,7 @@ function Login() {
     })
       .then(response => response.json())
       .then(data => {
-        if (data.access_token) {
+        if (data.access_token && data.user_role == 'user') {
           localStorage.setItem("token", data.access_token);
           navigate('/');
         } else {

@@ -7,6 +7,7 @@ import Button from "react-bootstrap/Button";
 import "./ComparePopup.css";
 
 export default function ComparePopup(props) {
+	console.log(props.schools)
 	const closePopup = () => {
 		props.openClosePopup();
 	};
@@ -33,12 +34,8 @@ export default function ComparePopup(props) {
 												<Card.Text className="compare-popup-school-text">
 													<ListGroup className="compare-popup-school-information">
 														<ListGroup.Item id="compare-popup-school-information-item">
-															<strong id="compare-popup-school-information-item-strong">Rating: </strong>
-															{school.rating}
-														</ListGroup.Item>
-														<ListGroup.Item id="compare-popup-school-information-item">
 															<strong id="compare-popup-school-information-item-strong">School Type: </strong>
-															{school.type}
+															{school.type.join(", ")}
 														</ListGroup.Item>
 														<ListGroup.Item id="compare-popup-school-information-item">
 															<strong id="compare-popup-school-information-item-strong">Genders: </strong>
@@ -50,11 +47,11 @@ export default function ComparePopup(props) {
 														</ListGroup.Item>
 														<ListGroup.Item id="compare-popup-school-information-item">
 															<strong id="compare-popup-school-information-item-strong">Minimum Fees: </strong>
-															{school.startingFees}
+															{school.MinimumFee}
 														</ListGroup.Item>
 														<ListGroup.Item id="compare-popup-school-information-item">
 															<strong id="compare-popup-school-information-item-strong">Maximum Fees: </strong>
-															20000
+															{school.MaximumFee}
 														</ListGroup.Item>
 													</ListGroup>
 												</Card.Text>

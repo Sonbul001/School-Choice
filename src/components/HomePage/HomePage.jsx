@@ -11,7 +11,7 @@ function HomePage() {
 	useEffect(() => {
 		const getSchools = async () => {
 			try {
-				const response = await fetch('http://localhost:3000/schools/school');
+				const response = await fetch('http://localhost:3000/schools/advertise');
 				if (response.status != 401) {
 					const data = await response.json();
 					setSchools(data);

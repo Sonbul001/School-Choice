@@ -7,9 +7,9 @@ export default function Location(props) {
                 <Card.Body>
                     <Card.Title className='school-page-location-card-title'>Location</Card.Title>
                     <Card.Text>
-                        {props.location}
+                        {props.address}
                     </Card.Text>
-                    <Button variant='info'>View On Map</Button>
+                    <Button variant='info' href={props.map}>View On Map</Button>
                 </Card.Body>
 
             </Card>

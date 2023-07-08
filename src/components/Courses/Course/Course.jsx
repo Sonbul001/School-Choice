@@ -61,7 +61,7 @@ export default function Course(props) {
 	}, [props.openCourse, props.course.name]);
 
 	useEffect(() => {
-		if (userCourses.some((course) => course.id === props.course.id)) {
+		if (localStorage.getItem('token') && userCourses.some((course) => course.id === props.course.id)) {
 			setSaved(true);
 		} else {
 			setSaved(false);

@@ -7,22 +7,27 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFlag, faPeopleGroup, faStar } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import "./SchoolCard.css";
+import { useNavigate } from "react-router-dom";
 
 function SchoolCard(props) {
+	const navigate = useNavigate();
+	const handleNavigate = () => {
+		navigate('/school', {state : {school: props.schoolInfo}})
+	}
 	const { name, logo, about, type, educationLevel, gender, address, advertised, map, city, images, website, phones, email, MinimumFee, MaximumFee } = props.schoolInfo;
 	library.add(faFlag, faPeopleGroup, faStar);
 	return (
 		<div id="cardd">
-			<Card className="school-card">
+			<Card className="school-card" onClick={handleNavigate}>
 				<Card.Header className="school-card-header">
 					<Row className="school-card-header-row">
 						<div className="school-card-header-left">
 							<Col className="school-card-header-left-icons">
-								<FontAwesomeIcon className="school-card-header-left-icons-item" icon="fa-solid fa-flag" />
+								{type && <FontAwesomeIcon className="school-card-header-left-icons-item" icon="fa-solid fa-flag" />}
 								<FontAwesomeIcon className="school-card-header-left-icons-item" icon="fa-solid fa-people-group" />
 							</Col>
 							<Col>
-								<Card.Text className="school-card-header-left-text">{Array.isArray(type) && type.includes('national') ? 'National' : 'International'}</Card.Text>
+								{type && <Card.Text className="school-card-header-left-text">{Array.isArray(type) && type.includes('National') ? 'National' : 'International'}</Card.Text>}
 								<Card.Text className="school-card-header-left-text">{gender}</Card.Text>
 							</Col>
 						</div>
@@ -31,7 +36,7 @@ function SchoolCard(props) {
 				<Card.Img className="school-card-img" variant="top" src={logo} />
 				<Card.Body className="school-card-body">
 					<Card.Title className="school-card-body-title">{name}</Card.Title>
-					<small className="school-card-body-small">{address}</small>
+					<small className="school-card-body-small">{city}</small>
 				</Card.Body>
 				<Card.Footer className="school-card-footer">
 					<Row className="school-card-footer-row">

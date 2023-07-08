@@ -3,8 +3,11 @@ import Carousel from "../Exams/Carousel/Carousel";
 import SchoolCard from "../SchoolCardComp/SchoolCard/SchoolCard";
 
 import "./RecommendedSchools.css";
+import { useEffect } from "react";
+import { useState } from "react";
 
 export default function RecommendedSchools(props) {
+	
 	return (
 		<div className="recommended-schools--component">
 			<div className="recommended-schools-carousel">

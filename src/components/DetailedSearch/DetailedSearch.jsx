@@ -11,40 +11,37 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faScaleBalanced, faScaleUnbalancedFlip } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import SideCompStatusPopup from "../ComparePopup/SideCompStatusPopup/SideCompStatusPopup";
+import { json } from "react-router-dom";
 
 function DetailedSearchPage() {
 	library.add(faScaleBalanced, faScaleUnbalancedFlip);
+	const [schools, setSchools] = useState([]);
+	const filter = {
+		city: '',
+		educationLevel: [],
+		type: [],
+		minimumFee: '',
+		maximumFee: '',
+		name: '',
+		sort: ''
+	};
 
-	//const { name, address, type, gender, rating, startingFees, map } = props;
-
-	const staticCards = [
-		{ name: "School 1", address: "city 1", type: "National", gender: "Mixed", rating: "4.5", startingFees: "1000", map: "https://www.google.com/maps" },
-		{ name: "School 2", address: "city 2", type: "International", gender: "Mixed", rating: "4", startingFees: "50000", map: "https://www.google.com/maps" },
-		{ name: "School 3", address: "city 3", type: "Lycee", gender: "Mixed", rating: "4.5", startingFees: "50000", map: "https://www.google.com/maps" },
-		{ name: "School 4", address: "city 4", type: "National", gender: "Mixed", rating: "3", startingFees: "50000", map: "https://www.google.com/maps" },
-		{ name: "School 5", address: "city 5", type: "National", gender: "Mixed", rating: "4", startingFees: "40000", map: "https://www.google.com/maps" },
-		{ name: "School 6", address: "city 6", type: "International", gender: "Mixed", rating: "5", startingFees: "50000", map: "https://www.google.com/maps" },
-		{ name: "School 7", address: "city 7", type: "International", gender: "Mixed", rating: "4", startingFees: "50000", map: "https://www.google.com/maps" },
-		{ name: "School 8", address: "city 8", type: "International", gender: "Mixed", rating: "4.5", startingFees: "50000", map: "https://www.google.com/maps" },
-		{ name: "School 9", address: "city 9", type: "IGCSE", gender: "Mixed", rating: "3", startingFees: "30000", map: "https://www.google.com/maps" },
-		{ name: "School 10", address: "city 10", type: "IGCSE", gender: "Mixed", rating: "5", startingFees: "50000", map: "https://www.google.com/maps" },
-		{ name: "School 11", address: "city 11", type: "IGCSE", gender: "Girls", rating: "3.6", startingFees: "50000", map: "https://www.google.com/maps" },
-		{ name: "School 12", address: "city 12", type: "Lycee", gender: "Girls", rating: "4", startingFees: "50000", map: "https://www.google.com/maps" },
-		{ name: "School 13", address: "city 13", type: "Lycee", gender: "Girls", rating: "4", startingFees: "20000", map: "https://www.google.com/maps" },
-		{ name: "School 14", address: "city 14", type: "International", gender: "Girls", rating: "5", startingFees: "50000", map: "https://www.google.com/maps" },
-		{ name: "School 15", address: "city 15", type: "National", gender: "Girls", rating: "4", startingFees: "60000", map: "https://www.google.com/maps" },
-	];
-
+	useEffect(() => {
+		fetch('http://localhost:3000/schools/school')
+			.then(response => response.json())
+			.then(data => setSchools(data))
+			.catch(err => console.error(err))
+	}, [])
 	const schoolsTemp = [];
-	const [schools, setSchool] = useState(schoolsTemp);
+	const [compareSchools, setCompareSchools] = useState(schoolsTemp);
 	const [picked, setPicked] = useState([]);
 
 	const addSchool = (card) => {
-		if (schools.length === 2) {
+		if (compareSchools.length === 2) {
 			alert("You can only pick 2 schools");
 			return;
 		}
-		setSchool([...schools, card]);
+		setCompareSchools([...compareSchools, card]);
 	};
 
 	const pickSchool = (index, card) => {
@@ -54,13 +51,40 @@ function DetailedSearchPage() {
 		} else {
 			const newPicked = picked.filter((arr) => arr !== index);
 			setPicked(newPicked);
-			setSchool(schools.filter((school) => school.name !== card.name));
+			setCompareSchools(compareSchools.filter((school) => school.name !== card.name));
 		}
 	};
-	useEffect(() => {
-		console.log("schools", schools);
-		console.log("picked", picked);
-	}, [schools]);
+
+	const searchBarFilterFunc = (data) => {
+		filter.name = data.name;
+		filter.sort = data.sort;
+		console.log(filter.sort)
+		applyFilters(filter);
+	}
+
+	const sideBarFilterFunc = (data) => {
+		filter.city = data.city,
+		filter.educationLevel = data.educationLevel,
+		filter.type = data.type,
+		filter.minimumFee = data.minimumFee,
+		filter.maximumFee = data.maximumFee,
+		applyFilters(filter);
+	}
+
+	const applyFilters = (filters) => {
+		const queryParams = new URLSearchParams(filters).toString();
+		const url = `http://localhost:3000/schools/filter`;
+		fetch(url, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(filters)
+		})
+		.then(response => response.json())
+		.then(data => setSchools(data))
+		.catch(err => console.error(err))
+	}
 
 	return (
 		<div className="DetailedSearchPage">
@@ -72,16 +96,16 @@ function DetailedSearchPage() {
 			</div>
 
 			<div className="searchbar">
-				<DetailedSearchbar />
+				<DetailedSearchbar filter={searchBarFilterFunc}/>
 			</div>
-			<div className="detailed-search-side-comp-status-popup">{picked.length > 0 && <SideCompStatusPopup picked={picked} schools={schools} pickSchool={pickSchool} />}</div>
+			<div className="detailed-search-side-comp-status-popup">{picked.length > 0 && <SideCompStatusPopup picked={picked} schools={compareSchools} pickSchool={pickSchool} />}</div>
 
 			<div className="detailed-search-side-bar-cards">
 				<div className="sidebar">
-					<DetailedSearchSidebar />
+					<DetailedSearchSidebar filter={sideBarFilterFunc}/>
 				</div>
 				<div className="detailed-search-cards">
-					{staticCards.map((card, index) => (
+					{schools.map((card, index) => (
 						<div key={index} className="detailed-search-card-item">
 							{picked.includes(index) ? <FontAwesomeIcon className="detailed-search-card-icon" icon="fa-solid fa-scale-unbalanced-flip" onClick={() => pickSchool(index, card)} /> : <FontAwesomeIcon className="detailed-search-card-icon" icon="fa-solid fa-scale-balanced" onClick={() => pickSchool(index, card)} />}
 							<SchoolCard schoolInfo={card} />

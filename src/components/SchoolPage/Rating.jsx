@@ -12,10 +12,21 @@ function Rating(props) {
 
     function handleSubmit(event) {
         event.preventDefault();
-        // get the input values and rating value
+
         const review = event.target[0].value;
         const ratingValue = rating;
-        // make the POST request
+
+        fetch(`http://localhost:3000/schools/reviews/${props.id}`, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type': 'application/json'
+            },
+            method: 'POST',
+            body: JSON.stringify({ feedback: review, totalRating: ratingValue })
+        })
+            .then(response => response.json())
+            .then(() => alert('review added successfully'))
+            .catch(err => console.error(err))
     }
 
     return (
@@ -26,35 +37,34 @@ function Rating(props) {
                 <Card.Text className='school-page-rating-card-text'>
                     <Container fluid>
                         <Row>
-                            <Col xs={1}>
-                                <Image src="./cover.jpg" roundedCircle className='school-page-rating-card-image' fluid />
-                            </Col>
-                            <Col xs={10}>
-                                <Form.Group onSubmit={handleSubmit}>
-                                    <Form.Control as="textarea" placeholder='Write a review ...' className="school-page-rating-card-text-area" />
-                                    <Button type='submit' className='school-page-rating-card-button' variant='secondary'>Post</Button>
+                            <Col>
+                                <Form onSubmit={handleSubmit}>
+                                    <Form.Group>
+                                        <Form.Control as="textarea" placeholder='Write a review ...' className="school-page-rating-card-text-area" />
+                                        <Button type='submit' className='school-page-rating-card-button' variant='secondary'>Post</Button>
 
 
-                                    <div className='school-page-rating-card-input-stars'>
-                                        {[...Array(5)].map((star, index) => {
-                                            const ratingValue = index + 1;
+                                        <div className='school-page-rating-card-input-stars'>
+                                            {[...Array(5)].map((star, index) => {
+                                                const ratingValue = index + 1;
 
-                                            return (
-                                                <Button
-                                                    key={index}
-                                                    variant="link"
-                                                    onClick={() => handleRating(ratingValue)}
-                                                >
-                                                    {ratingValue <= rating ? (
-                                                        <Star />
-                                                    ) : (
-                                                        <StarOutline />
-                                                    )}
-                                                </Button>
-                                            );
-                                        })}
-                                    </div>
-                                </Form.Group>
+                                                return (
+                                                    <Button
+                                                        key={index}
+                                                        variant="link"
+                                                        onClick={() => handleRating(ratingValue)}
+                                                    >
+                                                        {ratingValue <= rating ? (
+                                                            <Star />
+                                                        ) : (
+                                                            <StarOutline />
+                                                        )}
+                                                    </Button>
+                                                );
+                                            })}
+                                        </div>
+                                    </Form.Group>
+                                </Form>
                             </Col>
                         </Row>
                         <Row className='school-page-rating-card-reviews'>
@@ -62,23 +72,23 @@ function Rating(props) {
                             {props.reviews.map((review, index) =>
                             (
                                 <div className='school-page-rating-card-one-review' key={index}>
-                                    <Col xs={1}>
-                                        <Image src="./cover.jpg" roundedCircle className='school-page-rating-card-image' fluid />
-                                    </Col>
-                                    <Col xs={11}>
-                                        <Form.Label className='school-page-rating-card-reviews-username'>Parent1</Form.Label>
+                                    <Col>
+                                        <Form.Label className='school-page-rating-card-reviews-username'>{review.reviewerName}</Form.Label>
                                         <Form.Control
                                             type="text"
                                             disabled
-                                            value={"bad review"}
+                                            value={review.feedback}
                                         />
                                         <div className='school-page-rating-card-stars'>
-                                            {[...Array(review.rating)].map((_, index) => (
-                                                <Star key={index} />
-                                            ))}
-                                            {[...Array(5 - review.rating)].map((_, index) => (
-                                                <StarOutline key={index} />
-                                            ))}
+                                            <div>
+                                                {[...Array(review.totalRating)].map((_, index) => (
+                                                    <Star key={index} />
+                                                ))}
+                                                {[...Array(5 - review.totalRating)].map((_, index) => (
+                                                    <StarOutline key={index} />
+                                                ))}
+                                            </div>
+                                            <h6 className='school-page-rating-card-source'>Source: {review.source}</h6>
                                         </div>
                                     </Col>
                                 </div>

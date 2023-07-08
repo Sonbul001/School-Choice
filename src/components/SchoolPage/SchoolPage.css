@@ -36,16 +36,13 @@
     background-blend-mode: multiply;
 }
 
-.school-page-profile-lower {
-    background-color: #B9B8B5;
-    padding: 10px 25px;
-    align-items: center;
-    justify-content: center;
-}
-
 .school-page-profile-image {
     width: 100px;
     height: 100px;
+}
+
+.school-page-levels-card {
+    padding: 10px 25px;
 }
 
 .school-page-profile-name {
@@ -130,6 +127,7 @@
 .school-page-dates-card-text, .school-page-fees-card-text {
     border-top: 1px solid rgba(0, 0, 0, 0.5);
     text-align: center;
+    padding-top: 15px;
 }
 
 .school-page-fees-card-text .table, .school-page-dates-card-text .table {
@@ -168,6 +166,8 @@
 .school-page-rating-card-stars {
     margin-top: 6px;
     padding-left: 6px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .school-page-rating-card-input-stars button {
@@ -177,6 +177,12 @@
 .school-page-rating-card-reviews-username {
     margin: 0;
     padding-left: 5px;
+    font-size: 16px;
+}
+
+.school-page-rating-card-reviews-source {
+    color: rgba(0, 0, 0, 0.4);
+    text-align: right;
 }
 
 .school-page-rating-card-one-review {
@@ -185,4 +191,13 @@
     padding-bottom: 20px;
     display: flex;
     margin-bottom: 10px;
+}
+
+.school-page-about-text, .school-page-location-card {
+    padding: 10px 15px;
+}
+
+.school-page-rating-card-source {
+    text-align: right;
+    font-style: italic;
 }
