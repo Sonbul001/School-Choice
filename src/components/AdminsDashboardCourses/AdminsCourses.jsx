@@ -8,26 +8,36 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import CoursesGrade from "../Courses/CoursesGrade/CoursesGrade";
 import "./AdminsCourses.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
-
-const courseGrades = [
-	{
-		grade: "Grade 1",
-	},
-	{
-		grade: "Grade 2",
-	},
-	{
-		grade: "Grade 3",
-	},
-];
 
 function AdminCoursesDashboard() {
 	library.add(faCirclePlus, faSquarePlus);
 
 	const [showPopup, setShowPopup] = useState(false);
 	const [selected, setSelected] = useState(null);
+	const [courses, setCourses] = useState([]);
+
+	useEffect(() => {
+		fetch("http://localhost:3000/courses/course")
+			.then((response) => response.json())
+			.then((data) => setCourses(data))
+			.catch((error) => console.error(error));
+	}, []);
+
+	const groupedCourses = courses.reduce((result, course) => {
+		const classroom = course.classroom;
+		if (!result[classroom]) {
+			result[classroom] = [];
+		}
+		result[classroom].push(course);
+		return result;
+	}, {});
+
+	const courseGrades = Object.keys(groupedCourses).map((classroom) => ({
+		grade: classroom,
+		courses: groupedCourses[classroom],
+	}));
 
 	const openClosePopup = (index) => {
 		setShowPopup(!showPopup);
@@ -48,7 +58,8 @@ function AdminCoursesDashboard() {
 									Add Course
 								</Button>
 							</div>
-							<CoursesGrade grade={courseGrade.grade} user="admin" />
+							{/* <CoursesGrade key={index} grade={courseGrade.grade} courses={courseGrade.courses} /> */}
+							<CoursesGrade key={index} grade={courseGrade.grade} courses={courseGrade.courses} user="admin" />
 							<div className="exams-popup">{showPopup && selected === index ? <AddCoursePopup openClosePopup={() => openClosePopup()} grade={courseGrade.grade} /> : null}</div>
 						</div>
 					))}

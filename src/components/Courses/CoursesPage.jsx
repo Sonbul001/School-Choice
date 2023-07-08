@@ -2,26 +2,52 @@ import React from "react";
 import Navbar from "../../components/NavBar/Navbar";
 import CoursesPageHeader from "./CoursesPageHeader/CoursesPageHeader";
 import Course from "./Course/Course";
-
+import CourseSearchBar from "./CourseSearchBar/CourseSearchBar";
 import { Card, Button } from "react-bootstrap";
 import { FaLock } from "react-icons/fa";
 import Courses from "./Courses/Courses";
 import CoursesGrade from "./CoursesGrade/CoursesGrade";
 import Footer from "../Footer/Footer";
-
-const courseGrades = [
-	{
-		grade: "Grade 1",
-	},
-	{
-		grade: "Grade 2",
-	},
-	{
-		grade: "Grade 3",
-	},
-];
+import "./CoursesPage.css";
+import { useState, useEffect } from "react";
 
 function CoursesPage() {
+	const [onSearch, setOnSearch] = useState("");
+	const [courses, setCourses] = useState([]);
+	const [returnedSearch, setReturnedSearch] = useState([]);
+
+	useEffect(() => {
+		fetch(`http://localhost:3000/courses/search/${onSearch}`)
+			.then((response) => response.json())
+			.then((data) => setReturnedSearch(data))
+			.catch((error) => console.error(error));
+	}, [onSearch]);
+
+	useEffect(() => {
+		fetch("http://localhost:3000/courses/course")
+			.then((response) => response.json())
+			.then((data) => setCourses(data))
+			.catch((error) => console.error(error));
+	}, []);
+
+	const groupedCourses = courses.reduce((result, course) => {
+		const classroom = course.classroom;
+		if (!result[classroom]) {
+			result[classroom] = [];
+		}
+		result[classroom].push(course);
+		return result;
+	}, {});
+
+	const courseGrades = Object.keys(groupedCourses).map((classroom) => ({
+		grade: classroom,
+		courses: groupedCourses[classroom],
+	}));
+
+	const handleOnSearch = (searchText) => {
+		setOnSearch(searchText);
+	};
+
 	return (
 		<div className="courses--page">
 			<div className="navBar">
@@ -31,11 +57,24 @@ function CoursesPage() {
 			<div className="header">
 				<CoursesPageHeader />
 			</div>
-			<div style={{ marginBottom: 50 }} className="courses--page--course--grade--courses">
-				{courseGrades.map((courseGrade, index) => (
-					<CoursesGrade key={index} grade={courseGrade.grade} />
-				))}
+
+			<div className="exams--page--search--bar">
+				<CourseSearchBar onSearch={handleOnSearch} />
 			</div>
+
+			{returnedSearch.length > 0 ? (
+				<div style={{ marginBottom: 50 }} className="courses-page-search-items">
+					{returnedSearch.map((course, index) => (
+						<Course key={index} course={course} />
+					))}
+				</div>
+			) : (
+				<div style={{ marginBottom: 50 }} className="courses--page--course--grade--courses">
+					{courseGrades.map((courseGrade, index) => (
+						<CoursesGrade key={index} grade={courseGrade.grade} courses={courseGrade.courses} />
+					))}
+				</div>
+			)}
 
 			<div className="footer">
 				<Footer />

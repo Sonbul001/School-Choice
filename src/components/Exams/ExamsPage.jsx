@@ -26,6 +26,14 @@ import { useState, useEffect } from "react";
 function ExamsPage() {
 	const [onSearch, setOnSearch] = useState("");
 	const [exams, setExams] = useState([]);
+	const [returnedSearch, setReturnedSearch] = useState([]);
+
+	useEffect(() => {
+		fetch(`http://localhost:3000/exams/search/${onSearch}`)
+			.then((response) => response.json())
+			.then((data) => setReturnedSearch(data))
+			.catch((error) => console.error(error));
+	}, [onSearch]);
 
 	useEffect(() => {
 		fetch("http://localhost:3000/exams/exam")
@@ -50,7 +58,7 @@ function ExamsPage() {
 
 	const handleOnSearch = (searchText) => {
 		setOnSearch(searchText);
-		console.log(searchText);
+		// console.log(searchText);
 	};
 
 	return (
@@ -67,11 +75,19 @@ function ExamsPage() {
 				<ExamSearchBar onSearch={handleOnSearch} />
 			</div>
 
-			<div style={{ marginBottom: 50 }} className="exams--page--exam--grade--Exams">
-				{examGrades.map((examGrade, index) => (
-					<ExamsGrade key={index} grade={examGrade.grade} exams={examGrade.exams} />
-				))}
-			</div>
+			{returnedSearch.length > 0 ? (
+				<div style={{ marginBottom: 50 }} className="courses-page-search-items">
+					{returnedSearch.map((exam, index) => (
+						<Exam key={index} exam={exam} />
+					))}
+				</div>
+			) : (
+				<div style={{ marginBottom: 50 }} className="exams--page--exam--grade--Exams">
+					{examGrades.map((examGrade, index) => (
+						<ExamsGrade key={index} grade={examGrade.grade} exams={examGrade.exams} />
+					))}
+				</div>
+			)}
 
 			<div className="footer">
 				<Footer />
