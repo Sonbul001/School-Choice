@@ -19,3 +19,8 @@
     float: left;
     width: 100%;
   }
+
+  .detailed--search--sidebar--container {
+    display: flex;
+    flex-direction: column;
+  }

@@ -7,10 +7,10 @@ function About(props) {
         >
             <Tab eventKey="about" title="About">
                 <ListGroup className='school-page-about-listgroup'>
-                    <ListGroup.Item><strong>School Type: </strong>{props.type}</ListGroup.Item>
+                    {props.type && <ListGroup.Item><strong>School Type: </strong>{props.type.join(', ')}</ListGroup.Item>}
                     <ListGroup.Item><strong>Gender: </strong>{props.gender}</ListGroup.Item>
                 </ListGroup>
-                <p>{props.about}</p>
+                <p className='school-page-about-text'>{props.about}</p>
             </Tab>
             <Tab eventKey="gallery" title="Gallery">
                 <div className='school-page-about-carousel'>
@@ -19,7 +19,7 @@ function About(props) {
                             <Carousel.Item key={index}>
                                 <img
                                     className="school-page-about-gallery-images"
-                                    src={image.src}
+                                    src={image}
                                     alt={`Image ${index}`}
                                 />
                             </Carousel.Item>

@@ -1,19 +1,29 @@
 
-import React from 'react'
+import React, { useState } from 'react'
 import './DetailedSearchbar.css';
 
-function DetailedSearchBar() {
+function DetailedSearchBar(props) {
+    const [name, setName] = useState('');
+    const [sort, setSort] = useState('');
+
+    const handleSortChange = (event) => {
+        setSort(event.target.value);
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        props.filter({ name, sort });
+    }
+
     return (
         <div className='detailed--search--bar'>
-            <form className='detailed--search--form' role="search">
-                <input className='detailed--search--input' id="search" type="search" placeholder="School Name" autofocus required />
+            <form className='detailed--search--form' role="search" onSubmit={handleSubmit}>
+                <input className='detailed--search--input' id="search" type="search" placeholder="School Name" autofocus value={name} onChange={(event) => setName(event.target.value)}/>
                 <button className='detailed--search--submit' type="submit">Go</button>
-            </form>
-            <form className='detailed--search--sort--form' role="search">
-                <select className='detailed--search--sort' placeholder='Sort'>
-                    <option value="" disabled selected hidden>Sort by...</option>
-                    <option>Ascending</option>
-                    <option>Descending</option>
+                <select className='detailed--search--sort' placeholder='Sort' value={sort} onChange={handleSortChange}>
+                    <option disabled selected hidden value=''>Sort by...</option>
+                    <option value='ascending'>Ascending</option>
+                    <option value='descending'>Descending</option>
                 </select>
             </form>
 

@@ -10,7 +10,8 @@ function Dates(props) {
                         <thead>
                             <tr>
                                 <th>Numbers</th>
-                                <th>Email</th>
+                                {props.email && <th>Email</th>}
+                                <th>Website</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -20,7 +21,8 @@ function Dates(props) {
                                         <span key={index}>{number}<br /></span>
                                     ))}
                                 </td>
-                                <td>{props.email}</td>
+                                {props.email && <td>{props.email}</td>}
+                                <td>{props.website}</td>
                             </tr>
                         </tbody>
                     </Table>

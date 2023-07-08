@@ -10,64 +10,53 @@ import Rating from "./Rating";
 import RecommendedSchools from "../RecommendedSchools/RecommendedSchools";
 import Location from "./Location";
 import Levels from "./Levels";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { useState } from "react";
 
 
 //Fetching data from backend should be in this component and pass data as props to all components
 function SchoolPage() {
-    const images = [
-        { src: "./cover.jpg" },
-        { src: "./Logo.png" },
-        { src: "./cover.jpg" },
-        { src: "./cover.jpg" }
-    ]
+    const location = useLocation();
+    const schoolData = location.state.school;
+    const [reviews, setReviews] = useState([]);
 
-    const feeData = [
-        {
-            classroom: "kg1",
-            fees: "2000"
-        },
-        {
-            classroom: "kg1",
-            fees: "2000"
-        },
-        {
-            classroom: "kg1",
-            fees: "2000"
-        },
-        {
-            classroom: "kg1",
-            fees: "2000"
-        }
-    ]
-
-    const reviews = [
-        {
-            user: "parent1",
-            review: "this is a review",
-            rating: 4
-        },
-        {
-            user: "parent1",
-            review: "this is a review",
-            rating: 4
-        },
-        {
-            user: "parent1",
-            review: "this is a review",
-            rating: 4
-        },
-        {
-            user: "parent1",
-            review: "this is a review",
-            rating: 4
-        },
-        {
-            user: "parent1",
-            review: "this is a review",
-            rating: 0
-        }
-    ]
-
+    useEffect(() => {
+        fetch(`http://localhost:3000/schools/reviews/${schoolData.id}`)
+        .then(response => response.json())
+        .then(data => setReviews(data))
+        .catch(err => console.error(err))
+    }, [])
+    // const reviews = [
+    //     {
+    //         totalRating: 4,
+    //         feedback: "Great school",
+    //         source: "edarabia",
+    //         reviewerName: "Ahmed"
+    //     },
+    //     {
+    //         totalRating: 4,
+    //         feedback: "Great school",
+    //         source: "edarabia",
+    //         reviewerName: "Ahmed"
+    //     },
+    //     {
+    //         totalRating: 4,
+    //         feedback: "Great school",
+    //         source: "edarabia",
+    //         reviewerName: "Ahmed"
+    //     },{
+    //         totalRating: 4,
+    //         feedback: "Great school",
+    //         source: "edarabia",
+    //         reviewerName: "Ahmed"
+    //     },{
+    //         totalRating: 4,
+    //         feedback: "Great school",
+    //         source: "edarabia",
+    //         reviewerName: "Ahmed"
+    //     }
+    // ]
     return (
         <div className="school-page">
             <div className='school-page-navbar'>
@@ -78,48 +67,56 @@ function SchoolPage() {
             </div>
             <div className='school-page-profile'>
                 <Profile
-                    name="John Doe"
-                    image="./cover.jpg"
-                    rating={3}
+                    id={schoolData.id}
+                    name={schoolData.name}
+                    image={schoolData.logo}
+                    email={schoolData.email}
                 />
             </div>
             <div className='school-page-about'>
                 <About
-                    images={images}
-                    type="International"
-                    gender="Boys And Girls"
-                    about="Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+                    images={schoolData.images}
+                    type={schoolData.type}
+                    gender={schoolData.gender}
+                    about={schoolData.about}
                 />
             </div>
 
             <div className="school-page-levels">
                 <Levels
-                    levels={['Preparatory', 'Preliminary', 'Primary', 'Incubation', 'Secondary']}
+                    levels={schoolData.educationLevel}
                 />
             </div>
             <div className='school-page-fees'>
                 <Fees
-                    fees={feeData}
+                    fees={schoolData.feesSection}
                 />
             </div>
             <div className='school-page-dates'>
                 <Dates
-                    mobileNumbers={['0123456789', '9876543210', '1234567890']}
-                    email='karim@gmail.com'
+                    mobileNumbers={schoolData.phones}
+                    email={schoolData.email}
+                    website={schoolData.website}
                 />
             </div>
 
             <div className="school-page-location">
-                <Location location='123 Main Street, City, Country' />
+                <Location 
+                    address={schoolData.address}
+                    map={schoolData.map}
+                />
             </div>
 
             <div className='school-page-rating'>
                 <Rating
+                    id={schoolData.id}
                     reviews={reviews}
                 />
             </div>
             <div className='school-page-recommended'>
-                <RecommendedSchools />
+                <RecommendedSchools 
+                    id={schoolData.id}
+                />
             </div>
             <div className='footer'>
                 <Footer />
