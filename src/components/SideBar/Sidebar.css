@@ -1,38 +1,42 @@
 .sidebar--component {
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
-    padding: 1rem;
-    padding-top: 2rem;
-    background-color: #36414B;
-    height: 100vh;
-    width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 4rem;
+	padding: 1rem;
+	padding-top: 2rem;
+	background-color: #36414b;
+	height: 100vh;
+	width: 105%;
 }
 
 .sidebar--component--item {
-    display: flex;
-    gap: 1rem;
+	display: flex;
+	gap: 1rem;
 }
 
 .sidebar--component--item--icon {
-    color: #6FB3B8;
-    min-width: fit-content;
-    max-width: max-content;
+	color: #6fb3b8;
+	min-width: fit-content;
+	max-width: max-content;
 }
 
 .sidebar--component--item p {
-    color: white;
-    margin: auto 0;
-    font-size: 19px;
-    font-weight: bolder;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 100px;
+	color: white;
+	margin: auto 0;
+	font-size: 19px;
+	font-weight: bolder;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 100px;
 }
 
 .sidebar--component--item p:hover {
-    color: #17cf97;
-    cursor: pointer;
-    transition: ease-in 0.15s;
+	color: #17cf97;
+	cursor: pointer;
+	transition: ease-in 0.15s;
+}
+
+.sidebar--component--item--label {
+	width: 100%;
 }

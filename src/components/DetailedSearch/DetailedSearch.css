@@ -52,3 +52,11 @@
 .detailed-search-card-icon:hover {
 	transform: scale(1.1);
 }
+
+.detailed-search-pagination {
+	margin: 0;
+	padding: 0;
+	margin-top: 20px;
+	margin-left: 50%;
+	transform: translateX(-50%);
+}
