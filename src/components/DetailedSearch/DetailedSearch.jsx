@@ -19,21 +19,11 @@ function DetailedSearchPage() {
 	const [schools, setSchools] = useState([]);
 	const [page, setPage] = useState(1);
 	const [totalPages, setTotalPages] = useState(1);
-	const [filterPage, setFilterPage] = useState(1);
-	const [filterTotalPages, setFilterTotalPages] = useState(1);
+	const [show, setShow] = useState(true);
 	let items = [];
 	for (let number = 1; number <= totalPages; number++) {
 		items.push(
 			<Pagination.Item key={number} active={number === page} onClick={() => setPage(number)}>
-				{number}
-			</Pagination.Item>
-		);
-	}
-
-	let filterItems = [];
-	for (let number = 1; number <= filterTotalPages; number++) {
-		filterItems.push(
-			<Pagination.Item key={number} active={number === filterPage} onClick={() => setFilterPage(number)}>
 				{number}
 			</Pagination.Item>
 		);
@@ -49,7 +39,7 @@ function DetailedSearchPage() {
 		sort: "",
 	};
 
-	const [filterState, setFilterState] = useState(filter);
+	// const [filterState, setFilterState] = useState(filter);
 
 	useEffect(() => {
 		fetch(`http://localhost:3000/schools/school?page=${page}&pageSize=12`)
@@ -98,7 +88,8 @@ function DetailedSearchPage() {
 
 	const applyFilters = (filters) => {
 		const queryParams = new URLSearchParams(filters).toString();
-		const url = `http://localhost:3000/schools/filter?page=${filterPage}&pageSize=12`;
+		const url = `http://localhost:3000/schools/filter?page=${page}&pageSize=12`;
+		setShow(false);
 		fetch(url, {
 			method: "POST",
 			headers: {
@@ -108,25 +99,10 @@ function DetailedSearchPage() {
 		})
 			.then((response) => response.json())
 			.then((data) => {
-				setSchools(data.data), setFilterTotalPages(data.last_page), setFilterPage(data.page_number);
+				setSchools(data);
 			})
 			.catch((err) => console.error(err));
 	};
-
-	// useEffect(() => {
-	// 	fetch(`http://localhost:3000/schools/filter?page=${filterPage}&pageSize=12`, {
-	// 		method: "POST",
-	// 		headers: {
-	// 			"Content-Type": "application/json",
-	// 		},
-	// 		body: JSON.stringify(filterState),
-	// 	})
-	// 		.then((response) => response.json())
-	// 		.then((data) => {
-	// 			setSchools(data.data), setFilterTotalPages(data.last_page), setFilterPage(data.page_number);
-	// 		})
-	// 		.catch((err) => console.error(err));
-	// }, [filterPage]);
 
 	return (
 		<div className="DetailedSearchPage">
@@ -153,7 +129,7 @@ function DetailedSearchPage() {
 							<SchoolCard schoolInfo={card} />
 						</div>
 					))}
-					<div>{filterTotalPages > 1 ? <Pagination className="detailed-search-pagination">{filterItems}</Pagination> : <Pagination className="detailed-search-pagination">{items}</Pagination>}</div>
+					<div className="detailed-search-pagination">{show && <Pagination className="detailed-search-pagination">{items}</Pagination>}</div>
 				</div>
 			</div>
 
