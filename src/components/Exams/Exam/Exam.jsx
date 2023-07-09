@@ -40,7 +40,7 @@ export default function exam(props) {
 	};
 
 	useEffect(() => {
-		if (localStorage.getItem("token") && location.state) {
+		if (localStorage.getItem("token") && !props.user) {
 			fetch(`http://localhost:3000/applicants/profile`, {
 				headers: {
 					Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -58,20 +58,7 @@ export default function exam(props) {
 				.then((data) => setBoughtExams(data.boughtExams))
 				.catch((err) => console.error(err));
 		}
-		fetch(`http://localhost:3000/auth/profile`, {
-			headers: {
-				Authorization: `Bearer ${localStorage.getItem("token")}`,
-			},
-		})
-			.then((response) => response.json())
-			.then((data) => setRole(data.role))
-			.catch((err) => console.error(err));
-		if (props.openExam !== props.exam.id) {
-			setShow(true);
-			setWidth(18);
-			setHeight("24rem");
-		}
-	}, [props.openExam, props.exam.id]);
+	}, []);
 
 	useEffect(() => {
 		if (localStorage.getItem("token") && userExams.some((exam) => exam.id === props.exam.id)) {
@@ -137,7 +124,7 @@ export default function exam(props) {
 			<Card style={{ width: `${width}rem`, height: `${height}`, transition: "0.5s ease-in-out" }}>
 				<Card.Img className="exam-card-logo" variant="top" src={props.exam.logo} />
 				{show ? <FaArrowCircleDown className="exam-card-show-button" onClick={handleShow} style={{ transition: "0.5s ease-in-out" }} /> : <FaArrowCircleDown className="exam-card-show-button" onClick={handleShow} style={{ transition: "0.5s ease-in-out", transform: "rotate(180deg)" }} />}
-				{role === "admin" && (saved ? <FontAwesomeIcon icon={solidBookmark} className="exam--save--logo " onClick={handleSave} /> : <FontAwesomeIcon icon={regularBookmark} className="exam--save--logo " onClick={handleSave} />)}
+				{!props.user && (saved ? <FontAwesomeIcon icon={solidBookmark} className="exam--save--logo " onClick={handleSave} /> : <FontAwesomeIcon icon={regularBookmark} className="exam--save--logo " onClick={handleSave} />)}
 				<Card.Body>
 					<Card.Title className="exam-card-title">{props.exam.name}</Card.Title>
 					<hr className="exam-car-horizontal-line" />
@@ -152,7 +139,7 @@ export default function exam(props) {
 				</Card.Body>
 				<Card.Footer style={{ marginTop: "-3rem" }}>
 					<div className="exam-card-footer">
-						{!role === "admin" ? (
+						{ !props.user ? (
 							props.exam.price > 0 ? (
 								buttonText === "Buy" ? (
 									<Button className="exam-card-footer-button" variant="primary" onClick={handleBuy}>

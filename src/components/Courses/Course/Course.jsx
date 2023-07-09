@@ -36,7 +36,7 @@ export default function Course(props) {
 	};
 
 	useEffect(() => {
-		if (localStorage.getItem("token") && location.state) {
+		if (localStorage.getItem("token") && !props.user) {
 			fetch(`http://localhost:3000/applicants/profile`, {
 				headers: {
 					Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -105,7 +105,8 @@ export default function Course(props) {
 			<Card style={{ width: `${width}rem`, height: `${height}`, transition: "0.5s ease-in-out" }}>
 				<Card.Img className="course-card-logo" variant="top" src={props.course.logo} />
 				{show ? <FaArrowCircleDown className="course-card-show-button" onClick={handleShow} style={{ transition: "0.5s ease-in-out" }} /> : <FaArrowCircleDown className="course-card-show-button" onClick={handleShow} style={{ transition: "0.5s ease-in-out", transform: "rotate(180deg)" }} />}
-				{saved ? <FontAwesomeIcon icon={solidBookmark} className="course--save--logo " onClick={handleSave} /> : <FontAwesomeIcon icon={regularBookmark} className="course--save--logo " onClick={handleSave} />}
+				{!props.user && (saved ? <FontAwesomeIcon icon={solidBookmark} className="course--save--logo " onClick={handleSave} /> : <FontAwesomeIcon icon={regularBookmark} className="course--save--logo " onClick={handleSave} />)}
+
 				<Card.Body className="course-card-body">
 					<Card.Title className="course-card-title">{props.course.name}</Card.Title>
 					<hr className="course-car-horizontal-line" />
