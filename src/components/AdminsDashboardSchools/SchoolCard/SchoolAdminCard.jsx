@@ -66,20 +66,24 @@ export default function SchoolAdminCard(props) {
 						<Tabs defaultActiveKey="about">
 							<Tab eventKey="about" title="About">
 								<ListGroup className="admins-school-card-information">
-								{props.school.type !== null && (
+									{props.school.type !== null && (
 										<ListGroup.Item id="admins-school-card-information-item">
 											<strong id="admins-school-card-information-item-strong">School Type: </strong>
 											{props.school.type.join(" and ")}
 										</ListGroup.Item>
 									)}
-									<ListGroup.Item id="admins-school-card-information-item">
-										<strong id="admins-school-card-information-item-strong">Educational Level: </strong>
-										{props.school.educationLevel.join(" and ")}
-									</ListGroup.Item>
-									<ListGroup.Item id="admins-school-card-information-item">
-										<strong id="admins-school-card-information-item-strong">Gender: </strong>
-										{props.school.gender}
-									</ListGroup.Item>
+									{props.school.educationLevel !== null && (
+										<ListGroup.Item id="admins-school-card-information-item">
+											<strong id="admins-school-card-information-item-strong">Educational Level: </strong>
+											{props.school.educationLevel.join(" and ")}
+										</ListGroup.Item>
+									)}
+									{props.school.gender !== null && (
+										<ListGroup.Item id="admins-school-card-information-item">
+											<strong id="admins-school-card-information-item-strong">Gender: </strong>
+											{props.school.gender}
+										</ListGroup.Item>
+									)}
 									<a href={props.school.map} className="admins-school-card-information-map-link">
 										<ListGroup.Item id="admins-school-card-information-item-address">
 											<strong id="admins-school-card-information-item-strong">Address: </strong>

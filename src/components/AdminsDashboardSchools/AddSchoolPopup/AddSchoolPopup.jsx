@@ -249,42 +249,42 @@ export default function AddSchoolPopup(props) {
 					<Row className="admin-school-form-row">
 						<Form.Group as={Col} className="admin-school-form-group">
 							<Form.Label className="admin-school-form-group-checklist-item-label">School Name </Form.Label>
-							<Form.Control type="text" name="name" value={school.name} onChange={handleInputChange} />
+							<Form.Control type="text" name="name" required value={school.name} onChange={handleInputChange} />
 						</Form.Group>
 						<Form.Group as={Col} className="admin-school-form-group">
 							<Form.Label className="admin-school-form-group-checklist-item-label">School City </Form.Label>
-							<Form.Control type="text" name="city" value={school.city} onChange={handleInputChange} />
+							<Form.Control type="text" name="city" required value={school.city} onChange={handleInputChange} />
 						</Form.Group>
 					</Row>
 					<Row>
 						<Form.Group as={Col} className="admin-school-form-group">
 							<Form.Label className="admin-school-form-group-checklist-item-label">School Address </Form.Label>
-							<Form.Control type="text" name="address" value={school.address} onChange={handleInputChange} />
+							<Form.Control type="text" name="address" required value={school.address} onChange={handleInputChange} />
 						</Form.Group>
 						<Form.Group as={Col} className="admin-school-form-group">
 							<Form.Label className="admin-school-form-group-checklist-item-label">School Map </Form.Label>
-							<Form.Control type="text" name="map" value={school.map} onChange={handleInputChange} />
+							<Form.Control type="text" name="map" required value={school.map} onChange={handleInputChange} />
 						</Form.Group>
 					</Row>
 					<Row>
 						<Form.Group as={Col} className="admin-school-form-group">
 							<Form.Label className="admin-school-form-group-checklist-item-label">School Website </Form.Label>
-							<Form.Control type="text" name="website" value={school.website} onChange={handleInputChange} />
+							<Form.Control type="text" name="website" required value={school.website} onChange={handleInputChange} />
 						</Form.Group>
 						<Form.Group as={Col} className="admin-school-form-group">
 							<Form.Label className="admin-school-form-group-checklist-item-label">Advertised </Form.Label>
-							<Form.Check type="checkbox" name="advertised" value={school.advertised} onChange={handleAdvertisementChange} />
+							<Form.Check type="checkbox" name="advertised" required value={school.advertised} onChange={handleAdvertisementChange} />
 						</Form.Group>
 					</Row>
 					<hr className="admin-school-from-hori-line" />
 					<Form.Group>
 						<Form.Label className="admin-school-form-group-checklist-item-label">School About </Form.Label>
-						<Form.Control as="textarea" name="about" value={school.about} onChange={handleInputChange} rows={3} />
+						<Form.Control as="textarea" name="about" required value={school.about} onChange={handleInputChange} rows={3} />
 					</Form.Group>
 					<hr className="admin-school-from-hori-line" />
 					<Form.Group>
 						<Form.Label className="admin-school-form-group-checklist-item-label">School Logo</Form.Label>
-						<Form.Control type="text" placeholder="Enter a link" name="logo" value={school.logo} onChange={handleInputChange} />
+						<Form.Control type="text" placeholder="Enter a link" required name="logo" value={school.logo} onChange={handleInputChange} />
 					</Form.Group>
 					<hr className="admin-school-from-hori-line" />
 					<Row className="admin-school-form-group-checklist">
@@ -319,7 +319,7 @@ export default function AddSchoolPopup(props) {
 					{images.map((image, index) => (
 						<div key={index}>
 							<Form.Label className="admin-school-form-group-checklist-item-label">Image {index + 1}</Form.Label>
-							<Form.Control type="text" placeholder="Enter a link" name="images" value={image} onChange={(event) => handleImageChange(event, index)} />
+							<Form.Control type="text" placeholder="Enter a link" required name="images" value={image} onChange={(event) => handleImageChange(event, index)} />
 							{images.length === 1 ? null : (
 								<Button variant="danger" className="admin-school-form-group-checklist-button" type="button" onClick={() => handleImageRemove(index)}>
 									Remove
@@ -337,7 +337,7 @@ export default function AddSchoolPopup(props) {
 					{phones.map((phone, index) => (
 						<div key={index}>
 							<Form.Label className="admin-school-form-group-checklist-item-label">Phone {index + 1}</Form.Label>
-							<Form.Control type="text" name="phone" value={phone} onChange={(event) => handlePhoneChange(event, index)} />
+							<Form.Control type="text" name="phone" required value={phone} onChange={(event) => handlePhoneChange(event, index)} />
 							{phones.length === 1 ? null : (
 								<Button variant="danger" className="admin-school-form-group-checklist-button" type="button" onClick={() => handleRemovePhone(index)}>
 									Remove
@@ -350,7 +350,7 @@ export default function AddSchoolPopup(props) {
 					</Button>
 					<Form.Group>
 						<Form.Label className="admin-school-form-group-checklist-item-label">Email</Form.Label>
-						<Form.Control type="email" name="email" value={school.email} onChange={handleInputChange} />
+						<Form.Control type="email" name="email" required value={school.email} onChange={handleInputChange} />
 					</Form.Group>
 					<hr className="admin-school-from-hori-line" />
 					<Form.Group>
@@ -366,11 +366,11 @@ export default function AddSchoolPopup(props) {
 											<Row>
 												<Form.Group as={Col}>
 													<Form.Label className="admin-school-form-group-checklist-item-label">Classroom</Form.Label>
-													<Form.Control type="text" name="classroom" value={fee.classroom} onChange={(event) => handleFeeChangeInFeeSection(event, index, feeIndex)} />
+													<Form.Control type="text" name="classroom" required value={fee.classroom} onChange={(event) => handleFeeChangeInFeeSection(event, index, feeIndex)} />
 												</Form.Group>
 												<Form.Group as={Col}>
 													<Form.Label className="admin-school-form-group-checklist-item-label">Fees</Form.Label>
-													<Form.Control type="number" name="fee" value={fee.fee} onChange={(event) => handleFeeChangeInFeeSection(event, index, feeIndex)} />
+													<Form.Control type="number" name="fee" required value={fee.fee} onChange={(event) => handleFeeChangeInFeeSection(event, index, feeIndex)} />
 												</Form.Group>
 											</Row>
 											{section.fees.length === 1 ? null : (
