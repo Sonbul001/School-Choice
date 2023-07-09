@@ -9,7 +9,7 @@ export default function Location(props) {
                     <Card.Text>
                         {props.address}
                     </Card.Text>
-                    <Button variant='info' href={props.map}>View On Map</Button>
+                    <Button className='school-page-location-card-map-button' variant='info' href={props.map}>View On Map</Button>
                 </Card.Body>
 
             </Card>

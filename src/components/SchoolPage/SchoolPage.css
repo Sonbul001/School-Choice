@@ -153,8 +153,17 @@
 }
 
 .school-page-rating-card-button {
+    background-color: #3e939f;
     float: right;
     margin-top: 6px;
+    border: none;
+}
+
+.school-page-location-card-map-button{
+    background-color: #3e939f;
+    color:white;
+    border: none;
+
 }
 
 .school-page-rating-card-reviews {
@@ -200,4 +209,10 @@
 .school-page-rating-card-source {
     text-align: right;
     font-style: italic;
+}
+
+.school-page-recommended{
+    margin-top: 50px;
+    margin-bottom: 50px;
+
 }

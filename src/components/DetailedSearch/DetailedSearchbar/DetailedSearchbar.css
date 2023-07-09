@@ -25,8 +25,9 @@
 .detailed--search--input {
     width: 90%;
     float: left;
-    margin: 10px 0;
-    padding: 10px;
+    margin: 1px 0;
+    
+    padding: 15px;
     display: inline;
     background-color: white;
 
@@ -36,10 +37,12 @@
     display: inline;
     width: 10%;
     float: left;
-    margin: 0px;
-    padding: 13px;
-    background-color: #0e2e58;
+    background-color: #6FB3B8;
+    height: 55px;
     color: #fff;
+    /*bold*/
+    font-weight: 700;
+    font-size: large;
     border: none;
     border-radius: 0px;
     cursor: pointer;
