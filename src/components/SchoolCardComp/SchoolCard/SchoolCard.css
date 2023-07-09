@@ -1,6 +1,6 @@
 .school-card {
-	width: 18rem;
-	height: 30rem;
+	width: 20rem;
+	height: 26rem;
 	margin-left: 32px;
 	margin-top: 20px;
 }
@@ -68,6 +68,7 @@
 .school-card-img {
 	width: auto;
 	height: 200px;
+	border-radius: 0 ;
 }
 
 .school-card-body {
@@ -82,7 +83,7 @@
 }
 
 .school-card-body-title {
-	font-size: 1.5rem;
+	font-size: 1.2rem;
 	font-weight: 600;
 }
 
@@ -111,7 +112,7 @@
 }
 
 .school-card-footer-row-right-button {
-	background-color: rgb(141, 141, 141);
+	background-color: #3e939f;
 	border: none;
 	border-radius: 5px;
 	padding: 5px 20px;
