@@ -82,6 +82,7 @@ export default function Course(props) {
 			})
 				.then((response) => response.json())
 				.then(() => alert("Course saved successfully"))
+				.then(() => window.location.reload())
 				.catch((error) => console.error(error));
 			setSaved(!saved);
 		} else if (saved && localStorage.getItem("token")) {
@@ -93,6 +94,7 @@ export default function Course(props) {
 			})
 				.then((response) => response.json())
 				.then(() => alert("Course unsaved successfully"))
+				.then(() => window.location.reload())
 				.catch((error) => console.error(error));
 			setSaved(!saved);
 		} else {

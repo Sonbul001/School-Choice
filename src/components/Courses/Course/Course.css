@@ -124,15 +124,16 @@
 }
 
 .course-card-footer-type-text {
-	font-size: 13.5pt;
+	font-size: 10pt;
 }
 
 .course-card-footer-button {
 	float: right;
 	padding: 7px 20px;
-	background-color: #cdcaca;
+	background-color: #3e939f;
 	border: none;
 	border-radius: 7px;
+	font-size: 15px;
 }
 
 .courses--page--course--name {

@@ -84,6 +84,7 @@ export default function exam(props) {
 			})
 				.then((response) => response.json())
 				.then(() => alert("Exam saved successfully"))
+				.then(() => window.location.reload())
 				.catch((error) => console.error(error));
 			setSaved(!saved);
 		} else if (saved && localStorage.getItem("token")) {
@@ -95,6 +96,7 @@ export default function exam(props) {
 			})
 				.then((response) => response.json())
 				.then(() => alert("Exam unsaved successfully"))
+				.then(() => window.location.reload())
 				.catch((error) => console.error(error));
 			setSaved(!saved);
 		} else {
