@@ -25,6 +25,7 @@ export default function exam(props) {
 	const [userExams, setUserExams] = useState([]);
 	const [boughtExams, setBoughtExams] = useState([]);
 	const [buttonText, setButtonText] = useState("Buy");
+	const [role, setRole] = useState("");
 
 	const handleShow = () => {
 		setShow(!show);
@@ -57,6 +58,14 @@ export default function exam(props) {
 				.then((data) => setBoughtExams(data.boughtExams))
 				.catch((err) => console.error(err));
 		}
+		fetch(`http://localhost:3000/auth/profile`, {
+			headers: {
+				Authorization: `Bearer ${localStorage.getItem("token")}`,
+			},
+		})
+			.then((response) => response.json())
+			.then((data) => setRole(data.role))
+			.catch((err) => console.error(err));
 		if (props.openExam !== props.exam.id) {
 			setShow(true);
 			setWidth(18);
@@ -128,7 +137,7 @@ export default function exam(props) {
 			<Card style={{ width: `${width}rem`, height: `${height}`, transition: "0.5s ease-in-out" }}>
 				<Card.Img className="exam-card-logo" variant="top" src={props.exam.logo} />
 				{show ? <FaArrowCircleDown className="exam-card-show-button" onClick={handleShow} style={{ transition: "0.5s ease-in-out" }} /> : <FaArrowCircleDown className="exam-card-show-button" onClick={handleShow} style={{ transition: "0.5s ease-in-out", transform: "rotate(180deg)" }} />}
-				{saved ? <FontAwesomeIcon icon={solidBookmark} className="exam--save--logo " onClick={handleSave} /> : <FontAwesomeIcon icon={regularBookmark} className="exam--save--logo " onClick={handleSave} />}
+				{role === "admin" && (saved ? <FontAwesomeIcon icon={solidBookmark} className="exam--save--logo " onClick={handleSave} /> : <FontAwesomeIcon icon={regularBookmark} className="exam--save--logo " onClick={handleSave} />)}
 				<Card.Body>
 					<Card.Title className="exam-card-title">{props.exam.name}</Card.Title>
 					<hr className="exam-car-horizontal-line" />
@@ -143,14 +152,20 @@ export default function exam(props) {
 				</Card.Body>
 				<Card.Footer style={{ marginTop: "-3rem" }}>
 					<div className="exam-card-footer">
-						{props.exam.price > 0 ? (
-							buttonText === "Buy" ? (
-								<Button className="exam-card-footer-button" variant="primary" onClick={handleBuy}>
-									{buttonText}
-								</Button>
+						{!role === "admin" ? (
+							props.exam.price > 0 ? (
+								buttonText === "Buy" ? (
+									<Button className="exam-card-footer-button" variant="primary" onClick={handleBuy}>
+										{buttonText}
+									</Button>
+								) : (
+									<Button className="exam-card-footer-button" variant="primary" href={props.exam.link}>
+										{buttonText}
+									</Button>
+								)
 							) : (
 								<Button className="exam-card-footer-button" variant="primary" href={props.exam.link}>
-									{buttonText}
+									Link
 								</Button>
 							)
 						) : (

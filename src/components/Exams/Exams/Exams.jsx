@@ -28,7 +28,7 @@ export default function Exams(props) {
 				.then((response) => response.json())
 				.then((data) => setBoughtExams(data))
 				.catch((err) => console.error(err));
-		}, [boughtExams]);
+		}, []);
 	}
 
 	examsWithPrice = examsWithPrice.filter((exam) => !boughtExams.some((boughtExam) => boughtExam.id === exam.id));
