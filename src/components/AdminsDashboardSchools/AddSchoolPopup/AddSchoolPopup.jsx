@@ -8,48 +8,12 @@ import Form from "react-bootstrap/Form";
 import "./AddSchoolPopup.css";
 import logo from "../../../assets/logo.png";
 
-// Object { name: "name1", logo: "logo1", about: "about1", type: [], educationLevel: [], gender: "", address: "address1", advertised: false, map: "map1", city: "city1", … }
-// ​
-// about: "about1"
-// ​
-// address: "address1"
-// ​
-// advertised: false
-// ​
-// city: "city1"
-// ​
-// educationLevel: Array []
-// ​
-// email: "email1@example.com"
-// ​
-// feesSection: Array [ {…} ]
-// ​
-// gender: ""
-// ​
-// images: Array [ "image1", "image" ]
-// ​
-// logo: "logo1"
-// ​
-// map: "map1"
-// ​
-// name: "name1"
-// ​
-// phones: Array [ "phone1", "phone" ]
-// ​
-// type: Array []
-// ​
-// website: "website1"
-// ​
-// <prototype>: Object { … }
-// AddSchoolPopup.jsx:207:10
-
-
 export default function AddSchoolPopup(props) {
 	let feeTemp = { classroom: "", fee: "" };
 	let feesSectionTemp = { type: "", fees: [feeTemp] };
 	let typeTemp = [];
 	let educationLevelTemp = [];
-	let imagesTemp = [];
+	let imagesTemp = "";
 	let phonesTemp = "";
 
 	let schoolTemp = {
@@ -63,7 +27,7 @@ export default function AddSchoolPopup(props) {
 		advertised: false,
 		map: "",
 		city: "",
-		images: imagesTemp,
+		images: [imagesTemp],
 		website: "",
 		phones: [phonesTemp],
 		email: "",
@@ -71,7 +35,6 @@ export default function AddSchoolPopup(props) {
 	};
 
 	if (props.school !== undefined) {
-
 		schoolTemp = {
 			name: props.school.name,
 			logo: props.school.logo,
@@ -87,7 +50,7 @@ export default function AddSchoolPopup(props) {
 			website: props.school.website,
 			phones: props.school.phones,
 			email: props.school.email,
-			feesSection: props.school.feesSection
+			feesSection: props.school.feesSection,
 		};
 	}
 
@@ -97,7 +60,7 @@ export default function AddSchoolPopup(props) {
 	const [type, setType] = useState(typeTemp);
 	const [educationLevel, setEducationLevel] = useState(educationLevelTemp);
 	const [gender, setGender] = useState("");
-	const [images, setimages] = useState(imagesTemp);
+	const [images, setimages] = useState([imagesTemp]);
 	const [advertised, setAdvertised] = useState(false);
 	const [phones, setPhones] = useState([phonesTemp]);
 
@@ -117,14 +80,12 @@ export default function AddSchoolPopup(props) {
 		const newImages = [...images];
 		newImages.push(imagesTemp);
 		setimages(newImages);
-		school.images = images;
 	};
 
 	const handleImageRemove = (index) => {
 		const newImages = [...images];
 		newImages.splice(index, 1);
 		setimages(newImages);
-		school.images = images
 	};
 
 	const handleImageChange = (event, index) => {
@@ -132,7 +93,6 @@ export default function AddSchoolPopup(props) {
 		const newImages = [...images];
 		newImages[index] = value;
 		setimages(newImages);
-		school.images = images
 	};
 
 	const handleCheckboxChangeType = (event) => {
@@ -143,25 +103,21 @@ export default function AddSchoolPopup(props) {
 		} else {
 			setType(type.filter((checkedItem) => checkedItem !== item));
 		}
-		school.type = type
 	};
 
 	const handleCheckboxChangeEducationLevel = async (event) => {
 		const item = event.target.value;
 		const isChecked = event.target.checked;
-		console.log(educationLevel)
+		console.log(educationLevel);
 		if (isChecked) {
 			setEducationLevel((educationLevel) => [...educationLevel, item]);
 		} else {
 			setEducationLevel((educationLevel) => educationLevel.filter((checkedItem) => checkedItem !== item));
 		}
-		console.log(educationLevel)
-		school.educationLevel = educationLevel
 	};
 
 	const handleGenderChange = (event) => {
 		setGender(event.target.value);
-		school.gender = gender;
 	};
 
 	const handlePhoneChange = (event, index) => {
@@ -169,21 +125,18 @@ export default function AddSchoolPopup(props) {
 		const newPhones = [...phones];
 		newPhones[index] = value;
 		setPhones(newPhones);
-		school.phones = phones;
 	};
 
 	const handleAddPhone = () => {
 		const newPhones = [...phones];
 		newPhones.push(phonesTemp);
 		setPhones(newPhones);
-		school.phones = phones;
 	};
 
 	const handleRemovePhone = (index) => {
 		const newPhones = [...phones];
 		newPhones.splice(index, 1);
 		setPhones(newPhones);
-		school.phones = phones;
 	};
 
 	const setFeesSectionTemp = () => {
@@ -193,27 +146,24 @@ export default function AddSchoolPopup(props) {
 			newFeesSection.push({ type: type, fees: [feeTemp] });
 		});
 		setFeesSection(newFeesSection);
-		school.feesSection = feesSection;
 	};
 
 	if (props.school === undefined) {
 		useEffect(() => {
 			setFeesSectionTemp();
-		}, []);
+		}, [type]);
 	}
 
 	const handleAddFeeInFeeSection = (index) => {
 		const newFeesSection = [...feesSection];
 		newFeesSection[index].fees.push(feeTemp);
 		setFeesSection(newFeesSection);
-		school.feesSection = feesSection;
 	};
 
 	const handleRemoveFeeInFeeSection = (index, feeIndex) => {
 		const newFeesSection = [...feesSection];
 		newFeesSection[index].fees.splice(feeIndex, 1);
 		setFeesSection(newFeesSection);
-		school.feesSection = feesSection;
 	};
 
 	const handleFeeChangeInFeeSection = (event, index, feeIndex) => {
@@ -221,13 +171,10 @@ export default function AddSchoolPopup(props) {
 		const newFeesSection = [...feesSection];
 		newFeesSection[index].fees[feeIndex] = { ...newFeesSection[index].fees[feeIndex], [name]: value };
 		setFeesSection(newFeesSection);
-		school.feesSection = feesSection;
 	};
 
 	const handleAdvertisementChange = () => {
 		setAdvertised(!advertised);
-		school.advertised = advertised;
-		console.log(school.advertised)
 	};
 
 	const handleInputChange = (event) => {
@@ -244,21 +191,53 @@ export default function AddSchoolPopup(props) {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		console.log(school)
-		// const token = localStorage.getItem('token');
-		// fetch('http://localhost:3000/schools/school', {
-		// 	method: 'POST',
-		// 	headers: {
-		// 		'Content-Type': 'application/json',
-		// 		'Authorization': `Bearer ${token}`
+		const newSchool = {
+			name: school.name,
+			logo: school.logo,
+			about: school.about,
+			type: type,
+			educationLevel: educationLevel,
+			gender: gender,
+			address: school.address,
+			advertised: advertised,
+			map: school.map,
+			city: school.city,
+			images: images,
+			website: school.website,
+			phones: phones,
+			email: school.email,
+			feesSection: feesSection,
+		};
+		console.log(JSON.stringify(newSchool));
 
-		// 	},
-		// 	body: JSON.stringify(school)
-		// })
-		// 	.then(response => response.json())
-		// 	.then(data => console.log(data))
-		// 	.catch(error => console.error(error));
-		closePopup();
+		if (!props.edit) {
+			fetch("http://localhost:3000/schools/school", {
+				method: "POST",
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem("token")}`,
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(newSchool),
+			})
+				.then((response) => response.status)
+				.then(() => alert("School Added successfully"))
+				.then(() => window.location.reload())
+				.catch((err) => console.error(err));
+		} else {
+			fetch(`http://localhost:3000/schools/school/${props.school.id}`, {
+				method: "PATCH",
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem("token")}`,
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(newSchool),
+			})
+				.then((response) => response.status)
+				.then(() => alert("School Edited successfully"))
+				.then(() => window.location.reload())
+				.catch((err) => console.error(err));
+		}
+		// closePopup();
 	};
 
 	return (
@@ -311,6 +290,7 @@ export default function AddSchoolPopup(props) {
 					<Row className="admin-school-form-group-checklist">
 						<Form.Group as={Col} className="admin-school-form-group-checklist-items">
 							<Form.Label className="admin-school-form-group-checklist-item-label">Education Level</Form.Label>
+							<Form.Check type="checkbox" label="Nursery" value="Nursery" checked={educationLevel.includes("Nursery")} onChange={handleCheckboxChangeEducationLevel} />
 							<Form.Check type="checkbox" label="KG" value="KG" checked={educationLevel.includes("KG")} onChange={handleCheckboxChangeEducationLevel} />
 							<Form.Check type="checkbox" label="Primary" value="Primary" checked={educationLevel.includes("Primary")} onChange={handleCheckboxChangeEducationLevel} />
 							<Form.Check type="checkbox" label="Preparatory" value="Preparatory" checked={educationLevel.includes("Preparatory")} onChange={handleCheckboxChangeEducationLevel} />
