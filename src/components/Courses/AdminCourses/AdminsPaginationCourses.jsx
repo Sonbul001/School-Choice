@@ -60,7 +60,7 @@ export default function AdminsPaginationCourses(props) {
 						<div className="admins-pagination-courses-edit-popup">{showPopupIndex === index && <AddCoursePopup openClosePopup={() => openClosePopup(index)} grade={props.grade} course={course} index={index} edit={true} />}</div>
 						<FontAwesomeIcon className="admins-pagination-courses-edit-button" icon="pen-to-square" onClick={() => openClosePopup(index)} />
 						<FontAwesomeIcon className="admins-pagination-courses-delete-button" icon="fa-solid fa-ban" onClick={() => handleDeleteCourse(course.id)} />
-						<Course key={index} course={course} onCourseClick={handleCourseClick} openCourse={openCourse} />
+						<Course key={index} course={course} onCourseClick={handleCourseClick} openCourse={openCourse} user='admin'/>
 					</div>
 				))}
 			</div>

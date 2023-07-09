@@ -76,6 +76,13 @@ function ApplicantProfilePage(props) {
             <Button className="applicant-profile-page-edit-btn" variant="primary" onClick={handleEdit}>
               Edit
             </Button>
+            <Button
+              className="applicant-profile-page-delete-btn"
+              variant="danger"
+              onClick={() => setShowDeleteModal(true)}
+            >
+              Delete Account
+            </Button>
             <Form.Group controlId="fullName" className='applicant-profile-page-form'>
               <Form.Label className='applicant-profile-page-form-label'>Name</Form.Label>
               <Form.Control
@@ -132,13 +139,7 @@ function ApplicantProfilePage(props) {
                 disabled={!editable}
               />
             </Form.Group>
-            <Button
-              className="applicant-profile-page-delete-btn"
-              variant="danger"
-              onClick={() => setShowDeleteModal(true)}
-            >
-              Delete Account
-            </Button>
+
             {editable && <Button className="applicant-profile-page-save-btn" variant="primary" type="submit">
               Save Changes
             </Button>}

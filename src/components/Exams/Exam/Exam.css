@@ -9,6 +9,9 @@
 	font-weight: bolder;
 	margin-top: 10px;
 	margin-bottom: 10px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
 }
 
 .exam-card-logo {
@@ -73,15 +76,15 @@
 
 .exam-card-footer {
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	justify-content: right;
+	align-items: right;
 	/* height: 10px; */
 }
 
 .exam-card-footer-button {
 	float: right;
 	padding: 7px 20px;
-	background-color: #cdcaca;
+	background-color: #3e939f;
 	border: none;
 	border-radius: 7px;
 }

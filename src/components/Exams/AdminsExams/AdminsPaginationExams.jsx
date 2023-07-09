@@ -9,89 +9,6 @@ import AddTestPopup from "../../AdminsDashboardTests/AddTestPopup/AddTestPopup";
 import "./AdminsPaginationExams.css";
 
 export default function AdminsPaginationExams(props) {
-	// const exams = [
-	// 	{
-	// 		logo: "../../../assets/Logo2.png",
-	// 		name: "Exam 1",
-	// 		description: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum",
-	// 		subject: "English",
-	// 		link: "https://www.udemy.com/course/complete-react-developer-zero-to-mastery/",
-	// 		price: 1,
-	// 	},
-	// 	{
-	// 		logo: "../../../assets/Logo2.png",
-	// 		name: "Exam 2",
-	// 		description: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum",
-	// 		subject: "English",
-	// 		link: "https://www.udemy.com/course/complete-react-developer-zero-to-mastery/",
-	// 		price: 0,
-	// 	},
-	// 	{
-	// 		logo: "../../../assets/Logo2.png",
-	// 		name: "Exam 3",
-	// 		description: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum",
-	// 		subject: "English",
-	// 		link: "https://www.udemy.com/course/complete-react-developer-zero-to-mastery/",
-	// 		price: 0,
-	// 	},
-	// 	{
-	// 		logo: "../../../assets/Logo2.png",
-	// 		name: "Exam 4",
-	// 		description: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum",
-	// 		subject: "English",
-	// 		link: "https://www.udemy.com/course/complete-react-developer-zero-to-mastery/",
-	// 		price: 0,
-	// 	},
-	// 	{
-	// 		logo: "../../../assets/Logo2.png",
-	// 		name: "Exam 5",
-	// 		description: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum",
-	// 		subject: "English",
-	// 		link: "https://www.udemy.com/course/complete-react-developer-zero-to-mastery/",
-	// 		price: 0,
-	// 	},
-	// 	{
-	// 		logo: "../../../assets/Logo2.png",
-	// 		name: "Exam 6",
-	// 		description: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum",
-	// 		subject: "English",
-	// 		link: "https://www.udemy.com/course/complete-react-developer-zero-to-mastery/",
-	// 		price: 0,
-	// 	},
-	// 	{
-	// 		logo: "../../../assets/Logo2.png",
-	// 		name: "Exam 7",
-	// 		description: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum",
-	// 		subject: "English",
-	// 		link: "https://www.udemy.com/course/complete-react-developer-zero-to-mastery/",
-	// 		price: 0,
-	// 	},
-	// 	{
-	// 		logo: "../../../assets/Logo2.png",
-	// 		name: "Exam 8",
-	// 		description: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum",
-	// 		subject: "English",
-	// 		link: "https://www.udemy.com/course/complete-react-developer-zero-to-mastery/",
-	// 		price: 0,
-	// 	},
-	// 	{
-	// 		logo: "../../../assets/Logo2.png",
-	// 		name: "Exam 9",
-	// 		description: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum",
-	// 		subject: "English",
-	// 		link: "https://www.udemy.com/course/complete-react-developer-zero-to-mastery/",
-	// 		price: 0,
-	// 	},
-	// 	{
-	// 		logo: "../../../assets/Logo2.png",
-	// 		name: "Exam 10",
-	// 		description: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum",
-	// 		subject: "English",
-	// 		link: "https://www.udemy.com/course/complete-react-developer-zero-to-mastery/",
-	// 		price: 0,
-	// 	},
-	// 	// Add more exam objects as needed
-	// ];
 
 	library.add(faPenToSquare, faBan);
 	const [currentPage, setCurrentPage] = useState(0);
@@ -142,7 +59,7 @@ export default function AdminsPaginationExams(props) {
 						<div className="admins-pagination-exams-edit-popup">{showPopupIndex === index && <AddTestPopup openClosePopup={() => openClosePopup(index)} grade={props.grade} exam={exam} index={index} edit={true} />}</div>
 						<FontAwesomeIcon className="admins-pagination-exams-edit-button" icon="pen-to-square" onClick={() => openClosePopup(index)} />
 						<FontAwesomeIcon className="admins-pagination-exams-delete-button" icon="fa-solid fa-ban" onClick={() => handleDeleteExam(exam.id)} />
-						<Exam key={index} exam={exam} onExamClick={handleExamClick} openExam={openExam} />
+						<Exam key={index} exam={exam} onExamClick={handleExamClick} openExam={openExam} user='admin'/>
 					</div>
 				))}
 			</div>

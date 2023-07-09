@@ -5,8 +5,6 @@ import AdminsPaginationCourses from "../AdminCourses/AdminsPaginationCourses";
 import "./CoursesGrade.css";
 
 export default function CoursesGrade(props) {
-	console.log(props.user);
-	console.log(props.course);
 	return (
 		<div className="courses--page--course--grade">
 			<div className="courses--page--course--grade--title">

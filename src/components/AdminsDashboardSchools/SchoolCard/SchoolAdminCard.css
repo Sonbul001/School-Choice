@@ -151,6 +151,8 @@
 #admins-school-card-information-carousel-item {
 	margin-left: 50%;
 	transform: translateX(-50%);
+	width: 800px;
+	height: 500px;
 }
 
 .admins-school-card-tab .nav.nav-tabs .nav-link {

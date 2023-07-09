@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./SignUp.css";
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Logo from "../../assets/Logo2.png";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function SignUp() {
 	const navigate = useNavigate();
@@ -23,7 +23,7 @@ function SignUp() {
 			password,
 			phone,
 			city,
-			address
+			address,
 		};
 
 		try {
@@ -40,7 +40,7 @@ function SignUp() {
 			}
 
 			alert("Sign up successful!");
-			navigate('/login');
+			navigate("/login");
 		} catch (error) {
 			console.error("Error:", error);
 			alert("Sign up failed. Please try again.");
@@ -56,52 +56,13 @@ function SignUp() {
 							<img className="logo" src={Logo} alt="Logo" />
 						</div>
 						<h1 className="signup-title">Sign Up</h1>
-						<input
-							type="text"
-							placeholder="Name"
-							value={fullName}
-							onChange={(event) => setFullName(event.target.value)}
-							required
-						/>
-						<input
-							type="email"
-							placeholder="Email"
-							value={email}
-							onChange={(event) => setEmail(event.target.value)}
-							required
-						/>
-						<input
-							type="password"
-							placeholder="Password"
-							value={password}
-							minLength={4}
-							onChange={(event) => setPassword(event.target.value)}
-							required
-						/>
-						<input
-							type="tel"
-							placeholder="Phone"
-							value={phone}
-							pattern="01[0-9]{9}"
-							title="Please enter a valid phone number starting with 01 and having 11 digits"
-							onChange={(event) => setPhone(event.target.value)}
-							required
-						/>
-						<input
-							type="text"
-							placeholder="City"
-							value={city}
-							onChange={(event) => setCity(event.target.value)}
-							required
-						/>
-						<input
-							type="text"
-							placeholder="Address"
-							value={address}
-							onChange={(event) => setAdress(event.target.value)}
-							required
-						/>
-						<button type="submit" className="signup--button">
+						<input type="text" placeholder="Name" value={fullName} onChange={(event) => setFullName(event.target.value)} required />
+						<input type="email" placeholder="Email" value={email} onChange={(event) => setEmail(event.target.value)} required />
+						<input type="password" placeholder="Password" value={password} minLength={4} onChange={(event) => setPassword(event.target.value)} required />
+						<input type="tel" placeholder="Phone" value={phone} pattern="01[0-9]{9}" title="Please enter a valid phone number starting with 01 and having 11 digits" onChange={(event) => setPhone(event.target.value)} required />
+						<input type="text" placeholder="City" value={city} onChange={(event) => setCity(event.target.value)} required />
+						<input type="text" placeholder="Address" value={address} onChange={(event) => setAdress(event.target.value)} required />
+						<button type="submit" className="signup--button" style={{ marginLeft: "50%", transform: "translateX(-50%)" }}>
 							Sign Up
 						</button>
 					</form>
@@ -119,6 +80,9 @@ function SignUp() {
 							>
 								Login
 							</button>
+							<Link to="/" className="login-link" style={{ marginTop: "10px" }}>
+								Go to home page
+							</Link>
 						</div>
 					</div>
 				</div>

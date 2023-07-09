@@ -36,7 +36,7 @@ export default function Course(props) {
 	};
 
 	useEffect(() => {
-		if (localStorage.getItem("token") && location.state) {
+		if (localStorage.getItem("token") && !props.user) {
 			fetch(`http://localhost:3000/applicants/profile`, {
 				headers: {
 					Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -45,22 +45,25 @@ export default function Course(props) {
 				.then((response) => response.json())
 				.then((data) => setUserCourses(data.savedCourses))
 				.catch((err) => console.error(err));
-			if (props.openCourse !== props.course.id) {
-				setShow(true);
-				setWidth(18);
-				setHeight("27rem");
-			}
-			const date1 = new Date(props.course.startDate);
-			const date2 = new Date(props.course.endDate);
-			const newDurationMonths = (date2.getFullYear() - date1.getFullYear()) * 12 + (date2.getMonth() - date1.getMonth());
-			if (newDurationMonths === 0) {
-				const newDurationDays = (date2.getTime() - date1.getTime()) / (1000 * 3600 * 24);
-				setDuration(`${newDurationDays} Days`);
-			} else {
-				setDuration(`${newDurationMonths} Months`);
-			}
 		}
+		if (props.openCourse !== props.course.id) {
+			setShow(true);
+			setWidth(18);
+			setHeight("27rem");
+		}
+		const date1 = new Date(props.course.startDate);
+		const date2 = new Date(props.course.endDate);
+		const newDurationMonths = (date2.getFullYear() - date1.getFullYear()) * 12 + (date2.getMonth() - date1.getMonth());
+		if (newDurationMonths === 0) {
+			const newDurationDays = (date2.getTime() - date1.getTime()) / (1000 * 3600 * 24);
+			setDuration(`${newDurationDays} Days`);
+		} else {
+			setDuration(`${newDurationMonths} Months`);
+		}
+		console.log(newDurationMonths);
 	}, [props.openCourse, props.course.id]);
+
+	console.log(duration);
 
 	useEffect(() => {
 		if (localStorage.getItem("token") && userCourses.some((course) => course.id === props.course.id)) {
@@ -79,6 +82,7 @@ export default function Course(props) {
 			})
 				.then((response) => response.json())
 				.then(() => alert("Course saved successfully"))
+				.then(() => window.location.reload())
 				.catch((error) => console.error(error));
 			setSaved(!saved);
 		} else if (saved && localStorage.getItem("token")) {
@@ -90,6 +94,7 @@ export default function Course(props) {
 			})
 				.then((response) => response.json())
 				.then(() => alert("Course unsaved successfully"))
+				.then(() => window.location.reload())
 				.catch((error) => console.error(error));
 			setSaved(!saved);
 		} else {
@@ -100,9 +105,10 @@ export default function Course(props) {
 	return (
 		<div>
 			<Card style={{ width: `${width}rem`, height: `${height}`, transition: "0.5s ease-in-out" }}>
-				<Card.Img className="course-card-logo" variant="top" src={Logo} />
+				<Card.Img className="course-card-logo" variant="top" src={props.course.logo} />
 				{show ? <FaArrowCircleDown className="course-card-show-button" onClick={handleShow} style={{ transition: "0.5s ease-in-out" }} /> : <FaArrowCircleDown className="course-card-show-button" onClick={handleShow} style={{ transition: "0.5s ease-in-out", transform: "rotate(180deg)" }} />}
-				{saved ? <FontAwesomeIcon icon={solidBookmark} className="course--save--logo " onClick={handleSave} /> : <FontAwesomeIcon icon={regularBookmark} className="course--save--logo " onClick={handleSave} />}
+				{!props.user && (saved ? <FontAwesomeIcon icon={solidBookmark} className="course--save--logo " onClick={handleSave} /> : <FontAwesomeIcon icon={regularBookmark} className="course--save--logo " onClick={handleSave} />)}
+
 				<Card.Body className="course-card-body">
 					<Card.Title className="course-card-title">{props.course.name}</Card.Title>
 					<hr className="course-car-horizontal-line" />

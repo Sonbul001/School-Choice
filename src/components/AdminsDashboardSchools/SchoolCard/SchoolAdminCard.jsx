@@ -22,7 +22,7 @@ export default function SchoolAdminCard(props) {
 				"Content-Type": "application/json",
 			},
 		})
-			.then((response) => response.status)
+			.then((response) => response.status === 200)
 			.then(() => alert("School Deleted successfully"))
 			.then(() => window.location.reload())
 			.catch((err) => console.error(err));
@@ -66,10 +66,12 @@ export default function SchoolAdminCard(props) {
 						<Tabs defaultActiveKey="about">
 							<Tab eventKey="about" title="About">
 								<ListGroup className="admins-school-card-information">
-									<ListGroup.Item id="admins-school-card-information-item">
-										<strong id="admins-school-card-information-item-strong">School Type: </strong>
-										{props.school.type.join(" and ")}
-									</ListGroup.Item>
+								{props.school.type !== null && (
+										<ListGroup.Item id="admins-school-card-information-item">
+											<strong id="admins-school-card-information-item-strong">School Type: </strong>
+											{props.school.type.join(" and ")}
+										</ListGroup.Item>
+									)}
 									<ListGroup.Item id="admins-school-card-information-item">
 										<strong id="admins-school-card-information-item-strong">Educational Level: </strong>
 										{props.school.educationLevel.join(" and ")}

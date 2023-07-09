@@ -10,21 +10,19 @@ import logo from "../../assets/logo.png";
 export default function AdminsSchools() {
 	const [schools, setSchools] = useState([]);
 	useEffect(() => {
-		const getSchools = async () => {
-			try {
-				const response = await fetch("http://localhost:3000/schools/school");
-				if (response.status != 401) {
-					const schoolData = await response.json();
-					setSchools(schoolData.data);
-				} else {
-					throw new Error("Unauthorized");
-				}
-			} catch (error) {
-				console.error("Error:", error);
-				alert("Failed to fetch data from the server.");
-			}
-		};
-		getSchools();
+		fetch("http://localhost:3000/schools/filter", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({}),
+		})
+			.then((response) => response.json())
+			.then((data) => {
+				setSchools(data);
+			})
+			.then(() => console.log(schools))
+			.catch((err) => console.error(err));
 	}, []);
 
 	const [showPopup, setShowPopup] = useState(false);
