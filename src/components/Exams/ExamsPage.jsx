@@ -11,18 +11,6 @@ import Footer from "../Footer/Footer";
 import "./ExamsPage.css";
 import { useState, useEffect } from "react";
 
-// const examGrades = [
-// 	{
-// 		grade: "Grade 1",
-// 	},
-// 	{
-// 		grade: "Grade 2",
-// 	},
-// 	{
-// 		grade: "Grade 3",
-// 	},
-// ];
-
 function ExamsPage() {
 	const [onSearch, setOnSearch] = useState("");
 	const [exams, setExams] = useState([]);

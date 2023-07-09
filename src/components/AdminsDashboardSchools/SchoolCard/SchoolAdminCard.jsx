@@ -14,11 +14,25 @@ export default function SchoolAdminCard(props) {
 		setShowPopup(!showPopup);
 	};
 
+	const handleDelete = () => {
+		fetch(`http://localhost:3000/schools/school/${props.school.id}`, {
+			method: "DELETE",
+			headers: {
+				Authorization: `Bearer ${localStorage.getItem("token")}`,
+				"Content-Type": "application/json",
+			},
+		})
+			.then((response) => response.status)
+			.then(() => alert("School Deleted successfully"))
+			.then(() => window.location.reload())
+			.catch((err) => console.error(err));
+	};
+
 	// console.log(props.school);
 
 	return (
 		<div>
-			<div className="admin-schools-page-popup">{showPopup && <AddSchoolPopup school={props.school} openClosePopup={() => openClosePopup()} />}</div>
+			<div className="admin-schools-page-popup">{showPopup && <AddSchoolPopup edit={true} school={props.school} openClosePopup={() => openClosePopup()} />}</div>
 			<Card className="admins-school-card">
 				<Card.Body>
 					<Card.Text className="admins-school-card-header">
@@ -43,7 +57,9 @@ export default function SchoolAdminCard(props) {
 							<Button variant="secondary" onClick={openClosePopup}>
 								Edit
 							</Button>
-							<Button variant="danger">Delete</Button>
+							<Button variant="danger" onClick={handleDelete}>
+								Delete
+							</Button>
 						</div>
 					</Card.Text>
 					<Card.Text className="admins-school-card-tab">

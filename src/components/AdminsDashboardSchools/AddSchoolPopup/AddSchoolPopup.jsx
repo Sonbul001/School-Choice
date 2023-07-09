@@ -13,7 +13,7 @@ export default function AddSchoolPopup(props) {
 	let feesSectionTemp = { type: "", fees: [feeTemp] };
 	let typeTemp = [];
 	let educationLevelTemp = [];
-	let imagesTemp = [];
+	let imagesTemp = "";
 	let phonesTemp = "";
 
 	let schoolTemp = {
@@ -27,7 +27,7 @@ export default function AddSchoolPopup(props) {
 		advertised: false,
 		map: "",
 		city: "",
-		imgs: imagesTemp,
+		images: [imagesTemp],
 		website: "",
 		phones: [phonesTemp],
 		email: "",
@@ -37,14 +37,20 @@ export default function AddSchoolPopup(props) {
 	if (props.school !== undefined) {
 		schoolTemp = {
 			name: props.school.name,
+			logo: props.school.logo,
 			about: props.school.about,
+			type: props.school.type,
+			educationLevel: props.school.educationLevel,
 			gender: props.school.gender,
 			address: props.school.address,
 			advertised: props.school.advertised,
 			map: props.school.map,
 			city: props.school.city,
+			images: props.school.images,
 			website: props.school.website,
+			phones: props.school.phones,
 			email: props.school.email,
+			feesSection: props.school.feesSection,
 		};
 	}
 
@@ -54,7 +60,7 @@ export default function AddSchoolPopup(props) {
 	const [type, setType] = useState(typeTemp);
 	const [educationLevel, setEducationLevel] = useState(educationLevelTemp);
 	const [gender, setGender] = useState("");
-	const [imgs, setImgs] = useState(imagesTemp);
+	const [images, setimages] = useState([imagesTemp]);
 	const [advertised, setAdvertised] = useState(false);
 	const [phones, setPhones] = useState([phonesTemp]);
 
@@ -63,28 +69,30 @@ export default function AddSchoolPopup(props) {
 			setFeesSection(props.school.feesSection);
 			setType(props.school.type);
 			setEducationLevel(props.school.educationLevel);
+			setimages(props.school.images);
 			setPhones(props.school.phones);
 			setGender(props.school.gender);
 			console.log(props.school.feesSection);
-		}, [props.school.feesSection, props.school.type, props.school.educationLevel, props.school.imgs, props.school.phones, props.school.gender]);
+		}, [props.school.feesSection, props.school.type, props.school.educationLevel, props.school.images, props.school.phones, props.school.gender]);
 	}
 
-	const handleImageAdd = (event) => {
-		const fileList = event.target.files;
-		if (fileList.length === 0) {
-			return;
-		}
-		const newImages = [...imgs];
-		const imagesArray = Array.from(fileList);
-		const images = imagesArray.map((image) => URL.createObjectURL(image));
-		newImages.push(...images);
-		setImgs(newImages);
+	const handleImageAdd = () => {
+		const newImages = [...images];
+		newImages.push(imagesTemp);
+		setimages(newImages);
 	};
 
 	const handleImageRemove = (index) => {
-		const newImages = [...imgs];
+		const newImages = [...images];
 		newImages.splice(index, 1);
-		setImgs(newImages);
+		setimages(newImages);
+	};
+
+	const handleImageChange = (event, index) => {
+		const { name, value } = event.target;
+		const newImages = [...images];
+		newImages[index] = value;
+		setimages(newImages);
 	};
 
 	const handleCheckboxChangeType = (event) => {
@@ -97,13 +105,14 @@ export default function AddSchoolPopup(props) {
 		}
 	};
 
-	const handleCheckboxChangeEducationLevel = (event) => {
+	const handleCheckboxChangeEducationLevel = async (event) => {
 		const item = event.target.value;
 		const isChecked = event.target.checked;
+		console.log(educationLevel);
 		if (isChecked) {
-			setEducationLevel([...educationLevel, item]);
+			setEducationLevel((educationLevel) => [...educationLevel, item]);
 		} else {
-			setEducationLevel(educationLevel.filter((checkedItem) => checkedItem !== item));
+			setEducationLevel((educationLevel) => educationLevel.filter((checkedItem) => checkedItem !== item));
 		}
 	};
 
@@ -193,25 +202,41 @@ export default function AddSchoolPopup(props) {
 			advertised: advertised,
 			map: school.map,
 			city: school.city,
-			imgs: imgs,
+			images: images,
 			website: school.website,
 			phones: phones,
 			email: school.email,
 			feesSection: feesSection,
 		};
-		console.log(newSchool);
-		// const token = localStorage.getItem("token");
-		// fetch("http://localhost:3000/schools/school", {
-		// 	method: "POST",
-		// 	headers: {
-		// 		"Content-Type": "application/json",
-		// 		Authorization: `Bearer ${token}`,
-		// 	},
-		// 	body: JSON.stringify(school),
-		// })
-		// 	.then((response) => response.json())
-		// 	.then((data) => console.log(data))
-		// 	.catch((error) => console.error(error));
+		console.log(JSON.stringify(newSchool));
+
+		if (!props.edit) {
+			fetch("http://localhost:3000/schools/school", {
+				method: "POST",
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem("token")}`,
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(newSchool),
+			})
+				.then((response) => response.status)
+				.then(() => alert("School Added successfully"))
+				.then(() => window.location.reload())
+				.catch((err) => console.error(err));
+		} else {
+			fetch(`http://localhost:3000/schools/school/${props.school.id}`, {
+				method: "PATCH",
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem("token")}`,
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(newSchool),
+			})
+				.then((response) => response.status)
+				.then(() => alert("School Edited successfully"))
+				.then(() => window.location.reload())
+				.catch((err) => console.error(err));
+		}
 		// closePopup();
 	};
 
@@ -231,7 +256,6 @@ export default function AddSchoolPopup(props) {
 							<Form.Control type="text" name="city" value={school.city} onChange={handleInputChange} />
 						</Form.Group>
 					</Row>
-					{/* <hr className="admin-school-from-hori-line" /> */}
 					<Row>
 						<Form.Group as={Col} className="admin-school-form-group">
 							<Form.Label className="admin-school-form-group-checklist-item-label">School Address </Form.Label>
@@ -242,7 +266,6 @@ export default function AddSchoolPopup(props) {
 							<Form.Control type="text" name="map" value={school.map} onChange={handleInputChange} />
 						</Form.Group>
 					</Row>
-					{/* <hr className="admin-school-from-hori-line" /> */}
 					<Row>
 						<Form.Group as={Col} className="admin-school-form-group">
 							<Form.Label className="admin-school-form-group-checklist-item-label">School Website </Form.Label>
@@ -250,7 +273,7 @@ export default function AddSchoolPopup(props) {
 						</Form.Group>
 						<Form.Group as={Col} className="admin-school-form-group">
 							<Form.Label className="admin-school-form-group-checklist-item-label">Advertised </Form.Label>
-							<Form.Check type="checkbox" name="advertised" value={advertised} onChange={handleAdvertisementChange} />
+							<Form.Check type="checkbox" name="advertised" value={school.advertised} onChange={handleAdvertisementChange} />
 						</Form.Group>
 					</Row>
 					<hr className="admin-school-from-hori-line" />
@@ -261,12 +284,13 @@ export default function AddSchoolPopup(props) {
 					<hr className="admin-school-from-hori-line" />
 					<Form.Group>
 						<Form.Label className="admin-school-form-group-checklist-item-label">School Logo</Form.Label>
-						<Form.Control type="file" name="logo" value={school.logo} onChange={handleInputChange} />
+						<Form.Control type="text" placeholder="Enter a link" name="logo" value={school.logo} onChange={handleInputChange} />
 					</Form.Group>
 					<hr className="admin-school-from-hori-line" />
 					<Row className="admin-school-form-group-checklist">
 						<Form.Group as={Col} className="admin-school-form-group-checklist-items">
 							<Form.Label className="admin-school-form-group-checklist-item-label">Education Level</Form.Label>
+							<Form.Check type="checkbox" label="Nursery" value="Nursery" checked={educationLevel.includes("Nursery")} onChange={handleCheckboxChangeEducationLevel} />
 							<Form.Check type="checkbox" label="KG" value="KG" checked={educationLevel.includes("KG")} onChange={handleCheckboxChangeEducationLevel} />
 							<Form.Check type="checkbox" label="Primary" value="Primary" checked={educationLevel.includes("Primary")} onChange={handleCheckboxChangeEducationLevel} />
 							<Form.Check type="checkbox" label="Preparatory" value="Preparatory" checked={educationLevel.includes("Preparatory")} onChange={handleCheckboxChangeEducationLevel} />
@@ -285,24 +309,27 @@ export default function AddSchoolPopup(props) {
 							<Form.Check type="checkbox" label="American" value="American" checked={type.includes("American")} onChange={handleCheckboxChangeType} />
 							<Form.Check type="checkbox" label="Lycee" value="Lycee" checked={type.includes("Lycee")} onChange={handleCheckboxChangeType} />
 							<Form.Check type="checkbox" label="German" value="German" checked={type.includes("German")} onChange={handleCheckboxChangeType} />
-							<Form.Check type="checkbox" label="Canadian" value="Canadian" checked={type.includes("Canadian")} onChange={handleCheckboxChangeType} />
+							<Form.Check type="checkbox" label="IB" value="IB" checked={type.includes("IB")} onChange={handleCheckboxChangeType} />
 						</Form.Group>
 					</Row>
 					<hr className="admin-school-from-hori-line" />
-					<Form.Group>
-						<Form.Label className="admin-school-form-group-checklist-item-label">Add Images</Form.Label>
-						<Form.Control type="file" name="imgs" defaultValue={imgs} multiple onChange={handleImageAdd} />
-						<Form.Label className="admin-school-form-group-checklist-item-label">Remove Images</Form.Label>
-						<div className="admin-school-form-imgs">
-							{imgs.map((img, index) => (
-								<div key={index}>
-									<FontAwesomeIcon onClick={() => handleImageRemove(index)} className="admin-school-form-imgs-xmark" icon="fa-solid fa-circle-xmark" />
-									<img className="admin-school-form-imgs-item" src={img} alt={index + 1} />
-									{console.log(img)}
-								</div>
-							))}
-						</div>
+					<Form.Group className="admin-school-form-group-checklist-items">
+						<Form.Label className="admin-school-form-group-checklist-item-label">Images</Form.Label>
 					</Form.Group>
+					{images.map((image, index) => (
+						<div key={index}>
+							<Form.Label className="admin-school-form-group-checklist-item-label">Image {index + 1}</Form.Label>
+							<Form.Control type="text" placeholder="Enter a link" name="images" value={image} onChange={(event) => handleImageChange(event, index)} />
+							{images.length === 1 ? null : (
+								<Button variant="danger" className="admin-school-form-group-checklist-button" type="button" onClick={() => handleImageRemove(index)}>
+									Remove
+								</Button>
+							)}
+						</div>
+					))}
+					<Button className="admin-school-form-group-checklist-button" type="button" onClick={handleImageAdd}>
+						Add Image
+					</Button>
 					<hr className="admin-school-from-hori-line" />
 					<Form.Group className="admin-school-form-group-checklist-items">
 						<Form.Label className="admin-school-form-group-checklist-item-label">Contact Numbers</Form.Label>

@@ -4,7 +4,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import './Navbar.css';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa';
 
 function Navbar() {
@@ -52,8 +52,8 @@ function Navbar() {
                                 title="Our Services"
                                 menuVariant="dark"
                             >
-                                <NavDropdown.Item href="/exams">Exams</NavDropdown.Item>
-                                <NavDropdown.Item href="/courses">Courses</NavDropdown.Item>
+                                <NavDropdown.Item><Link to='/exams' state={{user: 'user'}}>Exams</Link></NavDropdown.Item>
+                                <NavDropdown.Item><Link to='/courses' state={{user: 'user'}}>Courses</Link></NavDropdown.Item>
                             </NavDropdown>
                         </li>
                         {loggedIn && <li><a href='#' onClick={logOut}>Logout</a></li>}

@@ -10,29 +10,40 @@ import ExamsGrade from "../Exams/ExamsGrade/ExamsGrade";
 import "./AdminsExams.css";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
-
-const examGrades = [
-	{
-		grade: "Grade 1",
-	},
-	{
-		grade: "Grade 2",
-	},
-	{
-		grade: "Grade 3",
-	},
-];
+import { useEffect } from "react";
 
 function AdminTestsDashboard() {
 	library.add(faCirclePlus, faSquarePlus);
 
 	const [showPopup, setShowPopup] = useState(false);
 	const [selected, setSelected] = useState(null);
+	const [exams, setExams] = useState([]);
 
 	const openClosePopup = (index) => {
 		setShowPopup(!showPopup);
 		setSelected(index);
 	};
+
+	const groupedExams = exams.reduce((result, exam) => {
+		const classroom = exam.classroom;
+		if (!result[classroom]) {
+			result[classroom] = [];
+		}
+		result[classroom].push(exam);
+		return result;
+	}, {});
+
+	const examGrades = Object.keys(groupedExams).map((classroom) => ({
+		grade: classroom,
+		exams: groupedExams[classroom],
+	}));
+
+	useEffect(() => {
+		fetch("http://localhost:3000/exams/exam")
+			.then((response) => response.json())
+			.then((data) => setExams(data))
+			.catch((error) => console.error(error));
+	}, []);
 
 	return (
 		<div className="Exams--page">
@@ -48,7 +59,7 @@ function AdminTestsDashboard() {
 									Add Test
 								</Button>
 							</div>
-							<ExamsGrade grade={examGrade.grade} user="admin" />
+							<ExamsGrade grade={examGrade.grade} user="admin" exams={examGrade.exams}/>
 							<div className="exams-popup">{showPopup && selected === index ? <AddTestPopup openClosePopup={() => openClosePopup()} grade={examGrade.grade} /> : null}</div>
 						</div>
 					))}

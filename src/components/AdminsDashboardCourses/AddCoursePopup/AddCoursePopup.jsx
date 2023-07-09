@@ -9,16 +9,16 @@ import { useState, useEffect } from "react";
 
 function AddCoursePopup(props) {
 	let courseTemp = {
-		courseName: "",
-		about: "",
-		duration: "",
+		name: "",
+		description: "",
 		startDate: "",
 		endDate: "",
-		courseLink: "",
-		schoolType: "",
-		coursePrice: 0,
-		courseProvider: "",
-		courseLocation: "",
+		link: "",
+		type: "",
+		price: 0,
+		provider: "",
+		location: "",
+		classroom: ""
 	};
 
 	if (props.course !== undefined) {
@@ -35,28 +35,18 @@ function AddCoursePopup(props) {
 	const [course, setCourse] = useState(courseTemp);
 
 	function handleStartDateChange(event) {
-		setStartDate(event.target.value);
+		setStartDate(event.target.value)
+		setCourse({ ...course, ['startDate']: event.target.value });
 	}
 
 	function handleEndDateChange(event) {
 		setEndDate(event.target.value);
+		setCourse({ ...course, ['endDate']: event.target.value });
 	}
 
 	useEffect(() => {
-		const date1 = new Date(startDate);
-		const date2 = new Date(endDate);
-		const newDurationMonths = (date2.getFullYear() - date1.getFullYear()) * 12 + (date2.getMonth() - date1.getMonth());
-		if (newDurationMonths === 0) {
-			const newDurationDays = (date2.getTime() - date1.getTime()) / (1000 * 3600 * 24);
-			setCourse({ ...course, duration: `${newDurationDays} Days` });
-			setCourse({ ...course, startDate: startDate });
-			setCourse({ ...course, endDate: endDate });
-		} else {
-			setCourse({ ...course, duration: `${newDurationMonths} Months` });
-			setCourse({ ...course, startDate: startDate });
-			setCourse({ ...course, endDate: endDate });
-		}
-	}, [startDate, endDate]);
+		setCourse({ ...course, classroom: props.grade });
+	}, []);
 
 	const handleChange = (e) => {
 		setCourse({ ...course, [e.target.name]: e.target.value });
@@ -68,9 +58,33 @@ function AddCoursePopup(props) {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		setCourse({ ...course, grade: props.grade });
-		console.log(course);
-		closePopup();
+		if (!props.edit) {
+		fetch('http://localhost:3000/courses/course', {
+			method: 'POST',
+			headers: {
+				Authorization: `Bearer ${localStorage.getItem('token')}`,
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(course)
+		})
+			.then(response => response.json())
+			.then(() => alert('Course Added successfully'))
+			.then(() => window.location.reload())
+			.catch(err => console.error(err))
+		} else {
+			fetch(`http://localhost:3000/courses/course/${props.course.id}`, {
+			method: 'PATCH',
+			headers: {
+				Authorization: `Bearer ${localStorage.getItem('token')}`,
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(course)
+		})
+			.then(response => response.json())
+			.then(() => alert('Exam Edited successfully'))
+			.then(() => window.location.reload())
+			.catch(err => console.error(err))
+		}
 	};
 
 	return (
@@ -78,16 +92,20 @@ function AddCoursePopup(props) {
 			<Card className="add-course-popup-inner-container">
 				<Card.Body>
 					<FontAwesomeIcon onClick={closePopup} className="add-course-popup-xmark" icon="fa-solid fa-circle-xmark" />
-					<Card.Title className="add-course-popup-title">Add Course for {props.grade}</Card.Title>
+					<Card.Title className="add-course-popup-title">{props.edit ? "Edit" : "Add"} Course for {props.grade}</Card.Title>
 					<hr />
 					<Form onSubmit={handleSubmit}>
 						<Form.Group className="add-course-popup-course-name">
 							<Form.Label className="add-course-popup-course-name-label">Course Name</Form.Label>
-							<Form.Control className="add-course-popup-course-name-control" type="text" placeholder="Enter Course Name" name="courseName" required value={course.courseName} onChange={handleChange} />
+							<Form.Control className="add-course-popup-course-name-control" type="text" placeholder="Enter Course Name" name="name" required value={course.name} onChange={handleChange} />
+						</Form.Group>
+						<Form.Group className="add-course-popup-course-name">
+							<Form.Label className="add-course-popup-course-name-label">Course Logo</Form.Label>
+							<Form.Control className="add-course-popup-course-name-control" type="url" placeholder="Enter Course Logo" name="logo" required value={course.logo} onChange={handleChange} />
 						</Form.Group>
 						<Form.Group className="add-course-popup-course-about">
 							<Form.Label className="add-course-popup-course-about-label">About</Form.Label>
-							<Form.Control className="add-course-popup-course-about-control" as="textarea" rows={3} placeholder="Enter Course About" name="about" required value={course.about} onChange={handleChange} />
+							<Form.Control className="add-course-popup-course-about-control" as="textarea" rows={3} placeholder="Enter Course About" name="description" required value={course.description} onChange={handleChange} />
 						</Form.Group>
 						<Row>
 							<Form.Group as={Col} className="add-course-popup-course-starting date">
@@ -101,27 +119,27 @@ function AddCoursePopup(props) {
 						</Row>
 						<Form.Group className="add-course-popup-course-link">
 							<Form.Label className="add-course-popup-course-link-label">Course Link</Form.Label>
-							<Form.Control className="add-course-popup-course-link-control" type="url" placeholder="Enter Course Link" name="courseLink" required value={course.courseLink} onChange={handleChange} />
+							<Form.Control className="add-course-popup-course-link-control" type="url" placeholder="Enter Course Link" name="link" required value={course.link} onChange={handleChange} />
 						</Form.Group>
 						<Form.Group className="add-course-popup-course-type">
 							<Form.Label className="add-course-popup-course-type-label">Course Type</Form.Label>
-							<Form.Control className="add-course-popup-course-type-control" type="text" placeholder="Enter Course Type" name="schoolType" required value={course.schoolType} onChange={handleChange} />
+							<Form.Control className="add-course-popup-course-type-control" type="text" placeholder="Enter Course Type" name="type" required value={course.type} onChange={handleChange} />
 						</Form.Group>
 						<Form.Group className="add-course-popup-course-price">
 							<Form.Label className="add-course-popup-course-price-label">Course Price</Form.Label>
-							<Form.Control className="add-course-popup-course-price-control" type="number" min="0" placeholder="Enter Course Price" name="coursePrice" required value={course.coursePrice} onChange={handleChange} />
+							<Form.Control className="add-course-popup-course-price-control" type="number" min="0" placeholder="Enter Course Price" name="price" required value={course.price} onChange={handleChange} />
 						</Form.Group>
 						<Form.Group className="add-course-popup-course-provider">
 							<Form.Label className="add-course-popup-course-provider-label">Course Provider</Form.Label>
-							<Form.Control className="add-course-popup-course-provider-control" type="text" placeholder="Enter Course Provider" name="courseProvider" required value={course.courseProvider} onChange={handleChange} />
+							<Form.Control className="add-course-popup-course-provider-control" type="text" placeholder="Enter Course Provider" name="provider" required value={course.provider} onChange={handleChange} />
 						</Form.Group>
 						<Form.Group className="add-course-popup-course-location">
 							<Form.Label className="add-course-popup-course-location-label">Course Location</Form.Label>
-							<Form.Control className="add-course-popup-course-location-control" type="text" placeholder="Enter Course Location" name="courseLocation" required value={course.courseLocation} onChange={handleChange} />
+							<Form.Control className="add-course-popup-course-location-control" type="text" placeholder="Enter Course Location" name="location" required value={course.location} onChange={handleChange} />
 						</Form.Group>
 						<div className="add-course-popup-button-container">
 							<Button className="add-course-popup-button" type="submit">
-								Add
+								{props.edit ? "Edit" : "Add"}
 							</Button>
 						</div>
 					</Form>

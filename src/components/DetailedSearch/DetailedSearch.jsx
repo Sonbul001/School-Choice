@@ -88,7 +88,7 @@ function DetailedSearchPage() {
 
 	const applyFilters = (filters) => {
 		const queryParams = new URLSearchParams(filters).toString();
-		const url = `http://localhost:3000/schools/filter?page=${page}&pageSize=12`;
+		const url = `http://localhost:3000/schools/filter`;
 		setShow(false);
 		fetch(url, {
 			method: "POST",

@@ -36,27 +36,29 @@ export default function Course(props) {
 	};
 
 	useEffect(() => {
-		fetch(`http://localhost:3000/applicants/profile`, {
-			headers: {
-				Authorization: `Bearer ${localStorage.getItem("token")}`,
-			},
-		})
-			.then((response) => response.json())
-			.then((data) => setUserCourses(data.savedCourses))
-			.catch((err) => console.error(err));
-		if (props.openCourse !== props.course.id) {
-			setShow(true);
-			setWidth(18);
-			setHeight("27rem");
-		}
-		const date1 = new Date(props.course.startDate);
-		const date2 = new Date(props.course.endDate);
-		const newDurationMonths = (date2.getFullYear() - date1.getFullYear()) * 12 + (date2.getMonth() - date1.getMonth());
-		if (newDurationMonths === 0) {
-			const newDurationDays = (date2.getTime() - date1.getTime()) / (1000 * 3600 * 24);
-			setDuration(`${newDurationDays} Days`);
-		} else {
-			setDuration(`${newDurationMonths} Months`);
+		if (localStorage.getItem("token") && location.state) {
+			fetch(`http://localhost:3000/applicants/profile`, {
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem("token")}`,
+				},
+			})
+				.then((response) => response.json())
+				.then((data) => setUserCourses(data.savedCourses))
+				.catch((err) => console.error(err));
+			if (props.openCourse !== props.course.id) {
+				setShow(true);
+				setWidth(18);
+				setHeight("27rem");
+			}
+			const date1 = new Date(props.course.startDate);
+			const date2 = new Date(props.course.endDate);
+			const newDurationMonths = (date2.getFullYear() - date1.getFullYear()) * 12 + (date2.getMonth() - date1.getMonth());
+			if (newDurationMonths === 0) {
+				const newDurationDays = (date2.getTime() - date1.getTime()) / (1000 * 3600 * 24);
+				setDuration(`${newDurationDays} Days`);
+			} else {
+				setDuration(`${newDurationMonths} Months`);
+			}
 		}
 	}, [props.openCourse, props.course.id]);
 
@@ -123,7 +125,7 @@ export default function Course(props) {
 					<div className="course-card-footer">
 						<div className="course-card-footer-type">
 							<img src={earth} className="course--earth--logo" alt="..." />
-							<small className="course-card-footer-type-text">{props.course.schoolType}</small>
+							<small className="course-card-footer-type-text">{props.course.type}</small>
 						</div>
 						{props.course.price > 0 ? (
 							<Button className="course-card-footer-button" variant="primary" href={props.course.link}>
