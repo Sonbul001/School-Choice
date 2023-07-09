@@ -9,6 +9,9 @@
 	font-weight: bolder;
 	margin-top: 10px;
 	margin-bottom: 10px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
 }
 
 .exam-card-logo {

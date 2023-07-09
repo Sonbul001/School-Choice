@@ -18,16 +18,19 @@ export default function Exams(props) {
 	const examsWithoutPrice = props.exams.filter((exam) => exam.price === 0);
 	let examsWithPrice = props.exams.filter((exam) => exam.price > 0);
 
-	useEffect(() => {
-		fetch(`http://localhost:3000/applicants/bought-exams`, {
-			headers: {
-				Authorization: `Bearer ${localStorage.getItem("token")}`,
-			},
-		})
-			.then((response) => response.json())
-			.then((data) => setBoughtExams(data))
-			.catch((err) => console.error(err));
-	}, [boughtExams]);
+	if (localStorage.getItem("token")) {
+		useEffect(() => {
+			fetch(`http://localhost:3000/applicants/bought-exams`, {
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem("token")}`,
+				},
+			})
+				.then((response) => response.json())
+				.then((data) => setBoughtExams(data))
+				.catch((err) => console.error(err));
+		}, [boughtExams]);
+	}
+
 	examsWithPrice = examsWithPrice.filter((exam) => !boughtExams.some((boughtExam) => boughtExam.id === exam.id));
 
 	useEffect(() => {
