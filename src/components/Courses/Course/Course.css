@@ -11,7 +11,6 @@
 	margin-bottom: 10px;
 	white-space: nowrap;
 	text-overflow: ellipsis;
-	/* width: 18rem; */
 	overflow: hidden;
 }
 

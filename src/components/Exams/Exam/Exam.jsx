@@ -39,22 +39,24 @@ export default function exam(props) {
 	};
 
 	useEffect(() => {
-		fetch(`http://localhost:3000/applicants/profile`, {
-			headers: {
-				Authorization: `Bearer ${localStorage.getItem("token")}`,
-			},
-		})
-			.then((response) => response.json())
-			.then((data) => setUserExams(data.savedExams))
-			.catch((err) => console.error(err));
-		fetch(`http://localhost:3000/applicants/profile`, {
-			headers: {
-				Authorization: `Bearer ${localStorage.getItem("token")}`,
-			},
-		})
-			.then((response) => response.json())
-			.then((data) => setBoughtExams(data.boughtExams))
-			.catch((err) => console.error(err));
+		if (localStorage.getItem("token") && location.state) {
+			fetch(`http://localhost:3000/applicants/profile`, {
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem("token")}`,
+				},
+			})
+				.then((response) => response.json())
+				.then((data) => setUserExams(data.savedExams))
+				.catch((err) => console.error(err));
+			fetch(`http://localhost:3000/applicants/profile`, {
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem("token")}`,
+				},
+			})
+				.then((response) => response.json())
+				.then((data) => setBoughtExams(data.boughtExams))
+				.catch((err) => console.error(err));
+		}
 		if (props.openExam !== props.exam.id) {
 			setShow(true);
 			setWidth(18);

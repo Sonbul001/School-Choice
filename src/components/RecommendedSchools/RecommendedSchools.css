@@ -1,5 +1,7 @@
 .recommended-schools--component {
 	padding: 1rem;
+	display: flex;
+	justify-content: center;
 }
 .recommended-schools-carousel {
 	max-width: 1300px;

@@ -219,7 +219,7 @@ export default function AddSchoolPopup(props) {
 				},
 				body: JSON.stringify(newSchool),
 			})
-				.then((response) => response.status)
+				.then((response) => response.status === 200)
 				.then(() => alert("School Added successfully"))
 				.then(() => window.location.reload())
 				.catch((err) => console.error(err));
@@ -232,7 +232,7 @@ export default function AddSchoolPopup(props) {
 				},
 				body: JSON.stringify(newSchool),
 			})
-				.then((response) => response.status)
+				.then((response) => response.status === 200)
 				.then(() => alert("School Edited successfully"))
 				.then(() => window.location.reload())
 				.catch((err) => console.error(err));

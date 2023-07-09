@@ -22,7 +22,7 @@ export default function SchoolAdminCard(props) {
 				"Content-Type": "application/json",
 			},
 		})
-			.then((response) => response.status)
+			.then((response) => response.status === 200)
 			.then(() => alert("School Deleted successfully"))
 			.then(() => window.location.reload())
 			.catch((err) => console.error(err));
