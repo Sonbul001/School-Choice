@@ -100,7 +100,7 @@ export default function Course(props) {
 	return (
 		<div>
 			<Card style={{ width: `${width}rem`, height: `${height}`, transition: "0.5s ease-in-out" }}>
-				<Card.Img className="course-card-logo" variant="top" src={Logo} />
+				<Card.Img className="course-card-logo" variant="top" src={props.course.logo} />
 				{show ? <FaArrowCircleDown className="course-card-show-button" onClick={handleShow} style={{ transition: "0.5s ease-in-out" }} /> : <FaArrowCircleDown className="course-card-show-button" onClick={handleShow} style={{ transition: "0.5s ease-in-out", transform: "rotate(180deg)" }} />}
 				{saved ? <FontAwesomeIcon icon={solidBookmark} className="course--save--logo " onClick={handleSave} /> : <FontAwesomeIcon icon={regularBookmark} className="course--save--logo " onClick={handleSave} />}
 				<Card.Body className="course-card-body">
