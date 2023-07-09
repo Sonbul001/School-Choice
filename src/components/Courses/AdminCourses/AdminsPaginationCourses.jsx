@@ -35,8 +35,17 @@ export default function AdminsPaginationCourses(props) {
 		setOpenCourse(name);
 	};
 
-	const handleDeleteCourse = (name) => {
-		console.log(name);
+	const handleDeleteCourse = (id) => {
+		fetch(`http://localhost:3000/courses/course/${id}`, {
+			method: 'DELETE',
+			headers: {
+				Authorization: `Bearer ${localStorage.getItem('token')}`,
+			},
+		})
+			.then(response => response.json())
+			.then(() => alert('Course Deleted successfully'))
+			.then(() => window.location.reload())
+			.catch(err => console.error(err))
 	};
 
 	const openClosePopup = (index) => {
@@ -48,9 +57,9 @@ export default function AdminsPaginationCourses(props) {
 			<div className="admins-pagination-courses">
 				{subset.map((course, index) => (
 					<div key={index}>
-						<div className="admins-pagination-courses-edit-popup">{showPopupIndex === index && <AddCoursePopup openClosePopup={() => openClosePopup(index)} grade={props.grade} course={course} index={index} />}</div>
+						<div className="admins-pagination-courses-edit-popup">{showPopupIndex === index && <AddCoursePopup openClosePopup={() => openClosePopup(index)} grade={props.grade} course={course} index={index} edit={true} />}</div>
 						<FontAwesomeIcon className="admins-pagination-courses-edit-button" icon="pen-to-square" onClick={() => openClosePopup(index)} />
-						<FontAwesomeIcon className="admins-pagination-courses-delete-button" icon="fa-solid fa-ban" onClick={() => handleDeleteCourse(course.name)} />
+						<FontAwesomeIcon className="admins-pagination-courses-delete-button" icon="fa-solid fa-ban" onClick={() => handleDeleteCourse(course.id)} />
 						<Course key={index} course={course} onCourseClick={handleCourseClick} openCourse={openCourse} />
 					</div>
 				))}
